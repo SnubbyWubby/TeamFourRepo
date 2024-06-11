@@ -5,7 +5,8 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     [SerializeField] CharacterController controller;
-    [SerializeField] int speed;
+    [SerializeField] float speed;
+    [SerializeField] float sprintModifier;
 
     Vector3 moveDirection;
 
@@ -19,6 +20,7 @@ public class playerController : MonoBehaviour
     void Update()
     {
         movement();
+        sprint();
     }
 
     void movement()
@@ -26,5 +28,18 @@ public class playerController : MonoBehaviour
         // Get input from player, create vector, then move player.
         moveDirection = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
         controller.Move(moveDirection * speed * Time.deltaTime);
+    }
+
+    void sprint()
+    {
+        // Sprint = left shift
+        if (Input.GetButtonDown("Sprint"))
+        {
+            speed *= sprintModifier;
+        }
+        else if (Input.GetButtonUp("Sprint"))
+        {
+            speed /= sprintModifier;
+        }
     }
 }
