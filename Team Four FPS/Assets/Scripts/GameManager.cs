@@ -8,6 +8,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject MenuActive;
     [SerializeField] GameObject MenuPause;
+    [SerializeField] GameObject menuWin;
+    [SerializeField] GameObject menuLose;
+
+
+    public GameObject Player;
+    public playerController PlayerScript;
+
 
     public bool isPaused;
 
@@ -15,6 +22,8 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        Player = GameObject.FindWithTag("Player");
+        PlayerScript = Player.GetComponent<playerController>();
     }
 
     // Update is called once per frame
