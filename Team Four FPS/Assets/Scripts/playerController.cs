@@ -7,12 +7,13 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] CharacterController controller;
 
     [SerializeField] int HP;
-    [SerializeField] int shootDamage;
-    [SerializeField] int shootRate;
-    [SerializeField] int shootDistance;
     [SerializeField] int jumpMax;
     [SerializeField] int jumpSpeed;
     [SerializeField] int gravity;
+
+    [SerializeField] int shootDamage;
+    [SerializeField] float shootRate;
+    [SerializeField] int shootDistance;
 
     [SerializeField] float speed;
     [SerializeField] float sprintModifier;

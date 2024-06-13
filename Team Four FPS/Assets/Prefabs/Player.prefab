@@ -163,9 +163,9 @@ MonoBehaviour:
   shootDamage: 1
   shootRate: 1
   shootDistance: 150
-  jumpMax: 0
-  jumpSpeed: 0
-  gravity: 0
+  jumpMax: 1
+  jumpSpeed: 8
+  gravity: 20
   speed: 10
   sprintModifier: 2.5
 --- !u!143 &8914758440627459362
