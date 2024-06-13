@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,12 +12,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
 
+    [SerializeField] TMP_Text enemyCountText;
 
     public GameObject Player;
     public playerController PlayerScript;
 
-
     public bool isPaused;
+
+    int enemyCount;
 
     // Start is called before the first frame update
     void Awake()

@@ -161,6 +161,9 @@ MonoBehaviour:
   controller: {fileID: 8914758440627459362}
   speed: 10
   sprintModifier: 2.5
+  shootDamage: 1
+  shootRate: 1
+  shootDistance: 100
 --- !u!143 &8914758440627459362
 CharacterController:
   m_ObjectHideFlags: 0
