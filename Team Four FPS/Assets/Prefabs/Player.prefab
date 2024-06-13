@@ -159,10 +159,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8914758440627459362}
-  HP: 10
+  HP: 15
   shootDamage: 1
   shootRate: 1
-  shootDistance: 100
+  shootDistance: 150
+  jumpMax: 0
+  jumpSpeed: 0
+  gravity: 0
   speed: 10
   sprintModifier: 2.5
 --- !u!143 &8914758440627459362
