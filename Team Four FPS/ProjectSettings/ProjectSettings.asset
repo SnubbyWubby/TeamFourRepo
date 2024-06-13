@@ -866,8 +866,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Team Four FPS
-  metroPackageVersion: 
+  metroPackageName: TeamFourFPS
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -875,7 +875,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Team Four FPS
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Team Four FPS
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
