@@ -7,8 +7,13 @@ public class playerController : MonoBehaviour
     [SerializeField] CharacterController controller;
     [SerializeField] float speed;
     [SerializeField] float sprintModifier;
+    [SerializeField] int shootDamage;
+    [SerializeField] int shootRate;
+    [SerializeField] int shootDistance;
 
     Vector3 moveDirection;
+
+    bool isShooting;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +26,9 @@ public class playerController : MonoBehaviour
     {
         movement();
         sprint();
+
+        if (Input.GetButton("Fire1") && !isShooting)
+            StartCoroutine(shoot());
     }
 
     void movement()
@@ -41,5 +49,29 @@ public class playerController : MonoBehaviour
         {
             speed /= sprintModifier;
         }
+    }
+
+    IEnumerator shoot()
+    {
+        isShooting = true;
+
+        RaycastHit hit;
+
+        // Use raycast and get gameobject that is hit
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance))
+        {
+            Debug.Log(hit.transform.name);
+
+            // Get IDamage component if gameobject is damageable
+            IDamage damageable = hit.collider.GetComponent<IDamage>();
+
+            if (hit.transform != transform && damageable != null)
+            {
+                damageable.takeDamage(shootDamage);
+            }
+        }
+
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
     }
 }
