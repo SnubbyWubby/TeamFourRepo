@@ -22,15 +22,22 @@ public class playerController : MonoBehaviour, IDamage
     Vector3 playerVelocity;
 
     bool isShooting;
+    bool isCrouching;
 
     int originalHP;
     int jumpCount;
+
+    float playerHeight;
+    float crouchHeight;
 
     // Start is called before the first frame update
     void Start()
     {
         originalHP = HP;
         updatePlayerUI();
+
+        playerHeight = controller.height;
+        crouchHeight = controller.height / 2;
     }
 
     // Update is called once per frame
@@ -38,6 +45,7 @@ public class playerController : MonoBehaviour, IDamage
     {
         movement();
         sprint();
+        crouch();
 
         if (Input.GetButton("Fire1") && !isShooting)
             StartCoroutine(shoot());
@@ -115,5 +123,28 @@ public class playerController : MonoBehaviour, IDamage
     void updatePlayerUI()
     {
         GameManager.Instance.playerHPBar.fillAmount = (float)HP / originalHP;
+    }
+
+    void crouch()
+    {
+        if (Input.GetButtonDown("Crouch")) // Mapped to 'c' in input settings
+        {
+            if (!isCrouching)
+            {
+                Debug.Log("crouching");
+                isCrouching = true;
+                controller.height = crouchHeight;
+                controller.center.Set(0f, -0.5f, 0f);
+                Debug.Log(controller.height);
+            }
+            else
+            {
+                Debug.Log("standing");
+                isCrouching = false;
+                controller.height = playerHeight;
+                controller.center.Set(0f, 0f, 0f);
+                Debug.Log(controller.height);
+            }
+        }
     }
 }
