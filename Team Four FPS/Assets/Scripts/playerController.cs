@@ -80,6 +80,15 @@ public class playerController : MonoBehaviour
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
+    public void takeDamage(int amount)
+    {
+        HP -= amount;
+        updatePlayerUI();
+        if(HP <= 0)
+        {
+            GameManager.Instance.GameLoss();
+        }
+    }
 
     void updatePlayerUI()
     {
