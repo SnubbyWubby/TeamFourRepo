@@ -5,20 +5,26 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     [SerializeField] CharacterController controller;
-    [SerializeField] float speed;
-    [SerializeField] float sprintModifier;
+
+    [SerializeField] int HP;
     [SerializeField] int shootDamage;
     [SerializeField] int shootRate;
     [SerializeField] int shootDistance;
+
+    [SerializeField] float speed;
+    [SerializeField] float sprintModifier;
 
     Vector3 moveDirection;
 
     bool isShooting;
 
+    int originalHP;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        originalHP = HP;
+        updatePlayerUI();
     }
 
     // Update is called once per frame
@@ -73,5 +79,10 @@ public class playerController : MonoBehaviour
 
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
+    }
+
+    void updatePlayerUI()
+    {
+        GameManager.Instance.playerHPBar.fillAmount = (float)HP / originalHP;
     }
 }
