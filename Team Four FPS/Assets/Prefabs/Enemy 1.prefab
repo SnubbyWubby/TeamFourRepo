@@ -1026,7 +1026,7 @@ MonoBehaviour:
   anim: {fileID: 1442296102632694662}
   agent: {fileID: 1774474562954425783}
   shootPos: {fileID: 5411576382329752283}
-  shootRate: 1
+  shootRate: 2
   bullet: {fileID: 8415065389652250046, guid: b31395d0b5b96944dbcf311ffbf806c5, type: 3}
   faceTargetSpeed: 5
 --- !u!95 &1442296102632694662
@@ -1114,7 +1114,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 19.63
+  m_Radius: 17.08
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8688962803729179264
 GameObject:
