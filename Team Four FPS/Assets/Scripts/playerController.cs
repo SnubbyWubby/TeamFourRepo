@@ -135,7 +135,6 @@ public class playerController : MonoBehaviour, IDamage
                 isCrouching = true;
                 controller.height = crouchHeight;
                 controller.center.Set(0f, -0.5f, 0f);
-                Debug.Log(controller.height);
             }
             else
             {
@@ -143,7 +142,6 @@ public class playerController : MonoBehaviour, IDamage
                 isCrouching = false;
                 controller.height = playerHeight;
                 controller.center.Set(0f, 0f, 0f);
-                Debug.Log(controller.height);
             }
         }
     }
