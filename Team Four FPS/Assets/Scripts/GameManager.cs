@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuLose;
 
     [SerializeField] TMP_Text enemyCountText;
+    [SerializeField] TMP_Text grenadeCountText;
     public Image playerHPBar;
 
     public GameObject Player;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     public bool isPaused;
 
     int enemyCount;
+    int grenadeCount;
 
     // Start is called before the first frame update
     void Awake()
@@ -83,5 +85,11 @@ public class GameManager : MonoBehaviour
         statePause();
         MenuActive = menuLose;
         MenuActive.SetActive(isPaused);
+    }
+
+    public void updateGrenadeCount(int amount)
+    {
+        grenadeCount += amount;
+        grenadeCountText.text = grenadeCount.ToString("F0");
     }
 }

@@ -17,8 +17,14 @@ public class playerController : MonoBehaviour, IDamage
 
     [SerializeField] float speed;
     [SerializeField] float sprintModifier;
+
     [SerializeField] float crouchCenterYOffset;
     [SerializeField] float standingCenterYOffset;
+
+    [SerializeField] int grenadeCount;
+    [SerializeField] float grenadeReloadTime;
+    [SerializeField] Transform throwPos;
+    [SerializeField] GameObject grenade;
 
     Vector3 moveDirection;
     Vector3 playerVelocity;
@@ -40,6 +46,8 @@ public class playerController : MonoBehaviour, IDamage
 
         playerHeight = controller.height;
         crouchHeight = controller.height / 2;
+
+        GameManager.Instance.updateGrenadeCount(grenadeCount);
     }
 
     // Update is called once per frame
@@ -51,6 +59,9 @@ public class playerController : MonoBehaviour, IDamage
 
         if (Input.GetButton("Fire1") && !isShooting)
             StartCoroutine(shoot());
+
+        if (Input.GetButtonDown("Grenade") && grenadeCount > 0)
+            StartCoroutine(throwGrenade());
     }
 
     void movement()
@@ -146,5 +157,16 @@ public class playerController : MonoBehaviour, IDamage
                 controller.center.Set(0f, standingCenterYOffset, 0f);
             }
         }
+    }
+
+    IEnumerator throwGrenade()
+    {
+        // TODO: Write code to create better arc.
+        Instantiate(grenade, throwPos.position, transform.rotation);
+
+        yield return new WaitForSeconds(grenadeReloadTime);
+
+        grenadeCount--;
+        GameManager.Instance.updateGrenadeCount(-1);
     }
 }
