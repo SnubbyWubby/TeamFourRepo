@@ -200,7 +200,7 @@ MonoBehaviour:
   shootDistance: 150
   speed: 10
   sprintModifier: 1.5
-  slideDuration: 3
+  slideDuration: 1.25
   slideModifier: 1.5
   crouchCenterYOffset: -0.5
   standingCenterYOffset: 0
