@@ -18,6 +18,9 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float speed;
     [SerializeField] float sprintModifier;
 
+    [SerializeField] float slideDuration;
+    [SerializeField] float slideModifier;
+
     [SerializeField] float crouchCenterYOffset;
     [SerializeField] float standingCenterYOffset;
 
@@ -31,6 +34,7 @@ public class playerController : MonoBehaviour, IDamage
 
     bool isShooting;
     bool isCrouching;
+    bool isSprinting;
 
     int originalHP;
     int jumpCount;
@@ -55,13 +59,18 @@ public class playerController : MonoBehaviour, IDamage
     {
         movement();
         sprint();
-        crouch();
 
         if (Input.GetButton("Fire1") && !isShooting)
             StartCoroutine(shoot());
 
         if (Input.GetButtonDown("Grenade") && grenadeCount > 0)
             StartCoroutine(throwGrenade());
+
+        if (Input.GetButtonDown("Crouch") && !isSprinting) // Crouch
+            crouch();
+
+        if (Input.GetButtonDown("Crouch") && isSprinting) // Slide
+            StartCoroutine(slide());
     }
 
     void movement()
@@ -92,11 +101,19 @@ public class playerController : MonoBehaviour, IDamage
         // Sprint = left shift
         if (Input.GetButtonDown("Sprint"))
         {
+            // Break out of crouch if crouching
+            if (isCrouching)
+            {
+                crouch();
+            }
+
             speed *= sprintModifier;
+            isSprinting = true;
         }
         else if (Input.GetButtonUp("Sprint"))
         {
             speed /= sprintModifier;
+            isSprinting = false;
         }
     }
 
@@ -140,23 +157,39 @@ public class playerController : MonoBehaviour, IDamage
 
     void crouch()
     {
-        if (Input.GetButtonDown("Crouch")) // Mapped to 'c' in input settings
+        if (!isCrouching)
         {
-            if (!isCrouching)
-            {
-                Debug.Log("crouching");
-                isCrouching = true;
-                controller.height = crouchHeight;
-                controller.center.Set(0f, crouchCenterYOffset, 0f);
-            }
-            else
-            {
-                Debug.Log("standing");
-                isCrouching = false;
-                controller.height = playerHeight;
-                controller.center.Set(0f, standingCenterYOffset, 0f);
-            }
+            Debug.Log("crouching");
+            isCrouching = true;
+            controller.height = crouchHeight;
+            controller.center.Set(0f, crouchCenterYOffset, 0f);
         }
+        else
+        {
+            Debug.Log("standing");
+            isCrouching = false;
+            controller.height = playerHeight;
+            controller.center.Set(0f, standingCenterYOffset, 0f);
+        }
+    }
+
+    IEnumerator slide()
+    {
+        Debug.Log("Weeeee!");
+        float slideTime = slideDuration;
+
+        // Go into crouch position, may need to change if we add animations
+        crouch();
+
+        speed *= slideModifier;
+        playerVelocity = new Vector3(moveDirection.x * speed, moveDirection.y, moveDirection.z * speed);
+        controller.Move(playerVelocity * Time.deltaTime);
+
+        yield return new WaitForSeconds(slideTime);
+
+        // Stand back up and remove slideModifier
+        crouch();
+        speed /= slideModifier;
     }
 
     IEnumerator throwGrenade()

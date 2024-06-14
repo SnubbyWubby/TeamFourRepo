@@ -109,6 +109,37 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2880173082235516941}
   m_Enabled: 1
+--- !u!1 &3910038633727773674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3635173974008931334}
+  m_Layer: 0
+  m_Name: Throw Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3635173974008931334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3910038633727773674}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.375, z: 0.602}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4490259909388757125}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4403645943118102238
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +175,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 300725394216080637}
+  - {fileID: 3635173974008931334}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4190759946557676130
@@ -167,9 +199,15 @@ MonoBehaviour:
   shootRate: 0.5
   shootDistance: 150
   speed: 10
-  sprintModifier: 2.5
+  sprintModifier: 1.5
+  slideDuration: 3
+  slideModifier: 1.5
   crouchCenterYOffset: -0.5
   standingCenterYOffset: 0
+  grenadeCount: 3
+  grenadeReloadTime: 1
+  throwPos: {fileID: 3635173974008931334}
+  grenade: {fileID: 2164594306382342039, guid: 03b155c905f75fe40a956208a73440ed, type: 3}
 --- !u!143 &8914758440627459362
 CharacterController:
   m_ObjectHideFlags: 0
