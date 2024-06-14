@@ -168,6 +168,8 @@ MonoBehaviour:
   shootDistance: 150
   speed: 10
   sprintModifier: 2.5
+  crouchCenterYOffset: -0.5
+  standingCenterYOffset: 0
 --- !u!143 &8914758440627459362
 CharacterController:
   m_ObjectHideFlags: 0

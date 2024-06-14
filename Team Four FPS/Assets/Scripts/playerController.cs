@@ -17,6 +17,8 @@ public class playerController : MonoBehaviour, IDamage
 
     [SerializeField] float speed;
     [SerializeField] float sprintModifier;
+    [SerializeField] float crouchCenterYOffset;
+    [SerializeField] float standingCenterYOffset;
 
     Vector3 moveDirection;
     Vector3 playerVelocity;
@@ -134,14 +136,14 @@ public class playerController : MonoBehaviour, IDamage
                 Debug.Log("crouching");
                 isCrouching = true;
                 controller.height = crouchHeight;
-                controller.center.Set(0f, -0.5f, 0f);
+                controller.center.Set(0f, crouchCenterYOffset, 0f);
             }
             else
             {
                 Debug.Log("standing");
                 isCrouching = false;
                 controller.height = playerHeight;
-                controller.center.Set(0f, 0f, 0f);
+                controller.center.Set(0f, standingCenterYOffset, 0f);
             }
         }
     }
