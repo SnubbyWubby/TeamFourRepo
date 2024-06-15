@@ -27,7 +27,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int grenadeCount;
     [SerializeField] float grenadeReloadTime;
     [SerializeField] Transform throwPos;
-    [SerializeField] GameObject grenade;
+    [SerializeField] GameObject grenade; 
 
     Vector3 moveDirection;
     Vector3 playerVelocity;
@@ -140,6 +140,7 @@ public class playerController : MonoBehaviour, IDamage
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
+
     public void takeDamage(int amount)
     {
         HP -= amount;
@@ -153,6 +154,15 @@ public class playerController : MonoBehaviour, IDamage
     void updatePlayerUI()
     {
         GameManager.Instance.playerHPBar.fillAmount = (float)HP / originalHP;
+    }
+
+    public void HealthPack(int amount) 
+    { 
+        HP += amount;
+
+        // Player Will Regenerate Full Health When Walking Or Running Towards The Blue Health Sphere
+
+        GameManager.Instance.playerHPBar.fillAmount = (float)HP * originalHP; 
     }
 
     void crouch()
