@@ -6,7 +6,7 @@ public class playerController : MonoBehaviour, IDamage
 {
     [SerializeField] CharacterController controller;
 
-    [SerializeField] int HP;
+    [SerializeField] int HP; 
     [SerializeField] int jumpMax;
     [SerializeField] int jumpSpeed;
     [SerializeField] int gravity;
@@ -46,6 +46,7 @@ public class playerController : MonoBehaviour, IDamage
     void Start()
     {
         originalHP = HP;
+
         updatePlayerUI();
 
         playerHeight = controller.height;
@@ -144,7 +145,9 @@ public class playerController : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
+
         updatePlayerUI();
+
         if(HP <= 0)
         {
             GameManager.Instance.GameLoss();
@@ -161,6 +164,15 @@ public class playerController : MonoBehaviour, IDamage
         HP += amount;
 
         // Player Will Regenerate Full Health When Walking Or Running Towards The Blue Health Sphere
+
+        GameManager.Instance.playerHPBar.fillAmount = (float)HP * originalHP; 
+    }
+
+    public void ArmorShield(int amount) 
+    { 
+        HP += amount;
+
+        // Player Will Regenerate Full Armor When Walking Or Running Towards The Green Armor Shield 
 
         GameManager.Instance.playerHPBar.fillAmount = (float)HP * originalHP; 
     }
