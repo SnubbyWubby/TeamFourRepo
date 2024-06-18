@@ -19,6 +19,12 @@ public class enemyAI : MonoBehaviour, IDamage
     bool isShooting;
     bool playerInRange;
     Vector3 playerDirection;
+
+    //PATROL IMPLEMENTATION
+    public Transform[] waypoints;
+    int patrolPoint;
+    Vector3 target;
+    bool wasShot;
     
 
     
@@ -48,6 +54,19 @@ public class enemyAI : MonoBehaviour, IDamage
                 StartCoroutine(Shoot());
             }
 
+        }
+        else
+        {
+            if (wasShot)
+            {
+                StartCoroutine(ResetBool());
+                return;
+            }
+            UpdateDestination();
+            if(Vector3.Distance(transform.position, target) < 10)
+            {
+                UpdateIndex();
+            }
         }
     }
 
@@ -98,5 +117,25 @@ public class enemyAI : MonoBehaviour, IDamage
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
+    }
+
+    void UpdateDestination()
+    {
+        target = waypoints[patrolPoint].position;
+        agent.SetDestination(target);
+    }
+
+    void UpdateIndex()
+    {
+        patrolPoint++;
+        if(patrolPoint == waypoints.Length)
+        {
+            patrolPoint = 0;    
+        }
+    }
+    IEnumerator ResetBool()
+    {
+        yield return new WaitForSeconds(10);
+        wasShot = false;
     }
 }
