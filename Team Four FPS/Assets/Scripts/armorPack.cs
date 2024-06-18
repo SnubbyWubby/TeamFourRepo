@@ -18,7 +18,7 @@ public class armorPack : MonoBehaviour
 
     void OnTriggerEnter(Collider plrArmor)
     {
-        // Allows The Player To Pick-Up A Full Armor-Pack Green Sphere 
+        // Allows The Player To Pick-Up A Full Armor-Shield Green Capsule
 
         if (plrArmor.CompareTag("Player"))
         {

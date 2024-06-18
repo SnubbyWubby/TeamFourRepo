@@ -10,7 +10,7 @@ public class ArmorSystem : MonoBehaviour
 
     public void ArmorPack(int amount, GameObject armorSphere)
     {
-        // Player Will Regenarate Full Armor When Walking Or Running Towards The Green Armor Sphere 
+        // Player Will Have A Full Armor Shield Without Stacking Multiply Green Armor Capsules
 
         armorProtection = amount;
 
