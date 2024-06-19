@@ -32,6 +32,8 @@ public class enemyAI : MonoBehaviour, IDamage
     void Start()
     {
         GameManager.Instance.updateGameGoal(1);
+        //SetRigidBodyState(true);
+        //SetColliderState(false);
     }
 
     // Update is called once per frame
@@ -59,7 +61,7 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             if (wasShot)
             {
-                StartCoroutine(ResetBool());
+                StartCoroutine(ResetBool1());
                 return;
             }
             UpdateDestination();
@@ -107,8 +109,16 @@ public class enemyAI : MonoBehaviour, IDamage
         StartCoroutine(flashDamage());
         if(HP <= 0)
         {
+          
             GameManager.Instance.updateGameGoal(-1);
-            Destroy(gameObject);
+            
+            StopMoving();
+            Destroy(gameObject, 1f);
+            StartCoroutine(ResetBool2());
+            Ragdoll();
+            
+            
+            
         }
 
     }
@@ -134,9 +144,45 @@ public class enemyAI : MonoBehaviour, IDamage
             patrolPoint = 0;    
         }
     }
-    IEnumerator ResetBool()
+    IEnumerator ResetBool1()
     {
+        wasShot = true;
         yield return new WaitForSeconds(10);
         wasShot = false;
+    }
+
+    IEnumerator ResetBool2()
+    {
+        isShooting = true;
+        yield return new WaitForSeconds(20);
+        isShooting = false;
+    }
+    void SetRigidBodyState(bool state)
+    {
+        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+        foreach(Rigidbody rigidbody in rigidbodies)
+        {
+            rigidbody.isKinematic = state;
+        }
+        GetComponent<Rigidbody>().isKinematic = !state;
+    }
+    void SetColliderState(bool state)
+    {
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+        foreach (Collider collider in colliders)
+        {
+            collider.enabled = state;
+        }
+        GetComponent<Collider>().enabled = !state;  
+    }
+    public void Ragdoll()
+    {
+        GetComponent<Animator>().enabled = false;
+        //SetRigidBodyState(false);
+        //SetColliderState(true);
+    }
+    public void StopMoving()
+    {
+        agent.isStopped = true;
     }
 }
