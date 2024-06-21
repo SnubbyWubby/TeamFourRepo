@@ -15,16 +15,23 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
     [SerializeField] int faceTargetSpeed;
+    [SerializeField] bool willPatrol;
+    [SerializeField] bool willRoam;
 
+    bool wasShot;
     bool isShooting;
     bool playerInRange;
-    Vector3 playerDirection;
+   
 
-    //PATROL IMPLEMENTATION
+    Vector3 playerDirection;
+    Vector3 origPos;
+    Vector3 target;
+    
     public Transform[] waypoints;
     int patrolPoint;
-    Vector3 target;
-    bool wasShot;
+    
+    
+    
     
 
     
@@ -32,6 +39,7 @@ public class enemyAI : MonoBehaviour, IDamage
     void Start()
     {
         GameManager.Instance.updateGameGoal(1);
+        origPos = transform.position;
         //SetRigidBodyState(true);
         //SetColliderState(false);
     }
@@ -45,31 +53,14 @@ public class enemyAI : MonoBehaviour, IDamage
 
         if (playerInRange)
         {
-            agent.SetDestination(GameManager.Instance.Player.transform.position);
-            if (agent.remainingDistance < agent.stoppingDistance)
-            {
-                FaceTarget();
-
-            }
-            if (!isShooting)
-            {
-                StartCoroutine(Shoot());
-            }
-
+            FaceChaseShoot();
         }
-        else
+        else if (willPatrol)
         {
-            if (wasShot)
-            {
-                StartCoroutine(ResetBool1());
-                return;
-            }
-            UpdateDestination();
-            if(Vector3.Distance(transform.position, target) < 10)
-            {
-                UpdateIndex();
-            }
+            Retaliate();
         }
+        
+
     }
 
     void FaceTarget()
@@ -120,7 +111,7 @@ public class enemyAI : MonoBehaviour, IDamage
             
             
         }
-
+        StartCoroutine(ResetBool1());
     }
 
     IEnumerator flashDamage()
@@ -149,6 +140,7 @@ public class enemyAI : MonoBehaviour, IDamage
         wasShot = true;
         yield return new WaitForSeconds(10);
         wasShot = false;
+        agent.SetDestination(origPos);
     }
 
     IEnumerator ResetBool2()
@@ -184,5 +176,30 @@ public class enemyAI : MonoBehaviour, IDamage
     public void StopMoving()
     {
         agent.isStopped = true;
+    }
+    public void FaceChaseShoot()
+    {
+        agent.SetDestination(GameManager.Instance.Player.transform.position);
+        if (agent.remainingDistance < agent.stoppingDistance)
+        {
+            FaceTarget();
+
+        }
+        if (!isShooting)
+        {
+            StartCoroutine(Shoot());
+        }
+    }
+    public void Retaliate()
+    {
+        if (wasShot)
+        {
+          return;
+        }
+        UpdateDestination();
+        if (Vector3.Distance(transform.position, target) < 10)
+        {
+            UpdateIndex();
+        }
     }
 }
