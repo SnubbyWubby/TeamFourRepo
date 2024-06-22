@@ -13,7 +13,9 @@ public class enemyBullet : MonoBehaviour
 	// Start Is Called Before The First Frame Update 
 	void Start()
 	{
-		enyBullet.velocity = transform.forward * spdBullet;
+		Vector3 ptnPlayer = GameManager.Instance.Player.transform.position;   
+
+		enyBullet.velocity = (new Vector3(ptnPlayer.x, ptnPlayer.y + 0.5f, ptnPlayer.z) - transform.position).normalized * spdBullet; 
 
 		Destroy(gameObject, dstBullet); 
 	}
