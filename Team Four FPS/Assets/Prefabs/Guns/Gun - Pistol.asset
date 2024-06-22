@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 579de555ddb26c749b9d49b032536fd8, type: 3}
-  m_Name: Gun - SMG
+  m_Name: Gun - Pistol
   m_EditorClassIdentifier: 
-  gunModel: {fileID: 1312551688009478, guid: da29ba09b0ae85b44a5c25f14124dc88, type: 3}
-  shootDamage: 1
-  shootRate: 0.1
+  gunModel: {fileID: 1836613471257590, guid: ac1c6ad684980db4f817a093a7b9b1a0, type: 3}
+  shootDamage: 2
+  shootRate: 0.5
   shootDistance: 100
   ammoCurr: 0
   ammoMax: 25

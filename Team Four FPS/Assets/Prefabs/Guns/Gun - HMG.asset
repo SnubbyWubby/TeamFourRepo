@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 579de555ddb26c749b9d49b032536fd8, type: 3}
-  m_Name: Gun - SMG
+  m_Name: Gun - HMG
   m_EditorClassIdentifier: 
-  gunModel: {fileID: 1312551688009478, guid: da29ba09b0ae85b44a5c25f14124dc88, type: 3}
+  gunModel: {fileID: 1700241443051174, guid: 8700519ec02e5ca40b58946336809aae, type: 3}
   shootDamage: 1
-  shootRate: 0.1
-  shootDistance: 100
+  shootRate: 0.3
+  shootDistance: 250
   ammoCurr: 0
   ammoMax: 25
   hitEffect: {fileID: 0}
