@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class grenade : MonoBehaviour
     [SerializeField] float blastRadius;
     [SerializeField] float throwSpeed;
     [SerializeField] float detonateTime;
+    [SerializeField] ParticleSystem explosionEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,8 @@ public class grenade : MonoBehaviour
 
     void detonate()
     {
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
+
         IDamage damageable;
 
         // Determine all objects that are hit
@@ -46,8 +50,24 @@ public class grenade : MonoBehaviour
             }
         }
 
-        Debug.Log("Boom!");
+        GameManager.Instance.inGrenadeRadius = false;
 
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GameManager.Instance.inGrenadeRadius = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GameManager.Instance.inGrenadeRadius = false;
+        }
     }
 }

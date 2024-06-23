@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7523898732711594908}
   - component: {fileID: 1314101755467743578}
   - component: {fileID: 3681129420174141045}
+  - component: {fileID: 9144038995778993000}
   m_Layer: 0
   m_Name: Grenade
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2164594306382342039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.1782131, y: 0.06535088, z: -9.81581}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -52,6 +53,7 @@ MonoBehaviour:
   blastRadius: 10
   throwSpeed: 10
   detonateTime: 3
+  explosionEffect: {fileID: 9031096782313437477, guid: 60d82d69034e6744d965ae9e4733abaf, type: 3}
 --- !u!54 &1314101755467743578
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -94,11 +96,32 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &9144038995778993000
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2164594306382342039}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.075
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5658328901859189043
 GameObject:

@@ -21,6 +21,7 @@ public class enemyAI : MonoBehaviour, IDamage
     bool wasShot;
     bool isShooting;
     bool playerInRange;
+    bool canTakeDamage;
    
 
     Vector3 playerDirection;
@@ -40,6 +41,7 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         GameManager.Instance.updateGameGoal(1);
         origPos = transform.position;
+        canTakeDamage = true;
         //SetRigidBodyState(true);
         //SetColliderState(false);
     }
@@ -94,24 +96,27 @@ public class enemyAI : MonoBehaviour, IDamage
 
     public void takeDamage(int amount)
     {
-        HP -= amount;
-        wasShot = true;
-        agent.SetDestination(GameManager.Instance.Player.transform.position);
-        StartCoroutine(flashDamage());
-        if(HP <= 0)
+        if (canTakeDamage)
         {
-          
-            GameManager.Instance.updateGameGoal(-1);
-            
-            StopMoving();
-            Destroy(gameObject, 1f);
-            StartCoroutine(ResetBool2());
-            Ragdoll();
-            
-            
-            
+            HP -= amount;
+            wasShot = true;
+            agent.SetDestination(GameManager.Instance.Player.transform.position);
+            StartCoroutine(flashDamage());
+            if (HP <= 0)
+            {
+                canTakeDamage = false;
+                GameManager.Instance.updateGameGoal(-1);
+
+                StopMoving();
+                Destroy(gameObject, 1f);
+                StartCoroutine(ResetBool2());
+                Ragdoll();
+
+
+
+            }
+            StartCoroutine(ResetBool1());
         }
-        StartCoroutine(ResetBool1());
     }
 
     IEnumerator flashDamage()

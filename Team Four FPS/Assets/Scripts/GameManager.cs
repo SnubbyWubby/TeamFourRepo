@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
 
+    [SerializeField] GameObject grenadeIcon;
+
     [SerializeField] TMP_Text enemyCountText;
     [SerializeField] TMP_Text grenadeCountText;
     public Image playerHPBar;
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour
     public playerController PlayerScript;
 
     public bool isPaused;
+    public bool inGrenadeRadius;
 
     int enemyCount;
     int grenadeCount;
@@ -47,13 +50,20 @@ public class GameManager : MonoBehaviour
             else if (MenuActive == MenuPause)
             {
                 stateUnpause();
+                showGrenadeWarning();
             }
 
+        }
+
+        if (!isPaused)
+        {
+            showGrenadeWarning();
         }
     }
 
     public void statePause()
     {
+        grenadeIcon.SetActive(false);
         isPaused = !isPaused;
         Time.timeScale = 0;
         Cursor.visible = true;
@@ -91,5 +101,10 @@ public class GameManager : MonoBehaviour
     {
         grenadeCount += amount;
         grenadeCountText.text = grenadeCount.ToString("F0");
+    }
+
+    public void showGrenadeWarning()
+    {
+        grenadeIcon.SetActive(inGrenadeRadius);
     }
 }
