@@ -2023,7 +2023,7 @@ GameObject:
   - component: {fileID: 7009714924874251048}
   m_Layer: 0
   m_Name: Enemy 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2066,6 +2066,8 @@ MonoBehaviour:
   shootRate: 2
   bullet: {fileID: 8415065389652250046, guid: b31395d0b5b96944dbcf311ffbf806c5, type: 3}
   faceTargetSpeed: 5
+  willPatrol: 0
+  willRoam: 0
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
