@@ -72,20 +72,28 @@ public class playerController : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        movement();
+        if (!GameManager.Instance.isPaused) 
+        {
+            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDistance, Color.red);
+
+            movement();
+
+            if (Input.GetButton("Fire1") && !isShooting)
+                StartCoroutine(shoot());
+
+            if (Input.GetButtonDown("Grenade") && grenadeCount > 0)
+                StartCoroutine(throwGrenade());
+
+            if (Input.GetButtonDown("Crouch") && !isSprinting) // Crouch
+                crouch();
+
+            if (Input.GetButtonDown("Crouch") && isSprinting) // Slide
+                StartCoroutine(slide());
+
+            selectGun(); 
+        }
+
         sprint();
-
-        if (Input.GetButton("Fire1") && !isShooting)
-            StartCoroutine(shoot());
-
-        if (Input.GetButtonDown("Grenade") && grenadeCount > 0)
-            StartCoroutine(throwGrenade());
-
-        if (Input.GetButtonDown("Crouch") && !isSprinting) // Crouch
-            crouch();
-
-        if (Input.GetButtonDown("Crouch") && isSprinting) // Slide
-            StartCoroutine(slide());
 
         if (Input.GetButtonDown("WallRun") && truWallRun) // Wall Run
             StartCoroutine(PlayerWallRun()); 
