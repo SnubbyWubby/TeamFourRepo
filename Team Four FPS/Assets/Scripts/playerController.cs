@@ -198,7 +198,21 @@ public class playerController : MonoBehaviour, IDamage
 
     void updatePlayerUI()
     {
-        GameManager.Instance.playerHPBar.fillAmount = (float)HP / originalHP;
+        float healthPercentage = (float)HP / originalHP;
+        GameManager.Instance.playerHPBar.fillAmount = healthPercentage;
+
+        if (healthPercentage > 0.75f)
+            // Health is green
+            GameManager.Instance.playerHPBar.color = new Color(0.22f, 0.82f, 0);
+        else if (healthPercentage <= 0.75f && healthPercentage > 0.5f)
+            // Health is yellow
+            GameManager.Instance.playerHPBar.color = new Color(1f, 1f, 0);
+        else if (healthPercentage <= 0.5f && healthPercentage > 0.25f)
+            // Health is orange
+            GameManager.Instance.playerHPBar.color = new Color(0.92f, 0.63f, 0.06f);
+        else
+            // Health is red
+            GameManager.Instance.playerHPBar.color = new Color(1f, 0.25f, 0.25f);
     }
 
     public void HealthPack(int amount) 
