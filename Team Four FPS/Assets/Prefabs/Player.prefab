@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 4490259909388757125}
   - component: {fileID: 7378780684560607339}
   - component: {fileID: 4190759946557676130}
+  - component: {fileID: 1866587587981445036}
   - component: {fileID: 8914758440627459362}
   - component: {fileID: 4492978331989531679}
   - component: {fileID: 3611680381615156623}
@@ -291,7 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8914758440627459362}
   HP: 10
-  jumpMax: 1
+  jumpMax: 2
   jumpSpeed: 8
   gravity: 20
   gunList: []
@@ -309,6 +310,38 @@ MonoBehaviour:
   grenadeReloadTime: 1
   throwPos: {fileID: 3635173974008931334}
   grenade: {fileID: 2164594306382342039, guid: 03b155c905f75fe40a956208a73440ed, type: 3}
+  truWallRun: 1
+  wallRunSpeed: 10
+  plrStateMoving: 0
+--- !u!114 &1866587587981445036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4403645943118102238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8246cb06459fe9d4bb6ca17ffa3bc570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plrOnWall:
+    serializedVersion: 2
+    m_Bits: 64
+  plrOnGround:
+    serializedVersion: 2
+    m_Bits: 128
+  wallRunForce: 200
+  wallRunMaxTime: 2
+  wallRunTimer: 0
+  wallClimbSpeed: 5
+  upRunKey: 273
+  downRunKey: 274
+  checkWallDistance: 0.5
+  minJumpHeight: 1
+  orientation: {fileID: 0}
+  plrMovement: {fileID: 4190759946557676130}
+  rgPlayer: {fileID: 0}
 --- !u!143 &8914758440627459362
 CharacterController:
   m_ObjectHideFlags: 0
@@ -350,7 +383,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4403645943118102238}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

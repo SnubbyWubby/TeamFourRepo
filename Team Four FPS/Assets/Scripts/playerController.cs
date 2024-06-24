@@ -46,6 +46,16 @@ public class playerController : MonoBehaviour, IDamage
     float playerHeight;
     float crouchHeight;
 
+    public bool truWallRun;
+
+    public float wallRunSpeed;
+
+    float plrWallRunTimer; 
+
+    public StateMovement plrStateMoving;
+
+    public enum StateMovement { plrWallRunning } 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +86,9 @@ public class playerController : MonoBehaviour, IDamage
 
         if (Input.GetButtonDown("Crouch") && isSprinting) // Slide
             StartCoroutine(slide());
+
+        if (Input.GetButtonDown("WallRun") && truWallRun) // Wall Run
+            StartCoroutine(PlayerWallRun()); 
     }
 
     public void getGunStats(gunStats gun)
@@ -216,12 +229,23 @@ public class playerController : MonoBehaviour, IDamage
     }
 
     public void HealthPack(int amount) 
-    { 
+    {
         HP += amount;
 
         // Player Will Regenerate Full Health When Walking Or Running Towards The Blue Health Sphere
 
-        GameManager.Instance.playerHPBar.fillAmount = (float)HP * originalHP; 
+        GameManager.Instance.playerHPBar.fillAmount = (float)HP * originalHP;
+
+        float healthPercentage = (float)HP * originalHP;  
+
+        GameManager.Instance.playerHPBar.fillAmount = healthPercentage;
+
+        if (healthPercentage > 0.75f)
+        {
+            // Player's Health Bar Will Regenerate Back To Green Fill Color 
+
+            GameManager.Instance.playerHPBar.color = new Color(0.22f, 0.82f, 0);
+        }
     }
 
     public void ArmorShield(int amount) 
@@ -230,7 +254,18 @@ public class playerController : MonoBehaviour, IDamage
 
         // Player Will Regenerate Full Armor When Walking Or Running Towards The Green Armor Shield 
 
-        GameManager.Instance.playerHPBar.fillAmount = (float)HP * originalHP; 
+        GameManager.Instance.playerHPBar.fillAmount = (float)HP * originalHP;
+
+        float healthPercentage = (float)HP * originalHP;
+
+        GameManager.Instance.playerHPBar.fillAmount = healthPercentage;
+
+        if (healthPercentage > 0.75f)
+        {
+            // Player's Health Bar Will Regenerate Back To Green Fill Color 
+
+            GameManager.Instance.playerHPBar.color = new Color(0.22f, 0.82f, 0);
+        }
     }
 
     void crouch()
@@ -249,6 +284,26 @@ public class playerController : MonoBehaviour, IDamage
             controller.height = playerHeight;
             controller.center.Set(0f, standingCenterYOffset, 0f);
         }
+    }
+
+    IEnumerator PlayerWallRun() 
+    {
+        // User Input (Manager) Button Either "Q" Or "E" To Activate Wall Run
+
+        truWallRun = true;
+
+        if (truWallRun) 
+        { 
+            plrStateMoving = StateMovement.plrWallRunning; 
+
+            speed = wallRunSpeed;
+
+            Debug.Log("Wall-Running!"); 
+        }
+
+        yield return new WaitForSeconds(plrWallRunTimer);
+
+        truWallRun = false; 
     }
 
     IEnumerator slide()
