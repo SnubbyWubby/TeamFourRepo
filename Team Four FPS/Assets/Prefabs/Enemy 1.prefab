@@ -2021,7 +2021,7 @@ GameObject:
   - component: {fileID: 1774474562954425783}
   - component: {fileID: 3612170114269294530}
   - component: {fileID: 7009714924874251048}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2067,7 +2067,7 @@ MonoBehaviour:
   bullet: {fileID: 8415065389652250046, guid: b31395d0b5b96944dbcf311ffbf806c5, type: 3}
   faceTargetSpeed: 5
   willPatrol: 0
-  willRoam: 0
+  willRoam: 1
   waypoints:
   - {fileID: 0}
   - {fileID: 0}

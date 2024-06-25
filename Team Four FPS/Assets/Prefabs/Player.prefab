@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 4492978331989531679}
   - component: {fileID: 3611680381615156623}
   - component: {fileID: 54841844412862974}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -405,17 +405,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4403645943118102238}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8246cb06459fe9d4bb6ca17ffa3bc570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   plrOnWall:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   plrOnGround:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   wallRunForce: 200
   wallRunMaxTime: 2
   wallRunTimer: 0

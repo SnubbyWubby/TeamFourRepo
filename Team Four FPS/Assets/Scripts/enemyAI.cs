@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class enemyAI : MonoBehaviour, IDamage
+public class EnemyAI : MonoBehaviour, IDamage
 {
 
     [SerializeField] int HP;
@@ -13,8 +13,13 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform shootPos;
     [SerializeField] float shootRate;
+    [SerializeField] int shootAngle;
     [SerializeField] GameObject bullet;
     [SerializeField] int faceTargetSpeed;
+    [SerializeField] Transform headPos;
+    [SerializeField] int viewAngle;
+    [SerializeField] float roamDist;
+    [SerializeField] float roamTimer;
     [SerializeField] bool willPatrol;
     [SerializeField] bool willRoam;
 
@@ -22,7 +27,7 @@ public class enemyAI : MonoBehaviour, IDamage
     bool isShooting;
     bool playerInRange;
     bool canTakeDamage;
-   
+    bool destChosen;
 
     Vector3 playerDirection;
     Vector3 origPos;
@@ -30,6 +35,8 @@ public class enemyAI : MonoBehaviour, IDamage
     
     public Transform[] waypoints;
     int patrolPoint;
+    float stoppingDistOrig;
+    float angleToPlayer;
     
     
     
@@ -39,11 +46,10 @@ public class enemyAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.updateGameGoal(1);
+        
         origPos = transform.position;
-        canTakeDamage = true;
-        //SetRigidBodyState(true);
-        //SetColliderState(false);
+        stoppingDistOrig = agent.stoppingDistance;
+        
     }
 
     // Update is called once per frame
@@ -53,16 +59,81 @@ public class enemyAI : MonoBehaviour, IDamage
         float agentSpeed = agent.velocity.normalized.magnitude;
         anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agentSpeed, Time.deltaTime * animTranSpeed));
 
-        if (playerInRange)
+        if (playerInRange && !canSeePlayer())
         {
-            FaceChaseShoot();
+            if (willRoam)
+            {
+                StartCoroutine(roam());
+            }
+            else if (willPatrol)
+            {
+                Retaliate();
+            }
         }
-        else if (willPatrol)
+        else if (!playerInRange)
         {
-            Retaliate();
+            if (willPatrol)
+            {
+                Retaliate();
+            }
+            else if (willRoam)
+            {
+                StartCoroutine(roam()); 
+            }
         }
         
+        
+        
 
+    }
+    IEnumerator roam()
+    {
+        if (!destChosen && agent.remainingDistance < 0.05f)
+        {
+            destChosen = true;
+            yield return new WaitForSeconds(roamTimer);
+
+            agent.stoppingDistance = 0;
+
+            Vector3 ranPos = Random.insideUnitSphere * roamDist;
+            ranPos += origPos;
+
+            NavMeshHit hit;
+            NavMesh.SamplePosition(ranPos, out hit, roamDist, 1);
+            agent.SetDestination(hit.position);
+
+            destChosen = false;
+        }
+    }
+    bool canSeePlayer()
+    {
+        playerDirection = GameManager.Instance.Player.transform.position - headPos.position;
+        angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, playerDirection.y + 1, playerDirection.z), transform.forward);
+
+        Debug.DrawRay(headPos.position, new Vector3(playerDirection.x, playerDirection.y + 1, playerDirection.z));
+
+        RaycastHit hit;
+        if (Physics.Raycast(headPos.position, playerDirection, out hit))
+        {
+            Debug.Log(hit.collider.name);
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewAngle)
+            {
+
+                agent.stoppingDistance = stoppingDistOrig;
+                agent.SetDestination(GameManager.Instance.Player.transform.position);
+                if (agent.remainingDistance < agent.stoppingDistance)
+                {
+                    FaceTarget();
+                }
+
+                if (!isShooting && angleToPlayer <= shootAngle)
+                    StartCoroutine(Shoot());
+
+                return true;
+            }
+        }
+        agent.stoppingDistance = 0;
+        return false;
     }
 
     void FaceTarget()
@@ -154,24 +225,8 @@ public class enemyAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(20);
         isShooting = false;
     }
-    void SetRigidBodyState(bool state)
-    {
-        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
-        foreach(Rigidbody rigidbody in rigidbodies)
-        {
-            rigidbody.isKinematic = state;
-        }
-        GetComponent<Rigidbody>().isKinematic = !state;
-    }
-    void SetColliderState(bool state)
-    {
-        Collider[] colliders = GetComponentsInChildren<Collider>();
-        foreach (Collider collider in colliders)
-        {
-            collider.enabled = state;
-        }
-        GetComponent<Collider>().enabled = !state;  
-    }
+    
+    
     public void Ragdoll()
     {
         GetComponent<Animator>().enabled = false;
