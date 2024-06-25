@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1653736028850029397}
   - component: {fileID: 998949751057336442}
   - component: {fileID: 631113994114454835}
-  - component: {fileID: 2094922314957184126}
+  - component: {fileID: 573902624326590542}
   m_Layer: 0
   m_Name: Gun - SMG
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027852398080529487}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1, y: 0.39, z: 3.463723}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -101,8 +101,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2094922314957184126
-MeshCollider:
+--- !u!135 &573902624326590542
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -119,10 +119,9 @@ MeshCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43198477031179476, guid: 5dac9b959ac0dfe4cb7ddd0f9dc4da8e, type: 2}
+  serializedVersion: 3
+  m_Radius: 0.41513985
+  m_Center: {x: -0.002746582, y: -0.004547119, z: 0.027741253}
 --- !u!1 &4343254865949433545
 GameObject:
   m_ObjectHideFlags: 0

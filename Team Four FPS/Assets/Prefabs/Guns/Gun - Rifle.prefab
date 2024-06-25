@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4646771992134675271}
   - component: {fileID: 2982674756455642821}
   - component: {fileID: 9114682602169841363}
-  - component: {fileID: 8906560296741946062}
+  - component: {fileID: 1968797555018217783}
   m_Layer: 0
   m_Name: Gun - Rifle
   m_TagString: Untagged
@@ -104,8 +104,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8906560296741946062
-MeshCollider:
+--- !u!135 &1968797555018217783
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,10 +122,9 @@ MeshCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43455111905677564, guid: 32e412482177c544a8e7d834e06389f8, type: 2}
+  serializedVersion: 3
+  m_Radius: 0.5518403
+  m_Center: {x: 0, y: -0.019405365, z: 0.263844}
 --- !u!1 &3591599682829301414
 GameObject:
   m_ObjectHideFlags: 0

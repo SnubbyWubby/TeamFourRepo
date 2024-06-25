@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 1517717184353254551}
   - component: {fileID: 2752951787845506006}
   - component: {fileID: 2546270194355158713}
-  - component: {fileID: 4728051508729201226}
+  - component: {fileID: 3006837170446971366}
   m_Layer: 0
   m_Name: Gun - HMG
   m_TagString: Untagged
@@ -351,8 +351,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4728051508729201226
-MeshCollider:
+--- !u!135 &3006837170446971366
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -369,10 +369,9 @@ MeshCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43705788374927106, guid: 26886b01b9cd1ad4ba73d846ac61de6e, type: 2}
+  serializedVersion: 3
+  m_Radius: 0.5971794
+  m_Center: {x: -0.0000038146973, y: 0.041999817, z: 0.2779827}
 --- !u!1 &8592706414791125642
 GameObject:
   m_ObjectHideFlags: 0
