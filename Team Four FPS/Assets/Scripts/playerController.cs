@@ -31,6 +31,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float grenadeReloadTime;
     [SerializeField] Transform throwPos;
     [SerializeField] GameObject grenade; 
+    [SerializeField] GameObject flashMuzzle; 
 
     Vector3 moveDirection;
     Vector3 playerVelocity;
@@ -78,7 +79,7 @@ public class playerController : MonoBehaviour, IDamage
 
             movement();
 
-            if (Input.GetButton("Fire1") && !isShooting)
+            if (Input.GetButton("Fire1") && gunList.Count > 0 && gunList[selectedGun].ammoCurr > 0 && !isShooting)
                 StartCoroutine(shoot());
 
             if (Input.GetButtonDown("Grenade") && grenadeCount > 0)
@@ -103,8 +104,11 @@ public class playerController : MonoBehaviour, IDamage
     {
         gunList.Add(gun);
         selectedGun = gunList.Count - 1;
-        Debug.Log("Gun Added");
         
+        updatePlayerUI();
+
+        Debug.Log("Gun Added");
+
         shootDamage = gun.shootDamage;
         shootRate = gun.shootRate;
         shootDistance = gun.shootDistance;
@@ -129,6 +133,8 @@ public class playerController : MonoBehaviour, IDamage
 
     void changeGun()
     {
+        updatePlayerUI();
+
         shootDamage = gunList[selectedGun].shootDamage;
         shootRate = gunList[selectedGun].shootRate;
         shootDistance = gunList[selectedGun].shootDistance;
@@ -185,19 +191,28 @@ public class playerController : MonoBehaviour, IDamage
     {
         isShooting = true;
 
+        gunList[selectedGun].ammoCurr--; 
+
+        updatePlayerUI(); 
+
+        StartCoroutine(MuzzleFlash()); 
+
         RaycastHit hit;
 
         // Use raycast and get gameobject that is hit
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance))
         {
             Debug.Log(hit.transform.name);
-
             // Get IDamage component if gameobject is damageable
             IDamage damageable = hit.collider.GetComponent<IDamage>();
 
             if (hit.transform != transform && damageable != null)
             {
                 damageable.takeDamage(shootDamage);
+            }
+            else 
+            {
+                Instantiate(gunList[selectedGun].hitEffect, hit.point, Quaternion.identity); 
             }
         }
 
@@ -234,6 +249,21 @@ public class playerController : MonoBehaviour, IDamage
         else
             // Health is red
             GameManager.Instance.playerHPBar.color = new Color(1f, 0.25f, 0.25f);
+
+        if (gunList.Count > 0)
+        {
+            GameManager.Instance.ammoCurrent.text = gunList[selectedGun].ammoCurr.ToString("F0");
+            GameManager.Instance.ammoMaximum.text = gunList[selectedGun].ammoMax.ToString("F0");
+        }
+    }
+
+    IEnumerator MuzzleFlash() 
+    {
+        flashMuzzle.SetActive(true); 
+
+        yield return new WaitForSeconds(0.125f);
+
+        flashMuzzle.SetActive(false); 
     }
 
     public void HealthPack(int amount) 

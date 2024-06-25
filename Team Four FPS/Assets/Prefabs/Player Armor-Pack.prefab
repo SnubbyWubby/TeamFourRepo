@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armorValue: 1
-  armorBoost: 15
+  armorBoost: 20
 --- !u!33 &7579360613319287341
 MeshFilter:
   m_ObjectHideFlags: 0

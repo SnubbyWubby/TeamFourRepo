@@ -17,9 +17,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] TMP_Text enemyCountText;
     [SerializeField] TMP_Text grenadeCountText;
+
     public Image playerHPBar;
 
+    public TMP_Text ammoCurrent, ammoMaximum;  
+
     public GameObject Player;
+
     public playerController PlayerScript;
 
     public bool isPaused;
@@ -52,7 +56,6 @@ public class GameManager : MonoBehaviour
                 stateUnpause();
                 showGrenadeWarning();
             }
-
         }
 
         if (!isPaused)
@@ -79,6 +82,7 @@ public class GameManager : MonoBehaviour
         MenuActive.SetActive(isPaused);
         MenuActive = null;
     }
+
     public void updateGameGoal(int amount)
     {
         enemyCount += amount;
@@ -90,6 +94,7 @@ public class GameManager : MonoBehaviour
             MenuActive.SetActive(isPaused);
         }
     }
+
     public void GameLoss()
     {
         statePause();

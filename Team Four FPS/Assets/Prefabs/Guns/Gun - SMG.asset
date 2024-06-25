@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Gun - SMG
   m_EditorClassIdentifier: 
   gunModel: {fileID: 1312551688009478, guid: da29ba09b0ae85b44a5c25f14124dc88, type: 3}
-  shootDamage: 1
-  shootRate: 0.1
-  shootDistance: 100
-  ammoCurr: 0
-  ammoMax: 25
-  hitEffect: {fileID: 0}
-  shootSound: {fileID: 0}
+  shootDamage: 3
+  shootDistance: 150
+  shootRate: 0.125
   audioVolume: 0.5
+  ammoCurr: 0
+  ammoMax: 50
+  hitEffect: {fileID: 1780941303093551375, guid: 3901c3df533155849aff7749b4d56901, type: 3}
+  shootSound: {fileID: 0}
