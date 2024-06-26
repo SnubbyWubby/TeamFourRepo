@@ -143,7 +143,7 @@ public class playerController : MonoBehaviour, IDamage
         sprint();
 
         // if (Input.GetButtonDown("Jump") && truWallRun) // Wall Run
-            // StartCoroutine(PlayerWallRun());
+        // StartCoroutine(PlayerWallRun());
 
         //wallRun();
     }
@@ -187,8 +187,8 @@ public class playerController : MonoBehaviour, IDamage
         shootRate = gunList[selectedGun].shootRate;
         shootDistance = gunList[selectedGun].shootDistance;
 
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].GetComponent<MeshRenderer>().sharedMaterial;
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
     void movement()

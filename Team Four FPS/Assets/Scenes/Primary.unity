@@ -140,6 +140,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1033857969319454085, guid: 76b26a2e49d58ea4fa81092ac2a6e6ec, type: 3}
+      propertyPath: viewAngle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033857969319454085, guid: 76b26a2e49d58ea4fa81092ac2a6e6ec, type: 3}
       propertyPath: willPatrol
       value: 0
       objectReference: {fileID: 0}
