@@ -4657,6 +4657,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4190759946557676130, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
+      propertyPath: wallCheckDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190759946557676130, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
+      propertyPath: wallDescendModifier
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4403645943118102238, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4675,11 +4683,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4490259909388757125, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00000058114523
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4490259909388757125, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4490259909388757125, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
       propertyPath: m_LocalRotation.y
@@ -4687,7 +4695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4490259909388757125, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4490259909388757125, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -17571,6 +17579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bunker 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
+      propertyPath: m_TagString
+      value: Wallrunnable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29066,6 +29078,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bunker 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
+      propertyPath: m_TagString
+      value: Wallrunnable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35121,6 +35137,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bunker 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
+      propertyPath: m_TagString
+      value: Wallrunnable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36768,6 +36788,10 @@ PrefabInstance:
     - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
       propertyPath: m_Name
       value: Bunker 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
+      propertyPath: m_TagString
+      value: Wallrunnable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

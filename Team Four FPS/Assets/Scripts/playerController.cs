@@ -35,6 +35,8 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] GameObject flashMuzzle;
 
     [SerializeField] Transform feetPos;
+    [SerializeField] float wallCheckDistance;
+    [SerializeField] float wallDescendModifier;
 
     Vector3 moveDirection;
     Vector3 playerVelocity;
@@ -43,6 +45,7 @@ public class playerController : MonoBehaviour, IDamage
     bool isCrouching;
     bool isSprinting;
     bool isJumping;
+    bool isWallRunning;
 
     int originalHP;
     int jumpCount;
@@ -94,6 +97,9 @@ public class playerController : MonoBehaviour, IDamage
 
             if (Input.GetButtonDown("Crouch") && isSprinting) // Slide
                 StartCoroutine(slide());
+
+            if (Input.GetButtonDown("Jump") && !isWallRunning)
+                wallRun();
 
             selectGun();
         }
@@ -389,31 +395,31 @@ public class playerController : MonoBehaviour, IDamage
         Debug.DrawRay(feetPos.transform.position, -transform.right * 2, Color.red);
         Debug.DrawRay(feetPos.transform.position, transform.right * 2, Color.blue);
 
-        float transformY = transform.position.y;
-
         if (isJumping)
         {
-            if (Physics.Raycast(feetPos.transform.position, -transform.right, out leftWall, 2f))
+            if (Physics.Raycast(feetPos.transform.position, -transform.right, out leftWall, wallCheckDistance))
             {
                 if (leftWall.collider.CompareTag("Wallrunnable"))
                 {
-                    if (transform.position.y >= 4)
+                    if (gameObject.transform.position.y >= 4.5f)
                     {
                         playerVelocity.y = 0f;
                     }
 
+                    playerVelocity.y -= gravity * wallDescendModifier * Time.deltaTime;
                 }
             }
-            else if (Physics.Raycast(feetPos.transform.position, transform.right, out rightWall, 2f))
+            else if (Physics.Raycast(feetPos.transform.position, transform.right, out rightWall, wallCheckDistance))
             {
                 if (rightWall.collider.CompareTag("Wallrunnable"))
                 {
-                    if (transform.position.y >= 4)
+                    if (gameObject.transform.position.y >= 4.5f)
                     {
                         playerVelocity.y = 0f;
                     }
+
+                    playerVelocity.y -= gravity * wallDescendModifier * Time.deltaTime;
                 }
-                
             }
         }
     }
