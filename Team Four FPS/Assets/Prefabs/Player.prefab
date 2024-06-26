@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 4490259909388757125}
   - component: {fileID: 7378780684560607339}
   - component: {fileID: 4190759946557676130}
+  - component: {fileID: 1118967803014212627}
   - component: {fileID: 8914758440627459362}
   - component: {fileID: 4492978331989531679}
   - component: {fileID: 3611680381615156623}
@@ -396,10 +397,23 @@ MonoBehaviour:
   grenade: {fileID: 2164594306382342039, guid: 03b155c905f75fe40a956208a73440ed, type: 3}
   flashMuzzle: {fileID: 1915239553719123681}
   feetPos: {fileID: 5738388994667223455}
-  playerVelocity: {x: 0, y: 0, z: 0}
   truWallRun: 0
   wallRunSpeed: 10
   plrStateMoving: 0
+--- !u!114 &1118967803014212627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4403645943118102238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc15bc047b78fb4cb728815d159fef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gappleTime: 1
+  maxGrappleDistance: 100
 --- !u!143 &8914758440627459362
 CharacterController:
   m_ObjectHideFlags: 0
