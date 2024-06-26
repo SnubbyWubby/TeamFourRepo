@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class playerController : MonoBehaviour, IDamage 
+public class playerController : MonoBehaviour, IDamage
 {
     [SerializeField] CharacterController controller;
 
-    [SerializeField] int HP; 
+    [SerializeField] int HP;
     [SerializeField] int jumpMax;
     [SerializeField] int jumpSpeed;
     [SerializeField] int gravity;
@@ -30,8 +31,10 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int grenadeCount;
     [SerializeField] float grenadeReloadTime;
     [SerializeField] Transform throwPos;
-    [SerializeField] GameObject grenade; 
-    [SerializeField] GameObject flashMuzzle; 
+    [SerializeField] GameObject grenade;
+    [SerializeField] GameObject flashMuzzle;
+
+    [SerializeField] Transform feetPos;
 
     Vector3 moveDirection;
     Vector3 playerVelocity;
@@ -39,6 +42,7 @@ public class playerController : MonoBehaviour, IDamage
     bool isShooting;
     bool isCrouching;
     bool isSprinting;
+    bool isJumping;
 
     int originalHP;
     int jumpCount;
@@ -51,11 +55,11 @@ public class playerController : MonoBehaviour, IDamage
 
     public float wallRunSpeed;
 
-    float plrWallRunTimer; 
+    float plrWallRunTimer;
 
     public StateMovement plrStateMoving;
 
-    public enum StateMovement { plrWallRunning } 
+    public enum StateMovement { plrWallRunning }
 
     // Start is called before the first frame update
     void Start()
@@ -73,7 +77,7 @@ public class playerController : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.isPaused) 
+        if (!GameManager.Instance.isPaused)
         {
             Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDistance, Color.red);
 
@@ -91,20 +95,22 @@ public class playerController : MonoBehaviour, IDamage
             if (Input.GetButtonDown("Crouch") && isSprinting) // Slide
                 StartCoroutine(slide());
 
-            selectGun(); 
+            selectGun();
         }
 
         sprint();
 
-        if (Input.GetButtonDown("WallRun") && truWallRun) // Wall Run
-            StartCoroutine(PlayerWallRun()); 
+        // if (Input.GetButtonDown("Jump") && truWallRun) // Wall Run
+            // StartCoroutine(PlayerWallRun());
+
+        wallRun();
     }
 
     public void getGunStats(gunStats gun)
     {
         gunList.Add(gun);
         selectedGun = gunList.Count - 1;
-        
+
         updatePlayerUI();
 
         Debug.Log("Gun Added");
@@ -119,7 +125,7 @@ public class playerController : MonoBehaviour, IDamage
 
     void selectGun()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1 )
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
         {
             selectedGun++;
             changeGun();
@@ -148,6 +154,7 @@ public class playerController : MonoBehaviour, IDamage
         // Check if player is touching the ground
         if (controller.isGrounded)
         {
+            isJumping = false;
             jumpCount = 0;
             playerVelocity = Vector3.zero;
         }
@@ -158,9 +165,11 @@ public class playerController : MonoBehaviour, IDamage
 
         if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
         {
+            isJumping = true;
             jumpCount++;
             playerVelocity.y = jumpSpeed;
         }
+
 
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
@@ -191,11 +200,11 @@ public class playerController : MonoBehaviour, IDamage
     {
         isShooting = true;
 
-        gunList[selectedGun].ammoCurr--; 
+        gunList[selectedGun].ammoCurr--;
 
-        updatePlayerUI(); 
+        updatePlayerUI();
 
-        StartCoroutine(MuzzleFlash()); 
+        StartCoroutine(MuzzleFlash());
 
         RaycastHit hit;
 
@@ -210,9 +219,9 @@ public class playerController : MonoBehaviour, IDamage
             {
                 damageable.takeDamage(shootDamage);
             }
-            else 
+            else
             {
-                Instantiate(gunList[selectedGun].hitEffect, hit.point, Quaternion.identity); 
+                Instantiate(gunList[selectedGun].hitEffect, hit.point, Quaternion.identity);
             }
         }
 
@@ -226,7 +235,7 @@ public class playerController : MonoBehaviour, IDamage
 
         updatePlayerUI();
 
-        if(HP <= 0)
+        if (HP <= 0)
         {
             GameManager.Instance.GameLoss();
         }
@@ -257,16 +266,16 @@ public class playerController : MonoBehaviour, IDamage
         }
     }
 
-    IEnumerator MuzzleFlash() 
+    IEnumerator MuzzleFlash()
     {
-        flashMuzzle.SetActive(true); 
+        flashMuzzle.SetActive(true);
 
         yield return new WaitForSeconds(0.125f);
 
-        flashMuzzle.SetActive(false); 
+        flashMuzzle.SetActive(false);
     }
 
-    public void HealthPack(int amount) 
+    public void HealthPack(int amount)
     {
         HP += amount;
 
@@ -274,7 +283,7 @@ public class playerController : MonoBehaviour, IDamage
 
         GameManager.Instance.playerHPBar.fillAmount = (float)HP * originalHP;
 
-        float healthPercentage = (float)HP * originalHP;  
+        float healthPercentage = (float)HP * originalHP;
 
         GameManager.Instance.playerHPBar.fillAmount = healthPercentage;
 
@@ -286,8 +295,8 @@ public class playerController : MonoBehaviour, IDamage
         }
     }
 
-    public void ArmorShield(int amount) 
-    { 
+    public void ArmorShield(int amount)
+    {
         HP += amount;
 
         // Player Will Regenerate Full Armor When Walking Or Running Towards The Green Armor Shield 
@@ -324,24 +333,24 @@ public class playerController : MonoBehaviour, IDamage
         }
     }
 
-    IEnumerator PlayerWallRun() 
+    IEnumerator PlayerWallRun()
     {
         // User Input (Manager) Button Either "Q" Or "E" To Activate Wall Run
 
         truWallRun = true;
 
-        if (truWallRun) 
-        { 
-            plrStateMoving = StateMovement.plrWallRunning; 
+        if (truWallRun)
+        {
+            plrStateMoving = StateMovement.plrWallRunning;
 
             speed = wallRunSpeed;
 
-            Debug.Log("Wall-Running!"); 
+            Debug.Log("Wall-Running!");
         }
 
         yield return new WaitForSeconds(plrWallRunTimer);
 
-        truWallRun = false; 
+        truWallRun = false;
     }
 
     IEnumerator slide()
@@ -372,5 +381,40 @@ public class playerController : MonoBehaviour, IDamage
 
         grenadeCount--;
         GameManager.Instance.updateGrenadeCount(-1);
+    }
+
+    public void wallRun()
+    {
+        RaycastHit leftWall, rightWall;
+        Debug.DrawRay(feetPos.transform.position, -transform.right * 2, Color.red);
+        Debug.DrawRay(feetPos.transform.position, transform.right * 2, Color.blue);
+
+        float transformY = transform.position.y;
+
+        if (isJumping)
+        {
+            if (Physics.Raycast(feetPos.transform.position, -transform.right, out leftWall, 2f))
+            {
+                if (leftWall.collider.CompareTag("Wallrunnable"))
+                {
+                    if (transform.position.y >= 4)
+                    {
+                        playerVelocity.y = 0f;
+                    }
+
+                }
+            }
+            else if (Physics.Raycast(feetPos.transform.position, transform.right, out rightWall, 2f))
+            {
+                if (rightWall.collider.CompareTag("Wallrunnable"))
+                {
+                    if (transform.position.y >= 4)
+                    {
+                        playerVelocity.y = 0f;
+                    }
+                }
+                
+            }
+        }
     }
 }
