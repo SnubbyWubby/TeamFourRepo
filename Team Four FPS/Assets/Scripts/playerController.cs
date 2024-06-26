@@ -46,6 +46,7 @@ public class playerController : MonoBehaviour, IDamage
     bool isSprinting;
     bool isJumping;
     bool isWallRunning;
+    bool isStraight;
 
     int originalHP;
     int jumpCount;
@@ -68,6 +69,7 @@ public class playerController : MonoBehaviour, IDamage
     void Start()
     {
         originalHP = HP;
+        isStraight = true;
 
         updatePlayerUI();
 
@@ -163,6 +165,7 @@ public class playerController : MonoBehaviour, IDamage
             isJumping = false;
             jumpCount = 0;
             playerVelocity = Vector3.zero;
+
         }
 
         // Get input from player, create vector, then move player.
@@ -391,12 +394,47 @@ public class playerController : MonoBehaviour, IDamage
 
     public void wallRun()
     {
-        RaycastHit leftWall, rightWall;
+        if (controller.isGrounded && !isStraight)
+        {
+            Debug.Log(transform.eulerAngles.z);
+            if (transform.eulerAngles.z != 0)
+            {
+                transform.Rotate(Vector3.forward * -transform.eulerAngles.z);
+            }
+
+                isStraight = true;
+        }
+        //RaycastHit hitWall;
         Debug.DrawRay(feetPos.transform.position, -transform.right * 2, Color.red);
         Debug.DrawRay(feetPos.transform.position, transform.right * 2, Color.blue);
 
         if (isJumping)
         {
+            Collider[] hits = Physics.OverlapSphere(feetPos.transform.position, 2f);
+            foreach (Collider hit in hits)
+            {
+                if (hit.transform != transform && hit.CompareTag("Wallrunnable"))
+                {
+                    if (gameObject.transform.position.y >= 4.5f)
+                    {
+                        playerVelocity.y = 0f;
+                        
+                        if (hit.transform.position.x > gameObject.transform.position.x && isStraight)
+                        {
+                            isStraight = false;
+                            transform.Rotate(Vector3.forward * -30f);
+                        }
+                        else if (hit.transform.position.x < gameObject.transform.position.x && isStraight)
+                        {
+                            isStraight = false;
+                            transform.Rotate(Vector3.forward * 30f);
+                        }
+                    }
+
+                    playerVelocity.y -= gravity * wallDescendModifier * Time.deltaTime;
+                }
+            }
+            /* 
             if (Physics.Raycast(feetPos.transform.position, -transform.right, out leftWall, wallCheckDistance))
             {
                 if (leftWall.collider.CompareTag("Wallrunnable"))
@@ -416,11 +454,13 @@ public class playerController : MonoBehaviour, IDamage
                     if (gameObject.transform.position.y >= 4.5f)
                     {
                         playerVelocity.y = 0f;
+                        transform.Rotate(Vector3.forward * 30f);
                     }
 
                     playerVelocity.y -= gravity * wallDescendModifier * Time.deltaTime;
                 }
             }
+            */
         }
     }
 }
