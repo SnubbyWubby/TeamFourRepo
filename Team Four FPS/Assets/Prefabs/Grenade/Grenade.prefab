@@ -52,7 +52,7 @@ MonoBehaviour:
   damage: 5
   blastRadius: 10
   throwSpeed: 10
-  detonateTime: 3
+  detonateTime: 2
   explosionEffect: {fileID: 9031096782313437477, guid: 60d82d69034e6744d965ae9e4733abaf, type: 3}
 --- !u!54 &1314101755467743578
 Rigidbody:

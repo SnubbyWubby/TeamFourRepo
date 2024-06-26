@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class armorPack : MonoBehaviour
 {
-    [SerializeField] public int armorValue; 
-
     playerController plrArmorPack;
 
-    public int armorBoost; 
+    [SerializeField] public int armorValue; 
+
+    public int armorBoost;
 
     // Awake Function Is Called Right After The Start Function 
     void Awake()

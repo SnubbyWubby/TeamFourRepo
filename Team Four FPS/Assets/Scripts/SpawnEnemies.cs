@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
+    [Header("<=====COMPONENTS=====>")]
+
     [SerializeField] GameObject spawnObjects;
+    [SerializeField] Transform[] spawnPosition;
+
+    [Header("<=====ENEMY_SPAWN=====>")]
 
     [SerializeField] int spawnTimer;
     [SerializeField] int spawnNumber;
-
-    [SerializeField] Transform[] spawnPosition; 
 
     int spawnCount;
 

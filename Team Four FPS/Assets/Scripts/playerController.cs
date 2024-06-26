@@ -6,18 +6,48 @@ using UnityEngine.UIElements;
 
 public class playerController : MonoBehaviour, IDamage
 {
+    [Header("<=====COMPONENTS=====>")]
+
     [SerializeField] CharacterController controller;
+    [SerializeField] Transform throwPos;
+    [SerializeField] Transform feetPos;
+    [SerializeField] AudioSource plrAudio;
+
+    [Header("<=====PLAYER_STATS=====>")] 
 
     [SerializeField] int HP;
     [SerializeField] int jumpMax;
     [SerializeField] int jumpSpeed;
     [SerializeField] int gravity;
 
+    [Range(0.1f, 0.5f)] public float audioDamageTimer; 
+
+    [Header("<=====PLAYER_GUNS=====>")]
+
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
+
     [SerializeField] GameObject gunModel;
+    [SerializeField] GameObject flashMuzzle;
+
     [SerializeField] int shootDamage;
     [SerializeField] float shootRate;
     [SerializeField] int shootDistance;
+
+    [Header("<=====PLAYER_AUDIO=====>")]
+
+    [SerializeField] AudioClip[] jumpAudio;
+    [SerializeField] float jumpVolume;
+
+    [SerializeField] AudioClip[] damageAudio; 
+    [SerializeField] float damageVolume;
+
+    [SerializeField] AudioClip[] movementAudio; 
+    [SerializeField] float movementVolume;
+
+    [SerializeField] AudioClip[] grenadeAudio;
+    [SerializeField] float grenadeVolume;
+
+    [Header("<=====PLAYER_MOVEMENT=====>")]
 
     [SerializeField] float speed;
     [SerializeField] float sprintModifier;
@@ -28,15 +58,23 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float crouchCenterYOffset;
     [SerializeField] float standingCenterYOffset;
 
-    [SerializeField] int grenadeCount;
-    [SerializeField] float grenadeReloadTime;
-    [SerializeField] Transform throwPos;
-    [SerializeField] GameObject grenade;
-    [SerializeField] GameObject flashMuzzle;
-
-    [SerializeField] Transform feetPos;
     [SerializeField] float wallCheckDistance;
     [SerializeField] float wallDescendModifier;
+
+    [Range(0.2f, 0.5f)] public float audioWalkTimer;
+    [Range(0.01f, 0.1f)]public float audioRunTimer; 
+
+    public bool truWallRun;
+    public float wallRunSpeed;
+
+    public StateMovement plrStateMoving;
+
+    [Header("<=====PLAYER_GRENADES=====>")]
+
+    [SerializeField] GameObject grenade;
+
+    [SerializeField] int grenadeCount;
+    [SerializeField] float grenadeReloadTime;
 
     Vector3 moveDirection;
     Vector3 playerVelocity;
@@ -47,6 +85,9 @@ public class playerController : MonoBehaviour, IDamage
     bool isJumping;
     bool isWallRunning;
     bool isStraight;
+    bool isWalking;
+    bool isRunning;
+    bool isDamageHit; 
 
     int originalHP;
     int jumpCount;
@@ -54,14 +95,7 @@ public class playerController : MonoBehaviour, IDamage
 
     float playerHeight;
     float crouchHeight;
-
-    public bool truWallRun;
-
-    public float wallRunSpeed;
-
     float plrWallRunTimer;
-
-    public StateMovement plrStateMoving;
 
     public enum StateMovement { plrWallRunning }
 
@@ -100,8 +134,8 @@ public class playerController : MonoBehaviour, IDamage
             if (Input.GetButtonDown("Crouch") && isSprinting) // Slide
                 StartCoroutine(slide());
 
-            if (Input.GetButtonDown("Jump") && !isWallRunning)
-                wallRun();
+            /*if (Input.GetButtonDown("Jump") && !isWallRunning)
+                wallRun();*/
 
             selectGun();
         }
@@ -111,7 +145,7 @@ public class playerController : MonoBehaviour, IDamage
         // if (Input.GetButtonDown("Jump") && truWallRun) // Wall Run
             // StartCoroutine(PlayerWallRun());
 
-        wallRun();
+        //wallRun();
     }
 
     public void getGunStats(gunStats gun)
@@ -165,7 +199,6 @@ public class playerController : MonoBehaviour, IDamage
             isJumping = false;
             jumpCount = 0;
             playerVelocity = Vector3.zero;
-
         }
 
         // Get input from player, create vector, then move player.
@@ -175,13 +208,18 @@ public class playerController : MonoBehaviour, IDamage
         if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
         {
             isJumping = true;
+
+            plrAudio.PlayOneShot(jumpAudio[Random.Range(0, jumpAudio.Length)], jumpVolume); 
+
             jumpCount++;
             playerVelocity.y = jumpSpeed;
         }
 
-
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        if (controller.isGrounded && moveDirection.magnitude > audioWalkTimer && !isWalking) 
+        { StartCoroutine(PlayMovementAudio()); } 
     }
 
     void sprint()
@@ -197,17 +235,41 @@ public class playerController : MonoBehaviour, IDamage
 
             speed *= sprintModifier;
             isSprinting = true;
+
+            isRunning = true;
         }
         else if (Input.GetButtonUp("Sprint"))
         {
             speed /= sprintModifier;
             isSprinting = false;
+
+            isRunning = false;
         }
+    }
+
+    IEnumerator PlayMovementAudio() 
+    {
+        isWalking = true;
+
+        plrAudio.PlayOneShot(movementAudio[Random.Range(0, movementAudio.Length)], movementVolume); 
+
+        if (!isRunning)
+        {
+            yield return new WaitForSeconds(audioWalkTimer);
+        }
+        else 
+        { 
+            yield return new WaitForSeconds(audioRunTimer);
+        }
+
+        isWalking = false;  
     }
 
     IEnumerator shoot()
     {
         isShooting = true;
+
+        plrAudio.PlayOneShot(gunList[selectedGun].shootSound, gunList[selectedGun].audioVolume); 
 
         gunList[selectedGun].ammoCurr--;
 
@@ -242,12 +304,25 @@ public class playerController : MonoBehaviour, IDamage
     {
         HP -= amount;
 
+        if (!isDamageHit) { StartCoroutine(PlayDamageHitSounds()); }
+
         updatePlayerUI();
 
         if (HP <= 0)
         {
             GameManager.Instance.GameLoss();
         }
+    }
+
+    IEnumerator PlayDamageHitSounds() 
+    {
+        isDamageHit = true;
+
+        plrAudio.PlayOneShot(damageAudio[Random.Range(0, damageAudio.Length)], damageVolume); 
+
+        yield return new WaitForSeconds(audioDamageTimer);  
+
+        isDamageHit = false; 
     }
 
     void updatePlayerUI()
@@ -388,7 +463,10 @@ public class playerController : MonoBehaviour, IDamage
 
         yield return new WaitForSeconds(grenadeReloadTime);
 
+        plrAudio.PlayOneShot(grenadeAudio[Random.Range(0, grenadeAudio.Length)], grenadeVolume);
+
         grenadeCount--;
+
         GameManager.Instance.updateGrenadeCount(-1);
     }
 

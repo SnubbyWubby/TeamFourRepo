@@ -6,7 +6,11 @@ using UnityEngine;
 
 public class gunStats : ScriptableObject
 {
+    [Header("<=====COMPONENTS=====>")]
+
     public GameObject gunModel;
+
+    [Header("<=====PLAYER_GUN_STATS=====>")]
 
     [Range(1, 20)] public int shootDamage;
     [Range(10, 500)] public int shootDistance;
@@ -16,6 +20,8 @@ public class gunStats : ScriptableObject
 
     public int ammoCurr;
     public int ammoMax;
+
+    [Header("<=====GUN_EFFECTS=====>")] 
 
     public ParticleSystem hitEffect;
     public AudioClip shootSound;

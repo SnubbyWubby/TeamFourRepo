@@ -8,26 +8,34 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [Header("<=====GM_UI_GAME_MENUS=====>")]
+
     [SerializeField] GameObject MenuActive;
     [SerializeField] GameObject MenuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
 
+    [Header("<=====GM_UI_GRENADE=====>")]
+
     [SerializeField] GameObject grenadeIcon;
 
-    [SerializeField] TMP_Text enemyCountText;
     [SerializeField] TMP_Text grenadeCountText;
+
+    public bool inGrenadeRadius;
+
+    [Header("<=====GM_UI_PLAYER&ENEMY=====>")]
 
     public Image playerHPBar;
 
-    public TMP_Text ammoCurrent, ammoMaximum;  
+    public TMP_Text ammoCurrent, ammoMaximum;
+
+    [SerializeField] TMP_Text enemyCountText;
 
     public GameObject Player;
 
     public playerController PlayerScript;
 
     public bool isPaused;
-    public bool inGrenadeRadius;
 
     int enemyCount;
     int grenadeCount;

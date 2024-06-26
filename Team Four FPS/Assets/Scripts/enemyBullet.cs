@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class enemyBullet : MonoBehaviour 
 {
-	[SerializeField] Rigidbody enyBullet;
+    [Header("<=====COMPONENTS=====>")]
 
-	[SerializeField] int dmgBullet;
+    [SerializeField] Rigidbody enyBullet;
+
+    [Header("<=====ENEMY_BULLET=====>")]
+
+    [SerializeField] int dmgBullet;
 	[SerializeField] int spdBullet;
 	[SerializeField] int dstBullet; 
 
