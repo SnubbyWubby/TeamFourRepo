@@ -47,6 +47,15 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] AudioClip[] grenadeAudio;
     [SerializeField] float grenadeVolume;
 
+    [SerializeField] AudioClip[] healthAudio;
+    [SerializeField] float healthVolume;
+
+    [SerializeField] AudioClip[] armorAudio;
+    [SerializeField] float armorVolume;
+
+    [SerializeField] AudioClip[] weaponAudio;
+    [SerializeField] float weaponVolume; 
+
     [Header("<=====PLAYER_MOVEMENT=====>")]
 
     [SerializeField] float speed;
@@ -161,6 +170,8 @@ public class playerController : MonoBehaviour, IDamage
         selectedGun = gunList.Count - 1;
 
         updatePlayerUI();
+
+        plrAudio.PlayOneShot(weaponAudio[Random.Range(0, weaponAudio.Length)], weaponVolume); 
 
         shootDamage = gun.shootDamage;
         shootRate = gun.shootRate;
@@ -385,6 +396,8 @@ public class playerController : MonoBehaviour, IDamage
 
             GameManager.Instance.playerHPBar.color = new Color(0.22f, 0.82f, 0);
         }
+
+        plrAudio.PlayOneShot(healthAudio[Random.Range(0, healthAudio.Length)], healthVolume); 
     }
 
     public void ArmorShield(int amount)
@@ -394,6 +407,8 @@ public class playerController : MonoBehaviour, IDamage
         // Player Will Regenerate Full Armor When Walking Or Running Towards The Green Armor Shield 
 
         updatePlayerUI();
+
+        plrAudio.PlayOneShot(armorAudio[Random.Range(0, armorAudio.Length)], armorVolume); 
     }
 
     void crouch()

@@ -30,6 +30,16 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] bool willPatrol;
     [SerializeField] bool willRoam;
 
+    [Header("<=====ENEMY_AUDIO_SOUNDS=====>")]
+
+    [SerializeField] AudioSource enemyAudio;
+
+    [SerializeField] AudioClip[] gunAudio;
+    [SerializeField] float gunVolume;
+
+    [SerializeField] AudioClip[] enemyHitAudio;
+    [SerializeField] float enemyHitVolume; 
+
     bool wasShot;
     bool isShooting;
     bool playerInRange;
@@ -159,7 +169,8 @@ public class EnemyAI : MonoBehaviour, IDamage
         isShooting = true;
         anim.SetTrigger("Shoot");
         Instantiate(bullet, shootPos.position, transform.rotation);
-        yield return new WaitForSeconds(shootRate);
+        enemyAudio.PlayOneShot(gunAudio[Random.Range(0, gunAudio.Length)], gunVolume);
+        yield return new WaitForSeconds(shootRate); 
         isShooting = false;
     }
 
@@ -189,6 +200,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
+        enemyAudio.PlayOneShot(enemyHitAudio[Random.Range(0, enemyHitAudio.Length)], enemyHitVolume); 
         model.material.color = Color.white;
     }
 

@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
     [Header("<=====GM_UI_OUTOFBOUNDS=====>")]
+
     [SerializeField] GameObject OutofBoundsUI;
     [SerializeField] TMP_Text OutofBoundsTimer;
     [SerializeField] GameObject OutofBoundsBackground;
@@ -27,6 +29,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text grenadeCountText;
 
     public bool inGrenadeRadius;
+
+    [Header("<=====WIN_LOSE_AUDIO=====>")]
+
+    [SerializeField] AudioSource menuAudio; 
+
+    [SerializeField] AudioClip[] winAudio;
+    [SerializeField] float winVolume;
+
+    [SerializeField] AudioClip[] loseAudio; 
+    [SerializeField] float loseVolume; 
 
     [Header("<=====GM_UI_PLAYER&ENEMY=====>")]
 
@@ -75,8 +87,6 @@ public class GameManager : MonoBehaviour
         {
             showGrenadeWarning();
         }
-
-
     }
 
     public void statePause()
@@ -107,6 +117,8 @@ public class GameManager : MonoBehaviour
             statePause();
             MenuActive = menuWin;
             MenuActive.SetActive(isPaused);
+
+            menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume); 
         }
     }
 
@@ -115,7 +127,10 @@ public class GameManager : MonoBehaviour
         statePause();
         MenuActive = menuLose;
         MenuActive.SetActive(isPaused);
+
+        menuAudio.PlayOneShot(loseAudio[Random.Range(0, loseAudio.Length)], loseVolume); 
     }
+
     public void GameLoss(string cause)
     {
         menuLoseCause.text = cause;

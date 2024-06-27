@@ -9,6 +9,13 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField] GameObject spawnObjects;
     [SerializeField] Transform[] spawnPosition;
 
+    [Header("<=====SPAWN_AUDIO=====>")]
+
+    [SerializeField] AudioSource adSpawn; 
+
+    [SerializeField] AudioClip[] spawnAudio;
+    [SerializeField] float spawnVolume; 
+
     [Header("<=====ENEMY_SPAWN=====>")]
 
     [SerializeField] int spawnTimer;
@@ -48,11 +55,13 @@ public class SpawnEnemies : MonoBehaviour
 
         int posArray = Random.Range(0, spawnPosition.Length);
 
-        Instantiate(spawnObjects, spawnPosition[posArray].position, spawnPosition[posArray].rotation); 
+        Instantiate(spawnObjects, spawnPosition[posArray].position, spawnPosition[posArray].rotation);
 
-        spawnCount++; 
+        spawnCount++;
 
-        yield return new WaitForSeconds(spawnTimer); 
+        yield return new WaitForSeconds(spawnTimer);
+
+        adSpawn.PlayOneShot(spawnAudio[Random.Range(0, spawnAudio.Length)], spawnVolume);
 
         spawnTruth = false;
     }
