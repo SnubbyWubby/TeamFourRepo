@@ -54,7 +54,10 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float armorVolume;
 
     [SerializeField] AudioClip[] weaponAudio;
-    [SerializeField] float weaponVolume; 
+    [SerializeField] float weaponVolume;
+
+    [SerializeField] AudioClip reloadAudio;
+    [SerializeField] float reloadVolume;
 
     [Header("<=====PLAYER_MOVEMENT=====>")]
 
@@ -146,6 +149,7 @@ public class playerController : MonoBehaviour, IDamage
 
             if (Input.GetButtonDown("Reload") && gunList.Count > 0 && gunList[selectedGun].ammoCurr < gunList[selectedGun].ammoMax)
             {
+                plrAudio.PlayOneShot(reloadAudio, reloadVolume);
                 gunList[selectedGun].ammoCurr = gunList[selectedGun].ammoMax;
                 updatePlayerUI();
             }

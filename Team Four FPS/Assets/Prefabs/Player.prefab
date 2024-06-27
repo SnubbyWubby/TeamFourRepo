@@ -428,10 +428,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 146c69ef2ea436c4fa797bbabc91899e, type: 3}
   - {fileID: 8300000, guid: 5fe506c13d43d584084e9278f590279f, type: 3}
   weaponVolume: 0.5
+  reloadAudio: {fileID: 8300000, guid: a497070ac31cbd24e9147a6b9e2f13d6, type: 3}
+  reloadVolume: 0.5
   speed: 10
   sprintModifier: 2
   slideDuration: 1.5
-  slideModifier: 1.75
+  slideModifier: 1.25
   crouchCenterYOffset: -0.5
   standingCenterYOffset: 0
   wallCheckDistance: 1.5
