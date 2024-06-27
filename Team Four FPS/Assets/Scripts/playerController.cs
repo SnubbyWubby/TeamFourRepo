@@ -393,18 +393,7 @@ public class playerController : MonoBehaviour, IDamage
 
         // Player Will Regenerate Full Health When Walking Or Running Towards The Blue Health Sphere
 
-        GameManager.Instance.playerHPBar.fillAmount = (float)HP * originalHP;
-
-        float healthPercentage = (float)HP * originalHP;
-
-        GameManager.Instance.playerHPBar.fillAmount = healthPercentage;
-
-        if (healthPercentage > 0.75f)
-        {
-            // Player's Health Bar Will Regenerate Back To Green Fill Color 
-
-            GameManager.Instance.playerHPBar.color = new Color(0.22f, 0.82f, 0);
-        }
+        updatePlayerUI();
 
         plrAudio.PlayOneShot(healthAudio[Random.Range(0, healthAudio.Length)], healthVolume); 
     }
