@@ -14,7 +14,6 @@ public class gunPickup : MonoBehaviour
 
             GameManager.Instance.PlayerScript.getGunStats(gun);
             Destroy(gameObject);
-            Debug.Log("Gun Pick-Up");
         }
     }
 }

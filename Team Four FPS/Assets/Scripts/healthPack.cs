@@ -25,8 +25,6 @@ public class healthPack : MonoBehaviour
             plrHealth.GetComponent<playerController>().HealthPack(healthBoost);
 
             Destroy(gameObject);
-
-            Debug.Log("Health-Restored!"); 
         } 
     }
 }

@@ -28,9 +28,7 @@ public class armorPack : MonoBehaviour
 
             plrArmor.GetComponent<ArmorSystem>().ArmorPack(armorValue, gameObject); 
 
-            Destroy(gameObject);  
-
-            Debug.Log("Armor_Shield!"); 
+            Destroy(gameObject);
         }
     }
 }

@@ -35,7 +35,6 @@ public class Grappler : MonoBehaviour
         // Use raycast and get gameobject that is hit
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, maxGrappleDistance))
         {
-            Debug.Log(hit.point);
             if (hit.transform != transform)
             {
                 transform.position = Vector3.Lerp(transform.position, hit.point, gappleTime);

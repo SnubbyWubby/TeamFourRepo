@@ -49,7 +49,6 @@ public class grenade : MonoBehaviour
 
             if (hit.transform != transform && damageable != null)
             {
-                Debug.Log(hit.transform.name);
                 damageable.takeDamage(damage);
             }
         }
