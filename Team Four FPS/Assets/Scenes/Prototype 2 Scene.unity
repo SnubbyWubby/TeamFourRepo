@@ -121,7 +121,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 80db38a7520908f4a854202deb4640dd, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: f5c1a4eb8177d1e41ba36d4d4a183439, type: 2}
 --- !u!1001 &10718463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -236,6 +236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Background (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7894312513807199944, guid: 4b9049675fa5e3641b8b44b8c765de2e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -297,6 +301,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -551,6 +559,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -618,6 +634,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -679,6 +699,14 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -742,6 +770,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -804,6 +836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -865,6 +901,10 @@ PrefabInstance:
     - target: {fileID: 9101559532476415126, guid: b0b1e0df821f748469a47d5421110272, type: 3}
       propertyPath: m_Name
       value: Beach Crater (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101559532476415126, guid: b0b1e0df821f748469a47d5421110272, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1108,6 +1148,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1419,6 +1463,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1662,6 +1710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1785,6 +1837,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2077,6 +2133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2211,6 +2271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2339,6 +2403,14 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2526,6 +2598,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2588,6 +2664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2634,7 +2714,6 @@ Transform:
   - {fileID: 1660176767}
   - {fileID: 2053596857}
   - {fileID: 869504405}
-  - {fileID: 1142714762}
   - {fileID: 689316770}
   - {fileID: 373024975}
   - {fileID: 588940363}
@@ -2653,7 +2732,6 @@ Transform:
   - {fileID: 962519435}
   - {fileID: 1805894028}
   - {fileID: 165303802}
-  - {fileID: 1496154288}
   - {fileID: 326646520}
   - {fileID: 799647320}
   - {fileID: 762296603}
@@ -2674,7 +2752,6 @@ Transform:
   - {fileID: 916591243}
   - {fileID: 247509331}
   - {fileID: 540300527}
-  - {fileID: 815237455}
   - {fileID: 1964619897}
   - {fileID: 524694402}
   - {fileID: 1031125211}
@@ -3049,6 +3126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3110,6 +3191,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3194,6 +3279,10 @@ PrefabInstance:
     - target: {fileID: 7175861111945057104, guid: 24e2582dd2fd2c14ebefcbaff190fed4, type: 3}
       propertyPath: m_Name
       value: Small Circle Bunker (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175861111945057104, guid: 24e2582dd2fd2c14ebefcbaff190fed4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8825153671548540130, guid: 24e2582dd2fd2c14ebefcbaff190fed4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3490,6 +3579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3551,6 +3644,14 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3675,6 +3776,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3852,6 +3957,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3914,6 +4023,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3923,68 +4036,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
   m_PrefabInstance: {fileID: 808494235}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &815237454
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 591131222}
-    m_Modifications:
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -64.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -29.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_Name
-      value: Beach Flat 1 (47)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
---- !u!4 &815237455 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-  m_PrefabInstance: {fileID: 815237454}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &826163626
 GameObject:
@@ -4132,6 +4183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4194,6 +4249,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 8004480404066946819, guid: d558e6649a6e0484d89024893d240051, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8004480404066946819, guid: d558e6649a6e0484d89024893d240051, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4250,6 +4313,14 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4312,6 +4383,14 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4721,6 +4800,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4783,6 +4870,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4844,6 +4935,14 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5031,6 +5130,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5092,6 +5195,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5216,6 +5323,14 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5403,6 +5518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5464,6 +5583,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5589,6 +5712,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5709,6 +5836,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2612240067921035643, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
       propertyPath: m_Name
       value: Bunker 1
@@ -5716,6 +5847,10 @@ PrefabInstance:
     - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
       propertyPath: m_TagString
       value: Wallrunnable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5840,6 +5975,14 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5982,6 +6125,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7110341257231902566, guid: 2991ef7f92dc62647a93b35f610d6e99, type: 3}
   m_PrefabInstance: {fileID: 1106658144}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1118115856
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5169472872410597873, guid: 79696f7315a850245af5665cb1f99e23, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -50.223587
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169472872410597873, guid: 79696f7315a850245af5665cb1f99e23, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169472872410597873, guid: 79696f7315a850245af5665cb1f99e23, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 76
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169472872410597873, guid: 79696f7315a850245af5665cb1f99e23, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169472872410597873, guid: 79696f7315a850245af5665cb1f99e23, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169472872410597873, guid: 79696f7315a850245af5665cb1f99e23, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169472872410597873, guid: 79696f7315a850245af5665cb1f99e23, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169472872410597873, guid: 79696f7315a850245af5665cb1f99e23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169472872410597873, guid: 79696f7315a850245af5665cb1f99e23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169472872410597873, guid: 79696f7315a850245af5665cb1f99e23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943683953474228717, guid: 79696f7315a850245af5665cb1f99e23, type: 3}
+      propertyPath: m_Name
+      value: Player Health-Pack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 79696f7315a850245af5665cb1f99e23, type: 3}
 --- !u!1001 &1122761007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6223,68 +6423,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4955285288068566865, guid: 6451e4e5c01a0594ca44f6099d78458f, type: 3}
   m_PrefabInstance: {fileID: 1141938179}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1142714761
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 591131222}
-    m_Modifications:
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -118
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -29.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_Name
-      value: Beach Flat 1 (7)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
---- !u!4 &1142714762 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-  m_PrefabInstance: {fileID: 1142714761}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1159478496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6336,6 +6474,10 @@ PrefabInstance:
     - target: {fileID: 7894312513807199944, guid: 4b9049675fa5e3641b8b44b8c765de2e, type: 3}
       propertyPath: m_Name
       value: Beach Background (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894312513807199944, guid: 4b9049675fa5e3641b8b44b8c765de2e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6403,6 +6545,14 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6527,6 +6677,14 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6882,6 +7040,63 @@ Transform:
   - {fileID: 1069911744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1354683687
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3011832753146581761, guid: a12ebebaf04956a429250cba8f0a85c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -74.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011832753146581761, guid: a12ebebaf04956a429250cba8f0a85c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011832753146581761, guid: a12ebebaf04956a429250cba8f0a85c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 55.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011832753146581761, guid: a12ebebaf04956a429250cba8f0a85c9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011832753146581761, guid: a12ebebaf04956a429250cba8f0a85c9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011832753146581761, guid: a12ebebaf04956a429250cba8f0a85c9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011832753146581761, guid: a12ebebaf04956a429250cba8f0a85c9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011832753146581761, guid: a12ebebaf04956a429250cba8f0a85c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011832753146581761, guid: a12ebebaf04956a429250cba8f0a85c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011832753146581761, guid: a12ebebaf04956a429250cba8f0a85c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262304514310461702, guid: a12ebebaf04956a429250cba8f0a85c9, type: 3}
+      propertyPath: m_Name
+      value: Player Armor-Pack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a12ebebaf04956a429250cba8f0a85c9, type: 3}
 --- !u!1001 &1369958992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6946,6 +7161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Crater (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9101559532476415126, guid: b0b1e0df821f748469a47d5421110272, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7008,6 +7227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7026,28 +7249,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 349840392125346638, guid: c246d66dd646f1744b1adba5adf5fda2, type: 3}
-      propertyPath: m_text
-      value: 'Space : Jump
-
-        Left Shift : Sprint
-
-        C : Crouch
-
-        Shift
-        + C + WASD : Slide
-
-        Left Mouse : Shoot
-
-        Mouse Wheel : Cycle
-        weapons
-
-        R : Reload
-
-        Z : Grenade
-
-'
-      objectReference: {fileID: 0}
     - target: {fileID: 2319337941379774620, guid: c246d66dd646f1744b1adba5adf5fda2, type: 3}
       propertyPath: m_Name
       value: UI
@@ -7251,6 +7452,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7375,6 +7580,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7436,6 +7649,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7571,68 +7788,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4955285288068566865, guid: 6451e4e5c01a0594ca44f6099d78458f, type: 3}
   m_PrefabInstance: {fileID: 1491350904}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1496154287
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 591131222}
-    m_Modifications:
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -91
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -29.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-      propertyPath: m_Name
-      value: Beach Flat 1 (26)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
---- !u!4 &1496154288 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
-  m_PrefabInstance: {fileID: 1496154287}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1516691514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7684,6 +7839,14 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7928,6 +8091,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7989,6 +8156,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8416,6 +8587,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8539,6 +8714,10 @@ PrefabInstance:
     - target: {fileID: 7894312513807199944, guid: 4b9049675fa5e3641b8b44b8c765de2e, type: 3}
       propertyPath: m_Name
       value: Beach Background (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894312513807199944, guid: 4b9049675fa5e3641b8b44b8c765de2e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8695,6 +8874,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2612240067921035643, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
       propertyPath: m_Name
       value: Bunker 4
@@ -8702,6 +8885,10 @@ PrefabInstance:
     - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
       propertyPath: m_TagString
       value: Wallrunnable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8854,6 +9041,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8977,6 +9168,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9102,6 +9297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9164,6 +9363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9225,6 +9428,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9309,6 +9516,14 @@ PrefabInstance:
     - target: {fileID: 3730388944148777269, guid: fb1c7c948d50a654598ad2d13d54ef2d, type: 3}
       propertyPath: m_Name
       value: Damaged Bunker (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3730388944148777269, guid: fb1c7c948d50a654598ad2d13d54ef2d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3730388944148777269, guid: fb1c7c948d50a654598ad2d13d54ef2d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6926595627311246988, guid: fb1c7c948d50a654598ad2d13d54ef2d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9575,6 +9790,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9636,6 +9855,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9823,6 +10046,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9947,6 +10178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10065,6 +10300,10 @@ PrefabInstance:
     - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
       propertyPath: m_Name
       value: Beach Flat 1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10190,6 +10429,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1 (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10248,6 +10491,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2612240067921035643, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
       propertyPath: m_Name
       value: Bunker 3
@@ -10255,6 +10502,10 @@ PrefabInstance:
     - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
       propertyPath: m_TagString
       value: Wallrunnable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10482,6 +10733,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Damaged Bunker
       objectReference: {fileID: 0}
+    - target: {fileID: 3730388944148777269, guid: fb1c7c948d50a654598ad2d13d54ef2d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3730388944148777269, guid: fb1c7c948d50a654598ad2d13d54ef2d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6926595627311246988, guid: fb1c7c948d50a654598ad2d13d54ef2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -74.6
@@ -10635,6 +10894,10 @@ PrefabInstance:
     - target: {fileID: 9101559532476415126, guid: b0b1e0df821f748469a47d5421110272, type: 3}
       propertyPath: m_Name
       value: Beach Crater
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101559532476415126, guid: b0b1e0df821f748469a47d5421110272, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11035,6 +11298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach Flat 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5874660023494424849, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11091,6 +11358,10 @@ PrefabInstance:
     - target: {fileID: 7894312513807199944, guid: 4b9049675fa5e3641b8b44b8c765de2e, type: 3}
       propertyPath: m_Name
       value: Beach Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894312513807199944, guid: 4b9049675fa5e3641b8b44b8c765de2e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11679,6 +11950,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small Bunker
       objectReference: {fileID: 0}
+    - target: {fileID: 5080865505162310336, guid: 68b919fc16bf589478bd232087a191df, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7133798326438596377, guid: 68b919fc16bf589478bd232087a191df, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.25
@@ -11735,6 +12010,10 @@ PrefabInstance:
     - target: {fileID: 7175861111945057104, guid: 24e2582dd2fd2c14ebefcbaff190fed4, type: 3}
       propertyPath: m_Name
       value: Small Circle Bunker
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175861111945057104, guid: 24e2582dd2fd2c14ebefcbaff190fed4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8825153671548540130, guid: 24e2582dd2fd2c14ebefcbaff190fed4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11886,6 +12165,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2612240067921035643, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
       propertyPath: m_Name
       value: Bunker 2
@@ -11893,6 +12176,10 @@ PrefabInstance:
     - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
       propertyPath: m_TagString
       value: Wallrunnable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847975717504799318, guid: 3c0c34e7d419d78408b9fb8a03ba99e1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12047,3 +12334,5 @@ SceneRoots:
   - {fileID: 1584782206}
   - {fileID: 780069061}
   - {fileID: 1728697043}
+  - {fileID: 1354683687}
+  - {fileID: 1118115856}

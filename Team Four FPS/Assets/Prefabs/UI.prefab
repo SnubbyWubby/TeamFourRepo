@@ -185,7 +185,7 @@ MonoBehaviour:
     R
     : Reload
 
-    G : Grenade
+    Z : Grenade
 
 '
   m_isRightToLeft: 0
@@ -4574,7 +4574,7 @@ GameObject:
   - component: {fileID: 2571335698772310751}
   - component: {fileID: 59741796719148692}
   m_Layer: 5
-  m_Name: Grenade Count Label (1)
+  m_Name: Grenade Count Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
