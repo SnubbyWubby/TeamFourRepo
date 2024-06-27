@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class OutofBounds : MonoBehaviour
 {
+    [Header("<=====OUT_OF_BOUNDS_STATS=====>")]
+
     [SerializeField] int maxDuration;
+
     float timeRemaining = 0f;
     bool timerIsRunning = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -23,6 +27,7 @@ public class OutofBounds : MonoBehaviour
             }
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

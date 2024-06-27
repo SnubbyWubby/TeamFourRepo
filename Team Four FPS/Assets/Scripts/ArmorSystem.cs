@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ArmorSystem : MonoBehaviour
 {
+    [Header("<=====COMPONENTS=====>")]
+
     [SerializeField] private GameObject placeArmor; 
 
     private int armorProtection;
@@ -19,7 +21,7 @@ public class ArmorSystem : MonoBehaviour
             Destroy(placeArmor.transform.GetChild(num).gameObject); 
         }
 
-        armorSphere.transform.SetParent(placeArmor.transform);
+        //armorSphere.transform.SetParent(placeArmor.transform);
         armorSphere.transform.position = transform.position; 
     }
 }

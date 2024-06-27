@@ -6,6 +6,8 @@ public class healthPack : MonoBehaviour
 {
     playerController plrHealthPack;
 
+    [Header("<=====PLAYER_HEALTH_BOOST=====>")]
+
     public int healthBoost;
 
     // Awake Function Is Called Right After The Start Function 

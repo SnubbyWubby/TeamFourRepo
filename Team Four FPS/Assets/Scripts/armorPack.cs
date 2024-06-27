@@ -6,6 +6,8 @@ public class armorPack : MonoBehaviour
 {
     playerController plrArmorPack;
 
+    [Header("<=====PLAYER_ARMOR_BOOST=====>")]
+
     [SerializeField] public int armorValue; 
 
     public int armorBoost;

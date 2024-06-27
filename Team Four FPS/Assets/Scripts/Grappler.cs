@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class Grappler : MonoBehaviour
 {
-    [SerializeField] float gappleTime;
-
-    [SerializeField] int maxGrappleDistance;
-    bool isGrappling = false;
-
-
+    [Header("<=====GRAPPLER_STATS=====>")]
 
     CharacterController Controller;
+
+    [SerializeField] float gappleTime;
+    [SerializeField] int maxGrappleDistance;
+
+    bool isGrappling = false;
 
     // Start is called before the first frame update
     void Start()
