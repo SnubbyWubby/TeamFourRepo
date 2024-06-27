@@ -173,7 +173,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7ca553d97323f1741ac58121b05c3315, type: 3}
   - {fileID: 8300000, guid: a0196603d33f6534bab677ebb15d95f6, type: 3}
   - {fileID: 8300000, guid: 1bf00608e283f114e9311f7405d74669, type: 3}
-  spawnVolume: 0.25
+  spawnVolume: 0.15
   spawnTimer: 0
   spawnNumber: 20
 --- !u!33 &1799191988031948130

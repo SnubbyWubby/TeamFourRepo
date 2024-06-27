@@ -2077,7 +2077,7 @@ MonoBehaviour:
   enemyAudio: {fileID: -1746418114760955427}
   gunAudio:
   - {fileID: 8300000, guid: a7519540b2862714b81fd4991b55ca1f, type: 3}
-  gunVolume: 1
+  gunVolume: 0.5
   enemyHitAudio:
   - {fileID: 8300000, guid: 98d96eae5e7d7774b9597df196d188fe, type: 3}
   - {fileID: 8300000, guid: 6f6fd342f9617e54299ce0a631aeaad8, type: 3}
