@@ -484,15 +484,15 @@ MonoBehaviour:
   agent: {fileID: 8915140903008015503}
   shootPos: {fileID: 170874778005857661}
   shootRate: 1
-  shootAngle: 0
+  shootAngle: 5
   bullet: {fileID: 8415065389652250046, guid: b31395d0b5b96944dbcf311ffbf806c5, type: 3}
   faceTargetSpeed: 10
   headPos: {fileID: 7427844138876398439}
-  viewAngle: 0
-  roamDist: 0
-  roamTimer: 0
+  viewAngle: 90
+  roamDist: 10
+  roamTimer: 3
   willPatrol: 0
-  willRoam: 0
+  willRoam: 1
   waypoints:
   - {fileID: 3033222786241685643}
 --- !u!95 &4908729478644374765

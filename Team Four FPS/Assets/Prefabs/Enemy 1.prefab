@@ -2063,14 +2063,14 @@ MonoBehaviour:
   anim: {fileID: 1442296102632694662}
   agent: {fileID: 1774474562954425783}
   shootPos: {fileID: 5411576382329752283}
-  shootRate: 2
-  shootAngle: 0
+  shootRate: 1.5
+  shootAngle: 5
   bullet: {fileID: 8415065389652250046, guid: b31395d0b5b96944dbcf311ffbf806c5, type: 3}
   faceTargetSpeed: 5
   headPos: {fileID: 786861220900562865}
-  viewAngle: 0
-  roamDist: 0
-  roamTimer: 0
+  viewAngle: 90
+  roamDist: 5
+  roamTimer: 3
   willPatrol: 0
   willRoam: 0
   waypoints: []
