@@ -413,7 +413,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f90d5bd870608884f8713321b5642f07, type: 3}
   - {fileID: 8300000, guid: 82752a428667eac4cb061b50c5a0d01d, type: 3}
   - {fileID: 8300000, guid: ba20d8ebbb033144e94d6de76844e03e, type: 3}
-  movementVolume: 0.5
+  movementVolume: 0.2
   grenadeAudio:
   - {fileID: 8300000, guid: d2bad54cbcfcd2a41984cc94fe1cf11d, type: 3}
   grenadeVolume: 0.5
@@ -581,7 +581,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4403645943118102238}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
