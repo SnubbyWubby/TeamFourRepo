@@ -129,7 +129,7 @@ public class playerController : MonoBehaviour, IDamage
             if (Input.GetButtonDown("Grenade") && grenadeCount > 0)
                 StartCoroutine(throwGrenade());
 
-            if (Input.GetButtonDown("Crouch") && !isSprinting) // Crouch
+            if (Input.GetButtonDown("Crouch") && (!isSprinting || isSliding)) // Crouch
                 crouch();
 
             if (Input.GetButtonDown("Crouch") && isSprinting && !isSliding) // Slide
@@ -460,7 +460,7 @@ public class playerController : MonoBehaviour, IDamage
         yield return new WaitForSeconds(slideTime);
 
         // Stand back up and remove slideModifier
-        crouch();
+        //crouch();
         speed /= slideModifier;
         isSliding = false;
     }

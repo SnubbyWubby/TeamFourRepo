@@ -423,8 +423,8 @@ MonoBehaviour:
   slideModifier: 1.75
   crouchCenterYOffset: -0.5
   standingCenterYOffset: 0
-  wallCheckDistance: 0
-  wallDescendModifier: 0
+  wallCheckDistance: 1.5
+  wallDescendModifier: 3
   audioWalkTimer: 0.3
   audioRunTimer: 0.1
   truWallRun: 0
