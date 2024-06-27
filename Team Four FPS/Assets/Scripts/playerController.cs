@@ -490,12 +490,10 @@ public class playerController : MonoBehaviour, IDamage
                 isStraight = true;
         }
         //RaycastHit hitWall;
-        Debug.DrawRay(feetPos.transform.position, -transform.right * 2, Color.red);
-        Debug.DrawRay(feetPos.transform.position, transform.right * 2, Color.blue);
 
         if (isJumping)
         {
-            Collider[] hits = Physics.OverlapSphere(feetPos.transform.position, 2f);
+            Collider[] hits = Physics.OverlapSphere(feetPos.transform.position, wallCheckDistance);
             foreach (Collider hit in hits)
             {
                 if (hit.transform != transform && hit.CompareTag("Wallrunnable"))
