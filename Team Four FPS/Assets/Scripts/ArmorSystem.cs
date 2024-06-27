@@ -21,7 +21,6 @@ public class ArmorSystem : MonoBehaviour
             Destroy(placeArmor.transform.GetChild(num).gameObject); 
         }
 
-        //armorSphere.transform.SetParent(placeArmor.transform);
         armorSphere.transform.position = transform.position; 
     }
 }
