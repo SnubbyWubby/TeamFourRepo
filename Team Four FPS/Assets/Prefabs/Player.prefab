@@ -391,31 +391,31 @@ MonoBehaviour:
   shootRate: 0
   shootDistance: 0
   jumpAudio:
-  - {fileID: 8300000, guid: 943e44e135680ed4da2e0c5e1027dffa, type: 3}
-  - {fileID: 8300000, guid: 761381a16c6547a4c81b861a30c6463b, type: 3}
-  - {fileID: 8300000, guid: e4ebd59da61123946971a4d006bd2849, type: 3}
+  - {fileID: 8300000, guid: a4bac1308ca1b834db90d19d7a6c11b9, type: 3}
+  - {fileID: 8300000, guid: 5493ae8d80eb08c42b3e4a78503caf41, type: 3}
+  - {fileID: 8300000, guid: 0fac7ae2e3fb7334e89b459a8555556d, type: 3}
   jumpVolume: 0.5
   damageAudio:
-  - {fileID: 8300000, guid: a0eecac4c787d62418d6fed75f1243ac, type: 3}
-  - {fileID: 8300000, guid: 48f608a8cb105a1479be7247fc0bf4fc, type: 3}
-  - {fileID: 8300000, guid: 74d5d54b327a3af4a843077acf13b3de, type: 3}
-  - {fileID: 8300000, guid: 40646dd0e0c398440a34bcf3c0da9f19, type: 3}
-  - {fileID: 8300000, guid: 3cd8c3ff284eadb43ae7f914c8a60eb9, type: 3}
-  - {fileID: 8300000, guid: 7d9d18a350fd4264a9b035f8f0fe9b18, type: 3}
+  - {fileID: 8300000, guid: 98d96eae5e7d7774b9597df196d188fe, type: 3}
+  - {fileID: 8300000, guid: 6bbc8bf8a0e1eb14dbc138cf01bf5725, type: 3}
+  - {fileID: 8300000, guid: 6f6fd342f9617e54299ce0a631aeaad8, type: 3}
+  - {fileID: 8300000, guid: e839effc007b19048ab0347992442ec3, type: 3}
+  - {fileID: 8300000, guid: aaec0f815d88d324386ddecc7f3fbad2, type: 3}
+  - {fileID: 8300000, guid: e9de63c05cd25ab46a47f4d6a1247932, type: 3}
   damageVolume: 0.5
   movementAudio:
-  - {fileID: 8300000, guid: 6c3ab1abde796474fadf9187f4e14e61, type: 3}
-  - {fileID: 8300000, guid: 0a275a675b8807844b39439b10d48c74, type: 3}
-  - {fileID: 8300000, guid: c380dab0d47c7ff4db248625b866d7c0, type: 3}
-  - {fileID: 8300000, guid: 36ea3145f20276c40810e597b7c779df, type: 3}
-  - {fileID: 8300000, guid: ffbee18d6f7066640ade9582aa3f5ef4, type: 3}
-  - {fileID: 8300000, guid: e210b37f7d9868c4f8db5f431babcfb5, type: 3}
-  - {fileID: 8300000, guid: d17f19678bccfd948b8f1b49813d4b06, type: 3}
-  - {fileID: 8300000, guid: 03b2254ccf1857e4f8a8fe93459d49a3, type: 3}
-  - {fileID: 8300000, guid: c305047fd26134049b8e3ae724390905, type: 3}
+  - {fileID: 8300000, guid: a4bc87d5bed59ed4e8f4a3fa90876b2e, type: 3}
+  - {fileID: 8300000, guid: f5676e7a3001b1e48af62f29c2419511, type: 3}
+  - {fileID: 8300000, guid: 3ac87dfc648122a419815e6d305561bb, type: 3}
+  - {fileID: 8300000, guid: 8060e508da16361448a84e2fa2af247c, type: 3}
+  - {fileID: 8300000, guid: 5ee668956b300394ba529de16a01547b, type: 3}
+  - {fileID: 8300000, guid: f643903cecb86684782abe7841f1bbe9, type: 3}
+  - {fileID: 8300000, guid: f90d5bd870608884f8713321b5642f07, type: 3}
+  - {fileID: 8300000, guid: 82752a428667eac4cb061b50c5a0d01d, type: 3}
+  - {fileID: 8300000, guid: ba20d8ebbb033144e94d6de76844e03e, type: 3}
   movementVolume: 0.5
   grenadeAudio:
-  - {fileID: 8300000, guid: 7c5ebed54328de344bd33fdee2318e26, type: 3}
+  - {fileID: 8300000, guid: d2bad54cbcfcd2a41984cc94fe1cf11d, type: 3}
   grenadeVolume: 0.5
   speed: 10
   sprintModifier: 2
