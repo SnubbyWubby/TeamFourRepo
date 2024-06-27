@@ -2064,7 +2064,6 @@ MonoBehaviour:
   agent: {fileID: 1774474562954425783}
   shootPos: {fileID: 5411576382329752283}
   headPos: {fileID: 786861220900562865}
-  enemyAudio: {fileID: -1746418114760955427}
   HP: 5
   shootAngle: 5
   animTranSpeed: 4
@@ -2074,7 +2073,8 @@ MonoBehaviour:
   roamDist: 5
   roamTimer: 3
   willPatrol: 0
-  willRoam: 0
+  willRoam: 1
+  enemyAudio: {fileID: -1746418114760955427}
   gunAudio:
   - {fileID: 8300000, guid: a7519540b2862714b81fd4991b55ca1f, type: 3}
   gunVolume: 1
@@ -2082,7 +2082,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 98d96eae5e7d7774b9597df196d188fe, type: 3}
   - {fileID: 8300000, guid: 6f6fd342f9617e54299ce0a631aeaad8, type: 3}
   - {fileID: 8300000, guid: aaec0f815d88d324386ddecc7f3fbad2, type: 3}
-  enemyHitVolume: 1
+  enemyHitVolume: 0.5
   waypoints: []
 --- !u!95 &1442296102632694662
 Animator:
