@@ -108,9 +108,9 @@ public class EnemyAI : MonoBehaviour, IDamage
     bool canSeePlayer()
     {
         playerDirection = GameManager.Instance.Player.transform.position - headPos.position;
-        angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, playerDirection.y + 1, playerDirection.z), transform.forward);
+        angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, playerDirection.y + 0.5f, playerDirection.z), transform.forward);
 
-        Debug.DrawRay(headPos.position, new Vector3(playerDirection.x, playerDirection.y + 1, playerDirection.z));
+        Debug.DrawRay(headPos.position, new Vector3(playerDirection.x, playerDirection.y + 0.5f, playerDirection.z));
 
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDirection, out hit))

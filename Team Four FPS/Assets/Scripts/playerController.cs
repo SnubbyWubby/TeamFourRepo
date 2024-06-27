@@ -335,12 +335,15 @@ public class playerController : MonoBehaviour, IDamage
         float healthPercentage = (float)HP / originalHP;
         GameManager.Instance.playerHPBar.fillAmount = healthPercentage;
 
-        if (healthPercentage > 0.75f)
+        if (healthPercentage > 1f)
+            // Health is blue
+            GameManager.Instance.playerHPBar.color = new Color(0.16f, 0.76f, 1f);
+        else if (healthPercentage <= 1f && healthPercentage > 0.75f)
             // Health is green
-            GameManager.Instance.playerHPBar.color = new Color(0.22f, 0.82f, 0);
+            GameManager.Instance.playerHPBar.color = new Color(0.22f, 0.82f, 0f);
         else if (healthPercentage <= 0.75f && healthPercentage > 0.5f)
             // Health is yellow
-            GameManager.Instance.playerHPBar.color = new Color(1f, 1f, 0);
+            GameManager.Instance.playerHPBar.color = new Color(1f, 1f, 0f);
         else if (healthPercentage <= 0.5f && healthPercentage > 0.25f)
             // Health is orange
             GameManager.Instance.playerHPBar.color = new Color(0.92f, 0.63f, 0.06f);
@@ -390,18 +393,7 @@ public class playerController : MonoBehaviour, IDamage
 
         // Player Will Regenerate Full Armor When Walking Or Running Towards The Green Armor Shield 
 
-        GameManager.Instance.playerHPBar.fillAmount = (float)HP * originalHP;
-
-        float healthPercentage = (float)HP * originalHP;
-
-        GameManager.Instance.playerHPBar.fillAmount = healthPercentage;
-
-        if (healthPercentage > 0.75f)
-        {
-            // Player's Health Bar Will Regenerate Back To Green Fill Color 
-
-            GameManager.Instance.playerHPBar.color = new Color(0.22f, 0.82f, 0);
-        }
+        updatePlayerUI();
     }
 
     void crouch()
