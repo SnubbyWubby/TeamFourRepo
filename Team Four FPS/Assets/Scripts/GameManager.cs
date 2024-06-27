@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    [Header("<=====GM_UI_OUTOFBOUNDS=====>")]
+    [SerializeField] GameObject OutofBoundsUI;
+    [SerializeField] TMP_Text OutofBoundsTimer;
+    [SerializeField] GameObject OutofBoundsBackground;
 
     [Header("<=====GM_UI_GAME_MENUS=====>")]
 
@@ -14,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject MenuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+    [SerializeField] TMP_Text menuLoseCause;
 
     [Header("<=====GM_UI_GRENADE=====>")]
 
@@ -70,6 +75,8 @@ public class GameManager : MonoBehaviour
         {
             showGrenadeWarning();
         }
+
+
     }
 
     public void statePause()
@@ -109,6 +116,11 @@ public class GameManager : MonoBehaviour
         MenuActive = menuLose;
         MenuActive.SetActive(isPaused);
     }
+    public void GameLoss(string cause)
+    {
+        menuLoseCause.text = cause;
+        GameLoss();
+    }
 
     public void updateGrenadeCount(int amount)
     {
@@ -119,5 +131,17 @@ public class GameManager : MonoBehaviour
     public void showGrenadeWarning()
     {
         grenadeIcon.SetActive(inGrenadeRadius);
+    }
+
+    public void OutofBoundsToggle(bool state)
+    {
+        OutofBoundsUI.SetActive(state);
+    }
+
+    public void updateOutofBoundsDisplay(float timeRemaining)
+    {
+        int seconds = Mathf.FloorToInt(timeRemaining);
+        int milliseconds = Mathf.FloorToInt((timeRemaining - seconds) * 100);
+        OutofBoundsTimer.text = string.Format("{0:00}:{1:00}:{2:00}", seconds / 60, seconds % 60, milliseconds);
     }
 }

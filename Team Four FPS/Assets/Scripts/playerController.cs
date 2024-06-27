@@ -82,6 +82,7 @@ public class playerController : MonoBehaviour, IDamage
     bool isShooting;
     bool isCrouching;
     bool isSprinting;
+    bool isSliding;
     bool isJumping;
     bool isWallRunning;
     bool isStraight;
@@ -131,8 +132,14 @@ public class playerController : MonoBehaviour, IDamage
             if (Input.GetButtonDown("Crouch") && !isSprinting) // Crouch
                 crouch();
 
-            if (Input.GetButtonDown("Crouch") && isSprinting) // Slide
+            if (Input.GetButtonDown("Crouch") && isSprinting && !isSliding) // Slide
                 StartCoroutine(slide());
+
+            if (Input.GetButtonDown("Reload") && gunList.Count > 0 && gunList[selectedGun].ammoCurr < gunList[selectedGun].ammoMax)
+            {
+                gunList[selectedGun].ammoCurr = gunList[selectedGun].ammoMax;
+                updatePlayerUI();
+            }
 
             /*if (Input.GetButtonDown("Jump") && !isWallRunning)
                 wallRun();*/
@@ -310,7 +317,7 @@ public class playerController : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
-            GameManager.Instance.GameLoss();
+            GameManager.Instance.GameLoss("You died");
         }
     }
 
@@ -445,6 +452,7 @@ public class playerController : MonoBehaviour, IDamage
         // Go into crouch position, may need to change if we add animations
         crouch();
 
+        isSliding = true;
         speed *= slideModifier;
         playerVelocity = new Vector3(moveDirection.x * speed, moveDirection.y, moveDirection.z * speed);
         controller.Move(playerVelocity * Time.deltaTime);
@@ -454,6 +462,7 @@ public class playerController : MonoBehaviour, IDamage
         // Stand back up and remove slideModifier
         crouch();
         speed /= slideModifier;
+        isSliding = false;
     }
 
     IEnumerator throwGrenade()
