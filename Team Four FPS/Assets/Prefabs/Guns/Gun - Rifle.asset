@@ -17,7 +17,7 @@ MonoBehaviour:
   shootDistance: 500
   shootRate: 1
   audioVolume: 0.5
-  ammoCurr: 9
+  ammoCurr: 26
   ammoMax: 30
   hitEffect: {fileID: 4756644639911493075, guid: b476d3514fec8fa4799bf1c6730c3c99, type: 3}
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: a13ca424624aa904a81cfc9366c6e3f9, type: 3}
