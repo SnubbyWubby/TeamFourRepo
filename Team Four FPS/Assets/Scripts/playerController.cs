@@ -162,8 +162,6 @@ public class playerController : MonoBehaviour, IDamage
 
         updatePlayerUI();
 
-        Debug.Log("Gun Added");
-
         shootDamage = gun.shootDamage;
         shootRate = gun.shootRate;
         shootDistance = gun.shootDistance;
@@ -410,21 +408,19 @@ public class playerController : MonoBehaviour, IDamage
     {
         if (!isCrouching)
         {
-            Debug.Log("crouching");
             isCrouching = true;
             controller.height = crouchHeight;
             controller.center.Set(0f, crouchCenterYOffset, 0f);
         }
         else
         {
-            Debug.Log("standing");
             isCrouching = false;
             controller.height = playerHeight;
             controller.center.Set(0f, standingCenterYOffset, 0f);
         }
     }
 
-    IEnumerator PlayerWallRun()
+    /* IEnumerator PlayerWallRun()
     {
         // User Input (Manager) Button Either "Q" Or "E" To Activate Wall Run
 
@@ -435,18 +431,16 @@ public class playerController : MonoBehaviour, IDamage
             plrStateMoving = StateMovement.plrWallRunning;
 
             speed = wallRunSpeed;
-
-            Debug.Log("Wall-Running!");
         }
 
         yield return new WaitForSeconds(plrWallRunTimer);
 
         truWallRun = false;
     }
+    */
 
     IEnumerator slide()
     {
-        Debug.Log("Weeeee!");
         float slideTime = slideDuration;
 
         // Go into crouch position, may need to change if we add animations
@@ -483,7 +477,6 @@ public class playerController : MonoBehaviour, IDamage
     {
         if (controller.isGrounded && !isStraight)
         {
-            Debug.Log(transform.eulerAngles.z);
             if (transform.eulerAngles.z != 0)
             {
                 transform.Rotate(Vector3.forward * -transform.eulerAngles.z);

@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         
         origPos = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
-        
+        canTakeDamage = true;
     }
 
     // Update is called once per frame
@@ -115,7 +115,6 @@ public class EnemyAI : MonoBehaviour, IDamage
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDirection, out hit))
         {
-            Debug.Log(hit.collider.name);
             if (hit.collider.CompareTag("Player") && angleToPlayer <= viewAngle)
             {
 

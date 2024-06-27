@@ -105,13 +105,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObjects: {fileID: 1281862881741462650, guid: c08f89afad8841d4bb2eab9b8847b489, type: 3}
-  spawnTimer: 2
-  spawnNumber: 4
   spawnPosition:
   - {fileID: 7983025465112630801}
   - {fileID: 4710917440142960904}
   - {fileID: 8403836765069450816}
   - {fileID: 1319718328470368593}
+  spawnTimer: 2
+  spawnNumber: 4
 --- !u!33 &1257762617007489145
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7129827080098680632}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
