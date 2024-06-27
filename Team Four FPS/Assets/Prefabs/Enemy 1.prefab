@@ -2057,7 +2057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e510402db7d824a8edffda941c7c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
+  HP: 5
   model: {fileID: 6989326233425647769}
   animTranSpeed: 4
   anim: {fileID: 1442296102632694662}
@@ -2072,7 +2072,7 @@ MonoBehaviour:
   roamDist: 5
   roamTimer: 3
   willPatrol: 0
-  willRoam: 0
+  willRoam: 1
   waypoints: []
 --- !u!95 &1442296102632694662
 Animator:

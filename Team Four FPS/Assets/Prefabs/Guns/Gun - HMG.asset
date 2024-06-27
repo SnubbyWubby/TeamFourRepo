@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Gun - HMG
   m_EditorClassIdentifier: 
   gunModel: {fileID: 1700241443051174, guid: 8700519ec02e5ca40b58946336809aae, type: 3}
-  shootDamage: 6
+  shootDamage: 1
   shootDistance: 250
   shootRate: 0.125
   audioVolume: 0.5
-  ammoCurr: 36
+  ammoCurr: 55
   ammoMax: 100
   hitEffect: {fileID: 628175838704602489, guid: 061519b21f59a944fbceeb3d93b3d102, type: 3}
   shootSound: {fileID: 8300000, guid: d72f0864326b5f34e947c3e62af72fab, type: 3}
