@@ -386,6 +386,11 @@ public class playerController : MonoBehaviour, IDamage
     {
         HP += amount;
 
+        if (HP > originalHP)
+        {
+            HP = originalHP;
+        }
+
         // Player Will Regenerate Full Health When Walking Or Running Towards The Blue Health Sphere
 
         GameManager.Instance.playerHPBar.fillAmount = (float)HP * originalHP;
