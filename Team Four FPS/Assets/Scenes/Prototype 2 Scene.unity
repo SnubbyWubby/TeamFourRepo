@@ -7345,11 +7345,26 @@ PrefabInstance:
       propertyPath: loseVolume
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 6663570609318637700, guid: c246d66dd646f1744b1adba5adf5fda2, type: 3}
+      propertyPath: OutofBoundsTimer
+      value: 
+      objectReference: {fileID: 1382970185}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c246d66dd646f1744b1adba5adf5fda2, type: 3}
+--- !u!114 &1382970185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206195302171698859, guid: c246d66dd646f1744b1adba5adf5fda2, type: 3}
+  m_PrefabInstance: {fileID: 1382970184}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1390809335
 PrefabInstance:
   m_ObjectHideFlags: 0
