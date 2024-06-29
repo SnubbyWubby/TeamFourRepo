@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class OutofBounds : MonoBehaviour
 {
+    [Header("<=====OUT_OF_BOUNDS_AUDIO=====>")]
+
+    [SerializeField] AudioSource otbAudio;
+
+    [SerializeField] AudioClip[] outBoundAudio;
+    [SerializeField] float outBoundVolume;
+
     [Header("<=====OUT_OF_BOUNDS_STATS=====>")]
 
     [SerializeField] int maxDuration;
 
     float timeRemaining = 0f;
-    bool timerIsRunning = false;
+    bool timerIsRunning;
 
     // Update is called once per frame
     void Update()
@@ -17,10 +24,17 @@ public class OutofBounds : MonoBehaviour
         if (timerIsRunning)
         {
             GameManager.Instance.updateOutofBoundsDisplay(timeRemaining);
+
             if (timeRemaining > 0)
+            {
                 timeRemaining -= Time.deltaTime;
+
+                otbAudio.PlayOneShot(outBoundAudio[Random.Range(0, outBoundAudio.Length)], outBoundVolume);
+            }
             else
             {
+                otbAudio.Stop(); 
+
                 timeRemaining = 0;
                 timerIsRunning = false;
                 GameManager.Instance.GameLoss("You left the battle field!");
@@ -40,6 +54,8 @@ public class OutofBounds : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        otbAudio.Stop();
+
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.OutofBoundsToggle(false);

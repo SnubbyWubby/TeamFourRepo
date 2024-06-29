@@ -413,9 +413,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f90d5bd870608884f8713321b5642f07, type: 3}
   - {fileID: 8300000, guid: 82752a428667eac4cb061b50c5a0d01d, type: 3}
   - {fileID: 8300000, guid: ba20d8ebbb033144e94d6de76844e03e, type: 3}
-  movementVolume: 0.2
+  movementVolume: 0.25
   grenadeAudio:
-  - {fileID: 8300000, guid: d2bad54cbcfcd2a41984cc94fe1cf11d, type: 3}
+  - {fileID: 8300000, guid: b74f0e32d102e2146837274dcdfb6906, type: 3}
   grenadeVolume: 0.5
   healthAudio:
   - {fileID: 8300000, guid: 5d3f9f2f41073484f9c027e506fd9461, type: 3}
