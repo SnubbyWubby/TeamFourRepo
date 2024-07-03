@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
 
     public playerController PlayerScript;
 
+    public Camera MainCamera;
+
     public bool isPaused;
 
     int enemyCount;
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
         Player = GameObject.FindWithTag("Player");
         PlayerScript = Player.GetComponent<playerController>();
+        MainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
