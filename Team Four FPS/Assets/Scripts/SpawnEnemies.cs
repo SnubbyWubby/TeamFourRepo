@@ -61,7 +61,7 @@ public class SpawnEnemies : MonoBehaviour
 
         yield return new WaitForSeconds(spawnTimer);
 
-        adSpawn.PlayOneShot(spawnAudio[Random.Range(0, spawnAudio.Length)], spawnVolume);
+        //adSpawn.PlayOneShot(spawnAudio[Random.Range(0, spawnAudio.Length)], spawnVolume);
 
         spawnTruth = false;
     }
