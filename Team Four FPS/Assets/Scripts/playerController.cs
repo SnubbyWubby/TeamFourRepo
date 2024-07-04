@@ -16,6 +16,7 @@ public class playerController : MonoBehaviour, IDamage
     [Header("<=====PLAYER_STATS=====>")] 
 
     [SerializeField] int HP;
+    [SerializeField] int armHP; 
     [SerializeField] int jumpMax;
     [SerializeField] int jumpSpeed;
     [SerializeField] int gravity;
@@ -70,16 +71,8 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float crouchCenterYOffset;
     [SerializeField] float standingCenterYOffset;
 
-    [SerializeField] float wallCheckDistance;
-    [SerializeField] float wallDescendModifier;
-
     [Range(0.2f, 0.5f)] public float audioWalkTimer;
     [Range(0.01f, 0.1f)]public float audioRunTimer; 
-
-    public bool truWallRun;
-    public float wallRunSpeed;
-
-    public StateMovement plrStateMoving;
 
     [Header("<=====PLAYER_GRENADES=====>")]
 
@@ -96,26 +89,27 @@ public class playerController : MonoBehaviour, IDamage
     bool isSprinting;
     bool isSliding;
     bool isJumping;
-    bool isWallRunning;
     bool isStraight;
     bool isWalking;
     bool isRunning;
-    bool isDamageHit; 
+    bool isDamageHit;
+    bool isArmorEngaged;  
 
     int originalHP;
+    int ogArmorHP; 
     int jumpCount;
     int selectedGun;
 
     float playerHeight;
-    float crouchHeight;
-    float plrWallRunTimer;
-
-    public enum StateMovement { plrWallRunning }
+    float crouchHeight; 
 
     // Start is called before the first frame update
     void Start()
     {
         originalHP = HP;
+
+        ogArmorHP = armHP; 
+
         isStraight = true;
 
         updatePlayerUI();
@@ -135,10 +129,10 @@ public class playerController : MonoBehaviour, IDamage
 
             movement();
 
-            if (Input.GetButton("Fire1") && gunList.Count > 0 && gunList[selectedGun].ammoCurr > 0 && !isShooting)
+            if (Input.GetButton("Fire1") && gunList.Count > 0 && gunList[selectedGun].ammoCurr > 0 && !isShooting) // Shoot Weapons 
                 StartCoroutine(shoot());
 
-            if (Input.GetButtonDown("Grenade") && grenadeCount > 0)
+            if (Input.GetButtonDown("Grenade") && grenadeCount > 0) // Throw Grenade
                 StartCoroutine(throwGrenade());
 
             if (Input.GetButtonDown("Crouch") && (!isSprinting || isSliding)) // Crouch
@@ -147,25 +141,17 @@ public class playerController : MonoBehaviour, IDamage
             if (Input.GetButtonDown("Crouch") && isSprinting && !isSliding) // Slide
                 StartCoroutine(slide());
 
-            if (Input.GetButtonDown("Reload") && gunList.Count > 0 && gunList[selectedGun].ammoCurr < gunList[selectedGun].ammoMax)
+            if (Input.GetButtonDown("Reload") && gunList.Count > 0 && gunList[selectedGun].ammoCurr < gunList[selectedGun].ammoMax) // Reload Guns
             {
                 plrAudio.PlayOneShot(reloadAudio, reloadVolume);
                 gunList[selectedGun].ammoCurr = gunList[selectedGun].ammoMax;
                 updatePlayerUI();
             }
 
-            /*if (Input.GetButtonDown("Jump") && !isWallRunning)
-                wallRun();*/
-
             selectGun();
         }
 
         sprint();
-
-        // if (Input.GetButtonDown("Jump") && truWallRun) // Wall Run
-        // StartCoroutine(PlayerWallRun());
-
-        //wallRun();
     }
 
     public void getGunStats(gunStats gun)
@@ -324,13 +310,15 @@ public class playerController : MonoBehaviour, IDamage
     {
         HP -= amount;
 
+        armHP -= amount; 
+
         if (!isDamageHit) { StartCoroutine(PlayDamageHitSounds()); }
 
         updatePlayerUI();
 
-        if (HP <= 0)
+        if (HP <= 0 && armHP <= 0)
         {
-            GameManager.Instance.GameLoss("You died");
+            GameManager.Instance.GameLoss("You Are Dead!");
         }
     }
 
@@ -365,6 +353,29 @@ public class playerController : MonoBehaviour, IDamage
         else
             // Health is red
             GameManager.Instance.playerHPBar.color = new Color(1f, 0.25f, 0.25f);
+
+
+        if (!isArmorEngaged)
+        {
+            float armorPercentage = (float)armHP / ogArmorHP;
+            GameManager.Instance.plrArmorHPBar.fillAmount = armorPercentage;
+
+            if (armorPercentage > 1f)
+                // Health is blue
+                GameManager.Instance.plrArmorHPBar.color = new Color(0.16f, 0.76f, 1f);
+            else if (armorPercentage <= 1f && armorPercentage > 0.75f)
+                // Health is green
+                GameManager.Instance.plrArmorHPBar.color = new Color(0.22f, 0.82f, 0f);
+            else if (armorPercentage <= 0.75f && armorPercentage > 0.5f)
+                // Health is yellow
+                GameManager.Instance.plrArmorHPBar.color = new Color(1f, 1f, 0f);
+            else if (armorPercentage <= 0.5f && armorPercentage > 0.25f)
+                // Health is orange
+                GameManager.Instance.plrArmorHPBar.color = new Color(0.92f, 0.63f, 0.06f);
+            else
+                // Health is red
+                GameManager.Instance.plrArmorHPBar.color = new Color(1f, 0.25f, 0.25f);
+        }
 
         if (gunList.Count > 0)
         {
@@ -402,6 +413,13 @@ public class playerController : MonoBehaviour, IDamage
     {
         HP += amount;
 
+        armHP += amount;
+
+        if (armHP > originalHP) 
+        { 
+            armHP = originalHP; 
+        }
+
         // Player Will Regenerate Full Armor When Walking Or Running Towards The Green Armor Shield 
 
         updatePlayerUI();
@@ -424,25 +442,6 @@ public class playerController : MonoBehaviour, IDamage
             controller.center.Set(0f, standingCenterYOffset, 0f);
         }
     }
-
-    /* IEnumerator PlayerWallRun()
-    {
-        // User Input (Manager) Button Either "Q" Or "E" To Activate Wall Run
-
-        truWallRun = true;
-
-        if (truWallRun)
-        {
-            plrStateMoving = StateMovement.plrWallRunning;
-
-            speed = wallRunSpeed;
-        }
-
-        yield return new WaitForSeconds(plrWallRunTimer);
-
-        truWallRun = false;
-    }
-    */
 
     IEnumerator slide()
     {
@@ -467,6 +466,7 @@ public class playerController : MonoBehaviour, IDamage
     IEnumerator throwGrenade()
     {
         // TODO: Write code to create better arc.
+
         Instantiate(grenade, throwPos.position, transform.rotation);
 
         yield return new WaitForSeconds(grenadeReloadTime);
@@ -476,74 +476,5 @@ public class playerController : MonoBehaviour, IDamage
         grenadeCount--;
 
         GameManager.Instance.updateGrenadeCount(-1);
-    }
-
-    public void wallRun()
-    {
-        if (controller.isGrounded && !isStraight)
-        {
-            if (transform.eulerAngles.z != 0)
-            {
-                transform.Rotate(Vector3.forward * -transform.eulerAngles.z);
-            }
-
-                isStraight = true;
-        }
-        //RaycastHit hitWall;
-
-        if (isJumping)
-        {
-            Collider[] hits = Physics.OverlapSphere(feetPos.transform.position, wallCheckDistance);
-            foreach (Collider hit in hits)
-            {
-                if (hit.transform != transform && hit.CompareTag("Wallrunnable"))
-                {
-                    if (gameObject.transform.position.y >= 4.5f)
-                    {
-                        playerVelocity.y = 0f;
-                        
-                        if (hit.transform.position.x > gameObject.transform.position.x && isStraight)
-                        {
-                            isStraight = false;
-                            transform.Rotate(Vector3.forward * -30f);
-                        }
-                        else if (hit.transform.position.x < gameObject.transform.position.x && isStraight)
-                        {
-                            isStraight = false;
-                            transform.Rotate(Vector3.forward * 30f);
-                        }
-                    }
-
-                    playerVelocity.y -= gravity * wallDescendModifier * Time.deltaTime;
-                }
-            }
-            /* 
-            if (Physics.Raycast(feetPos.transform.position, -transform.right, out leftWall, wallCheckDistance))
-            {
-                if (leftWall.collider.CompareTag("Wallrunnable"))
-                {
-                    if (gameObject.transform.position.y >= 4.5f)
-                    {
-                        playerVelocity.y = 0f;
-                    }
-
-                    playerVelocity.y -= gravity * wallDescendModifier * Time.deltaTime;
-                }
-            }
-            else if (Physics.Raycast(feetPos.transform.position, transform.right, out rightWall, wallCheckDistance))
-            {
-                if (rightWall.collider.CompareTag("Wallrunnable"))
-                {
-                    if (gameObject.transform.position.y >= 4.5f)
-                    {
-                        playerVelocity.y = 0f;
-                        transform.Rotate(Vector3.forward * 30f);
-                    }
-
-                    playerVelocity.y -= gravity * wallDescendModifier * Time.deltaTime;
-                }
-            }
-            */
-        }
     }
 }

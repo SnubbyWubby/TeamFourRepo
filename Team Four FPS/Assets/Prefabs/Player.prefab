@@ -380,6 +380,7 @@ MonoBehaviour:
   feetPos: {fileID: 5738388994667223455}
   plrAudio: {fileID: 8242299182703368241}
   HP: 10
+  armHP: 10
   jumpMax: 2
   jumpSpeed: 10
   gravity: 20
@@ -436,13 +437,8 @@ MonoBehaviour:
   slideModifier: 1.25
   crouchCenterYOffset: -0.5
   standingCenterYOffset: 0
-  wallCheckDistance: 1.5
-  wallDescendModifier: 3
   audioWalkTimer: 0.3
   audioRunTimer: 0.1
-  truWallRun: 0
-  wallRunSpeed: 10
-  plrStateMoving: 0
   grenade: {fileID: 2164594306382342039, guid: 03b155c905f75fe40a956208a73440ed, type: 3}
   grenadeCount: 5
   grenadeReloadTime: 2

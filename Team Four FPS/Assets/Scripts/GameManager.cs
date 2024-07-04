@@ -42,17 +42,18 @@ public class GameManager : MonoBehaviour
 
     [Header("<=====GM_UI_PLAYER&ENEMY=====>")]
 
+    public playerController PlayerScript;
+
+    public GameObject Player;
+
+    public Camera MainCamera;
+
     public Image playerHPBar;
+    public Image plrArmorHPBar; 
 
     public TMP_Text ammoCurrent, ammoMaximum;
 
     [SerializeField] TMP_Text enemyCountText;
-
-    public GameObject Player;
-
-    public playerController PlayerScript;
-
-    public Camera MainCamera;
 
     public bool isPaused;
 
