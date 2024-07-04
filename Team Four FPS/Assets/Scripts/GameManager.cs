@@ -49,7 +49,8 @@ public class GameManager : MonoBehaviour
     public Camera MainCamera;
 
     public Image playerHPBar;
-    public Image plrArmorHPBar; 
+    public Image plrArmorHPBar;
+    public GameObject plrArmorHPBack;
 
     public TMP_Text ammoCurrent, ammoMaximum;
 

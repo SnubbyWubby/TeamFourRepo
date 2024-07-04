@@ -16,7 +16,7 @@ public class playerController : MonoBehaviour, IDamage
     [Header("<=====PLAYER_STATS=====>")] 
 
     [SerializeField] int HP;
-    [SerializeField] int armHP; 
+    [SerializeField] int maxArmorHP; 
     [SerializeField] int jumpMax;
     [SerializeField] int jumpSpeed;
     [SerializeField] int gravity;
@@ -93,10 +93,9 @@ public class playerController : MonoBehaviour, IDamage
     bool isWalking;
     bool isRunning;
     bool isDamageHit;
-    bool isArmorEngaged;  
 
     int originalHP;
-    int ogArmorHP; 
+    int armHP;
     int jumpCount;
     int selectedGun;
 
@@ -107,8 +106,6 @@ public class playerController : MonoBehaviour, IDamage
     void Start()
     {
         originalHP = HP;
-
-        ogArmorHP = armHP; 
 
         isStraight = true;
 
@@ -366,9 +363,22 @@ public class playerController : MonoBehaviour, IDamage
     #region Player Damage Functionality
     public void takeDamage(int amount)
     {
-        HP -= amount;
+        if (armHP > 0)
+        {
+            int dmgRemainder = 0;
 
-        armHP -= amount; 
+            if (amount > armHP)
+            {
+                dmgRemainder = amount % armHP;
+            }
+
+            armHP -= amount;
+            HP -= dmgRemainder;
+        }
+        else
+        {
+            HP -= amount;
+        }
 
         if (!isDamageHit) { StartCoroutine(PlayDamageHitSounds()); }
 
@@ -415,26 +425,14 @@ public class playerController : MonoBehaviour, IDamage
             GameManager.Instance.playerHPBar.color = new Color(1f, 0.25f, 0.25f);
 
 
-        if (!isArmorEngaged)
+        if (armHP > 0)
         {
-            float armorPercentage = (float)armHP / ogArmorHP;
+            float armorPercentage = (float)armHP / maxArmorHP;
             GameManager.Instance.plrArmorHPBar.fillAmount = armorPercentage;
-
-            if (armorPercentage > 1f)
-                // Health is blue
-                GameManager.Instance.plrArmorHPBar.color = new Color(0.16f, 0.76f, 1f);
-            else if (armorPercentage <= 1f && armorPercentage > 0.75f)
-                // Health is green
-                GameManager.Instance.plrArmorHPBar.color = new Color(0.22f, 0.82f, 0f);
-            else if (armorPercentage <= 0.75f && armorPercentage > 0.5f)
-                // Health is yellow
-                GameManager.Instance.plrArmorHPBar.color = new Color(1f, 1f, 0f);
-            else if (armorPercentage <= 0.5f && armorPercentage > 0.25f)
-                // Health is orange
-                GameManager.Instance.plrArmorHPBar.color = new Color(0.92f, 0.63f, 0.06f);
-            else
-                // Health is red
-                GameManager.Instance.plrArmorHPBar.color = new Color(1f, 0.25f, 0.25f);
+        }
+        else
+        {
+            GameManager.Instance.plrArmorHPBack.SetActive(false);
         }
 
         if (gunList.Count > 0)
@@ -473,14 +471,14 @@ public class playerController : MonoBehaviour, IDamage
 
     public void ArmorShield(int amount)
     {
-        HP += amount;
-
         armHP += amount;
 
-        if (armHP > originalHP) 
-        { 
-            armHP = originalHP; 
+        if (armHP > maxArmorHP)
+        {
+            armHP = maxArmorHP;
         }
+
+        GameManager.Instance.plrArmorHPBack.SetActive(true);
 
         // Player Will Regenerate Full Armor When Walking Or Running Towards The Green Armor Shield 
 
