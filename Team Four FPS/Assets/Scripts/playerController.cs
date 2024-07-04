@@ -154,48 +154,7 @@ public class playerController : MonoBehaviour, IDamage
         sprint();
     }
 
-    public void getGunStats(gunStats gun)
-    {
-        gunList.Add(gun);
-        selectedGun = gunList.Count - 1;
-
-        updatePlayerUI();
-
-        plrAudio.PlayOneShot(weaponAudio[Random.Range(0, weaponAudio.Length)], weaponVolume); 
-
-        shootDamage = gun.shootDamage;
-        shootRate = gun.shootRate;
-        shootDistance = gun.shootDistance;
-
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gun.gunModel.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gun.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-    }
-
-    void selectGun()
-    {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
-        {
-            selectedGun++;
-            changeGun();
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
-        {
-            selectedGun--;
-            changeGun();
-        }
-    }
-
-    void changeGun()
-    {
-        updatePlayerUI();
-
-        shootDamage = gunList[selectedGun].shootDamage;
-        shootRate = gunList[selectedGun].shootRate;
-        shootDistance = gunList[selectedGun].shootDistance;
-
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-    }
+    #region Player Movement Functionality
 
     void movement()
     {
@@ -253,6 +212,42 @@ public class playerController : MonoBehaviour, IDamage
         }
     }
 
+    void crouch()
+    {
+        if (!isCrouching)
+        {
+            isCrouching = true;
+            controller.height = crouchHeight;
+            controller.center.Set(0f, crouchCenterYOffset, 0f);
+        }
+        else
+        {
+            isCrouching = false;
+            controller.height = playerHeight;
+            controller.center.Set(0f, standingCenterYOffset, 0f);
+        }
+    }
+
+    IEnumerator slide()
+    {
+        float slideTime = slideDuration;
+
+        // Go into crouch position, may need to change if we add animations
+        crouch();
+
+        isSliding = true;
+        speed *= slideModifier;
+        playerVelocity = new Vector3(moveDirection.x * speed, moveDirection.y, moveDirection.z * speed);
+        controller.Move(playerVelocity * Time.deltaTime);
+
+        yield return new WaitForSeconds(slideTime);
+
+        // Stand back up and remove slideModifier
+        //crouch();
+        speed /= slideModifier;
+        isSliding = false;
+    }
+
     IEnumerator PlayMovementAudio() 
     {
         isWalking = true;
@@ -269,6 +264,52 @@ public class playerController : MonoBehaviour, IDamage
         }
 
         isWalking = false;  
+    }
+
+    #endregion
+
+    #region Player Weapon Functionality
+    public void getGunStats(gunStats gun)
+    {
+        gunList.Add(gun);
+        selectedGun = gunList.Count - 1;
+
+        updatePlayerUI();
+
+        plrAudio.PlayOneShot(weaponAudio[Random.Range(0, weaponAudio.Length)], weaponVolume);
+
+        shootDamage = gun.shootDamage;
+        shootRate = gun.shootRate;
+        shootDistance = gun.shootDistance;
+
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gun.gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gun.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+    }
+
+    void selectGun()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        {
+            selectedGun++;
+            changeGun();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        {
+            selectedGun--;
+            changeGun();
+        }
+    }
+
+    void changeGun()
+    {
+        updatePlayerUI();
+
+        shootDamage = gunList[selectedGun].shootDamage;
+        shootRate = gunList[selectedGun].shootRate;
+        shootDistance = gunList[selectedGun].shootDistance;
+
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
     IEnumerator shoot()
@@ -306,6 +347,23 @@ public class playerController : MonoBehaviour, IDamage
         isShooting = false;
     }
 
+    IEnumerator throwGrenade()
+    {
+        // TODO: Write code to create better arc.
+
+        Instantiate(grenade, throwPos.position, transform.rotation);
+
+        yield return new WaitForSeconds(grenadeReloadTime);
+
+        plrAudio.PlayOneShot(grenadeAudio[Random.Range(0, grenadeAudio.Length)], grenadeVolume);
+
+        grenadeCount--;
+
+        GameManager.Instance.updateGrenadeCount(-1);
+    }
+    #endregion
+
+    #region Player Damage Functionality
     public void takeDamage(int amount)
     {
         HP -= amount;
@@ -332,7 +390,9 @@ public class playerController : MonoBehaviour, IDamage
 
         isDamageHit = false; 
     }
+    #endregion
 
+    #region Player UI Functionality
     void updatePlayerUI()
     {
         float healthPercentage = (float)HP / originalHP;
@@ -392,7 +452,9 @@ public class playerController : MonoBehaviour, IDamage
 
         flashMuzzle.SetActive(false);
     }
+    #endregion
 
+    #region Player Pickup Functionality
     public void HealthPack(int amount)
     {
         HP += amount;
@@ -426,55 +488,5 @@ public class playerController : MonoBehaviour, IDamage
 
         plrAudio.PlayOneShot(armorAudio[Random.Range(0, armorAudio.Length)], armorVolume); 
     }
-
-    void crouch()
-    {
-        if (!isCrouching)
-        {
-            isCrouching = true;
-            controller.height = crouchHeight;
-            controller.center.Set(0f, crouchCenterYOffset, 0f);
-        }
-        else
-        {
-            isCrouching = false;
-            controller.height = playerHeight;
-            controller.center.Set(0f, standingCenterYOffset, 0f);
-        }
-    }
-
-    IEnumerator slide()
-    {
-        float slideTime = slideDuration;
-
-        // Go into crouch position, may need to change if we add animations
-        crouch();
-
-        isSliding = true;
-        speed *= slideModifier;
-        playerVelocity = new Vector3(moveDirection.x * speed, moveDirection.y, moveDirection.z * speed);
-        controller.Move(playerVelocity * Time.deltaTime);
-
-        yield return new WaitForSeconds(slideTime);
-
-        // Stand back up and remove slideModifier
-        //crouch();
-        speed /= slideModifier;
-        isSliding = false;
-    }
-
-    IEnumerator throwGrenade()
-    {
-        // TODO: Write code to create better arc.
-
-        Instantiate(grenade, throwPos.position, transform.rotation);
-
-        yield return new WaitForSeconds(grenadeReloadTime);
-
-        plrAudio.PlayOneShot(grenadeAudio[Random.Range(0, grenadeAudio.Length)], grenadeVolume);
-
-        grenadeCount--;
-
-        GameManager.Instance.updateGrenadeCount(-1);
-    }
+    #endregion
 }
