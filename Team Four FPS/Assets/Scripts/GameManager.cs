@@ -58,6 +58,12 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused;
 
+    [Header("<=====GM_UI_STOPWATCH=====>")]
+    [SerializeField] TMP_Text StopwatchCurr;
+    [SerializeField] TMP_Text StopwatchBest;
+    bool stopWatchActive;
+    float currentTime;
+
     int enemyCount;
     int grenadeCount;
 
@@ -65,6 +71,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        stopWatchActive = true;
         Player = GameObject.FindWithTag("Player");
         PlayerScript = Player.GetComponent<playerController>();
         MainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
@@ -92,6 +99,13 @@ public class GameManager : MonoBehaviour
         {
             showGrenadeWarning();
         }
+
+        if (stopWatchActive)
+        {
+            currentTime += Time.deltaTime;
+            StopwatchCurr.text = timerConvertor(currentTime);
+        }
+
     }
 
     public void statePause()
@@ -101,6 +115,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        stopWatchActive = false;
     }
 
     public void stateUnpause()
@@ -111,6 +126,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         MenuActive.SetActive(isPaused);
         MenuActive = null;
+        stopWatchActive = true;
     }
 
     public void updateGameGoal(int amount)
@@ -160,8 +176,13 @@ public class GameManager : MonoBehaviour
 
     public void updateOutofBoundsDisplay(float timeRemaining)
     {
-        int seconds = Mathf.FloorToInt(timeRemaining);
-        int milliseconds = Mathf.FloorToInt((timeRemaining - seconds) * 100);
-        OutofBoundsTimer.text = string.Format("{0:00}:{1:00}:{2:00}", seconds / 60, seconds % 60, milliseconds);
+        OutofBoundsTimer.text = timerConvertor(timeRemaining);
+    }
+
+    public string timerConvertor(float currTime)
+    {
+        int seconds = Mathf.FloorToInt(currTime);
+        int milliseconds = Mathf.FloorToInt((currTime - seconds) * 100);
+        return string.Format("{0:00}:{1:00}:{2:00}", seconds / 60, seconds % 60, milliseconds);
     }
 }
