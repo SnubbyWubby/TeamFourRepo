@@ -18,7 +18,8 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int HP;
     [SerializeField] int maxArmorHP; 
     [SerializeField] int jumpMax;
-    [SerializeField] int jumpSpeed;
+    [SerializeField] int jumpHighSpeed;
+    [SerializeField] int jumpLowSpeed;
     [SerializeField] int gravity;
 
     [Range(0.1f, 0.5f)] public float audioDamageTimer; 
@@ -57,7 +58,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] AudioClip[] weaponAudio;
     [SerializeField] float weaponVolume;
 
-    [SerializeField] AudioClip reloadAudio;
+    [SerializeField] AudioClip[] reloadAudio;
     [SerializeField] float reloadVolume;
 
     [Header("<=====PLAYER_MOVEMENT=====>")]
@@ -140,7 +141,7 @@ public class playerController : MonoBehaviour, IDamage
 
             if (Input.GetButtonDown("Reload") && gunList.Count > 0 && gunList[selectedGun].ammoCurr < gunList[selectedGun].ammoMax) // Reload Guns
             {
-                plrAudio.PlayOneShot(reloadAudio, reloadVolume);
+                plrAudio.PlayOneShot(reloadAudio[Random.Range(0, reloadAudio.Length)], reloadVolume); 
                 gunList[selectedGun].ammoCurr = gunList[selectedGun].ammoMax;
                 updatePlayerUI();
             }
@@ -156,7 +157,7 @@ public class playerController : MonoBehaviour, IDamage
     void movement()
     {
         // Check if player is touching the ground
-        if (controller.isGrounded)
+        if (controller.isGrounded && !Input.GetButton("Jump")) 
         {
             isJumping = false;
             jumpCount = 0;
@@ -174,7 +175,12 @@ public class playerController : MonoBehaviour, IDamage
             plrAudio.PlayOneShot(jumpAudio[Random.Range(0, jumpAudio.Length)], jumpVolume); 
 
             jumpCount++;
-            playerVelocity.y = jumpSpeed;
+            playerVelocity.y = jumpHighSpeed;
+        }
+
+        if(Input.GetButtonUp("Jump") && playerVelocity.y > jumpCount)   
+        { 
+            playerVelocity.y = jumpLowSpeed;  
         }
 
         playerVelocity.y -= gravity * Time.deltaTime;
@@ -429,6 +435,13 @@ public class playerController : MonoBehaviour, IDamage
         {
             float armorPercentage = (float)armHP / maxArmorHP;
             GameManager.Instance.plrArmorHPBar.fillAmount = armorPercentage;
+
+            if (armorPercentage <= 0.75f && armorPercentage > 0.25f)
+                // Armor Is Blue
+                GameManager.Instance.plrArmorHPBar.color = new Color(0.15f, 0.75f, 1f);
+            else if (armorPercentage <= 0.25f)
+                // Armor Is Red
+                GameManager.Instance.plrArmorHPBar.color = new Color(1f, 0.25f, 0.25f);
         }
         else
         {

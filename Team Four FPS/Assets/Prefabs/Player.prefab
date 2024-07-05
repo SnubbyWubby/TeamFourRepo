@@ -303,7 +303,7 @@ Transform:
   m_GameObject: {fileID: 3910038633727773674}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.375, z: 0.602}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -380,9 +380,10 @@ MonoBehaviour:
   feetPos: {fileID: 5738388994667223455}
   plrAudio: {fileID: 8242299182703368241}
   HP: 10
-  armHP: 10
+  maxArmorHP: 10
   jumpMax: 2
-  jumpSpeed: 10
+  jumpHighSpeed: 15
+  jumpLowSpeed: 5
   gravity: 20
   audioDamageTimer: 0.1
   gunList: []
@@ -414,7 +415,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f90d5bd870608884f8713321b5642f07, type: 3}
   - {fileID: 8300000, guid: 82752a428667eac4cb061b50c5a0d01d, type: 3}
   - {fileID: 8300000, guid: ba20d8ebbb033144e94d6de76844e03e, type: 3}
-  movementVolume: 0.25
+  movementVolume: 0.1
   grenadeAudio:
   - {fileID: 8300000, guid: b74f0e32d102e2146837274dcdfb6906, type: 3}
   grenadeVolume: 0.5
@@ -429,7 +430,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 146c69ef2ea436c4fa797bbabc91899e, type: 3}
   - {fileID: 8300000, guid: 5fe506c13d43d584084e9278f590279f, type: 3}
   weaponVolume: 0.5
-  reloadAudio: {fileID: 8300000, guid: a497070ac31cbd24e9147a6b9e2f13d6, type: 3}
+  reloadAudio:
+  - {fileID: 8300000, guid: 82d85db9c9c777b4c98618fc6c480a49, type: 3}
+  - {fileID: 8300000, guid: ad5967b0668c075469756459be83e42f, type: 3}
+  - {fileID: 8300000, guid: 4ce47ea4b7a871a43a550df96b0bd656, type: 3}
+  - {fileID: 8300000, guid: a6cf392e9bde19e42a1794510a850628, type: 3}
+  - {fileID: 8300000, guid: 25d62477ccfd420499359aa55c59d487, type: 3}
+  - {fileID: 8300000, guid: 4346577301cd06543a543923ca6326b0, type: 3}
   reloadVolume: 0.5
   speed: 10
   sprintModifier: 2
