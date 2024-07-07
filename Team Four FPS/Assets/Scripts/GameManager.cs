@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     public bool isPaused;
 
     [Header("<=====GM_UI_STOPWATCH=====>")]
+
     [SerializeField] TMP_Text StopwatchCurr;
     [SerializeField] TMP_Text StopwatchBest;
     bool stopWatchActive;
@@ -79,7 +80,7 @@ public class GameManager : MonoBehaviour
 
         // Load data
         SaveData data = SaveManager.Instance.Load("savefile.json");
-        StopwatchBest.text = timerConvertor(data.totalTime);
+        StopwatchBest.text = timerConvertor(data.totalTime); 
     }
 
     // Update is called once per frame
@@ -110,7 +111,6 @@ public class GameManager : MonoBehaviour
             currentTime += Time.deltaTime;
             StopwatchCurr.text = timerConvertor(currentTime);
         }
-
     }
 
     public void statePause()
@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
 
             menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume);
 
-            if (SaveManager.CurrentData.totalTime <= currentTime)
+            if (SaveManager.CurrentData.totalTime >= currentTime) 
             {
                 SaveManager.CurrentData.totalTime = currentTime;
                 SaveManager.Instance.Save("savefile.json");
