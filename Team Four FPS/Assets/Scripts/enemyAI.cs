@@ -70,6 +70,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         playerDirection = GameManager.Instance.Player.transform.position - transform.position;
         float agentSpeed = agent.velocity.normalized.magnitude;
         anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agentSpeed, Time.deltaTime * animTranSpeed));
+        
 
         if (playerInRange && !canSeePlayer())
         {

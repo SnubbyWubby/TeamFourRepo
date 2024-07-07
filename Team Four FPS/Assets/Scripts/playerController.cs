@@ -57,6 +57,8 @@ public class playerController : MonoBehaviour, IDamage
 
     [SerializeField] int grenadeCount;
     [SerializeField] float grenadeReloadTime;
+    [Header("<=====DEATHCAM=====>")]
+    [SerializeField] GameObject gunMod;
 
     Vector3 moveDirection;
     Vector3 playerVelocity;
@@ -102,26 +104,33 @@ public class playerController : MonoBehaviour, IDamage
             Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDistance, Color.red);
 
             movement();
-
-            if (Input.GetButton("Fire1") && gunList.Count > 0 && gunList[selectedGun].ammoCurr > 0 && !isShooting) // Shoot Weapons 
-                StartCoroutine(shoot());
-
-            if (Input.GetButtonDown("Grenade") && grenadeCount > 0) // Throw Grenade
-                StartCoroutine(throwGrenade());
-
-            if (Input.GetButtonDown("Crouch") && (!isSprinting || isSliding)) // Crouch
-                crouch();
-
-            if (Input.GetButtonDown("Crouch") && isSprinting && !isSliding) // Slide
-                StartCoroutine(slide());
-
-            if (Input.GetButtonDown("Reload") && gunList.Count > 0 && gunList[selectedGun].ammoCurr < gunList[selectedGun].ammoMax) // Reload Guns
+            if (!GameManager.Instance.diedOnce)
             {
-                AudioManager soundManager = AudioManager.Instance;
-                Audio Reload = soundManager.GetSoundByID("Reloads");
-                Reload.PlayOneShot(plrAudio);
-                gunList[selectedGun].ammoCurr = gunList[selectedGun].ammoMax;
-                updatePlayerUI();
+                if (Input.GetButton("Fire1") && gunList.Count > 0 && gunList[selectedGun].ammoCurr > 0 && !isShooting) // Shoot Weapons 
+                    StartCoroutine(shoot());
+
+                if (Input.GetButtonDown("Grenade") && grenadeCount > 0) // Throw Grenade
+                    StartCoroutine(throwGrenade());
+
+                if (Input.GetButtonDown("Crouch") && (!isSprinting || isSliding)) // Crouch
+                    crouch();
+
+                if (Input.GetButtonDown("Crouch") && isSprinting && !isSliding) // Slide
+                    StartCoroutine(slide());
+
+                if (Input.GetButtonDown("Reload") && gunList.Count > 0 && gunList[selectedGun].ammoCurr < gunList[selectedGun].ammoMax) // Reload Guns
+                {
+                    AudioManager soundManager = AudioManager.Instance;
+                    Audio Reload = soundManager.GetSoundByID("Reloads");
+                    Reload.PlayOneShot(plrAudio);
+                    gunList[selectedGun].ammoCurr = gunList[selectedGun].ammoMax;
+                    updatePlayerUI();
+                }
+            }
+            if (GameManager.Instance.diedOnce)
+            {
+                //Meme Code - Blake Farrar
+                gunMod.transform.position = new Vector3(1000, 1000, 1000);
             }
 
             selectGun();
@@ -378,7 +387,7 @@ public class playerController : MonoBehaviour, IDamage
             HP -= amount;
         }
 
-        if (!isDamageHit)
+        if (!isDamageHit && !GameManager.Instance.diedOnce)
         { StartCoroutine(PlayDamageHitSounds()); }
         
 

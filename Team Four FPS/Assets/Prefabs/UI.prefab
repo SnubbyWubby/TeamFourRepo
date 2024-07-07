@@ -1276,6 +1276,12 @@ MonoBehaviour:
   ammoMaximum: {fileID: 6782881037390812954}
   enemyCountText: {fileID: 4424015383367807973}
   isPaused: 0
+  stopCameraRotation: 0
+  diedOnce: 0
+  impCamera: 0
+  camEnd: {x: 0, y: 0, z: 0}
+  lerpEnded: 0
+  ignoreMovement: 0
   StopwatchCurr: {fileID: 4816236508474804376}
   StopwatchBest: {fileID: 4958766623566876921}
 --- !u!114 &7896706448986034374
@@ -1783,6 +1789,7 @@ RectTransform:
   - {fileID: 1008186543673067478}
   - {fileID: 8421865548139979570}
   - {fileID: 6820988542859851007}
+  - {fileID: 5531777101364310910}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6356,3 +6363,77 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1001 &4708951514473010348
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4997878685451209006}
+    m_Modifications:
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.126246
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.126246
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.126246
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -815.2155
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 461.122
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2294.026
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307418199863790745, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+--- !u!4 &5531777101364310910 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+  m_PrefabInstance: {fileID: 4708951514473010348}
+  m_PrefabAsset: {fileID: 0}
