@@ -70,30 +70,36 @@ public class EnemyAI : MonoBehaviour, IDamage
         playerDirection = GameManager.Instance.Player.transform.position - transform.position;
         float agentSpeed = agent.velocity.normalized.magnitude;
         anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agentSpeed, Time.deltaTime * animTranSpeed));
-        
+        agent.SetDestination(GameManager.Instance.Player.transform.position);
 
-        if (playerInRange && !canSeePlayer())
+        //comment this out and uncomment section beneath for standard ai behaviour
+        if (playerInRange)
         {
-            if (willRoam)
-            {
-                StartCoroutine(roam());
-            }
-            else if (willPatrol)
-            {
-                Retaliate();
-            }
+            FaceChaseShoot();
         }
-        else if (!playerInRange)
-        {
-            if (willPatrol)
-            {
-                Retaliate();
-            }
-            else if (willRoam)
-            {
-                StartCoroutine(roam()); 
-            }
-        }
+
+        //if (playerInRange && !canSeePlayer())
+        //{
+        //    if (willRoam)
+        //    {
+        //        StartCoroutine(roam());
+        //    }
+        //    else if (willPatrol)
+        //    {
+        //        Retaliate();
+        //    }
+        //}
+        //else if (!playerInRange)
+        //{
+        //    if (willPatrol)
+        //    {
+        //        Retaliate();
+        //    }
+        //    else if (willRoam)
+        //    {
+        //        StartCoroutine(roam());
+        //    }
+        //}
     }
 
     IEnumerator roam()
