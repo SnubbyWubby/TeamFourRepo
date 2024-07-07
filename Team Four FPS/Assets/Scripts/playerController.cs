@@ -135,39 +135,44 @@ public class playerController : MonoBehaviour, IDamage
     void movement()
     {
         // Check if player is touching the ground
-        if (controller.isGrounded && !Input.GetButton("Jump")) 
+        if (!GameManager.Instance.ignoreMovement)
         {
-            isJumping = false;
-            jumpCount = 0;
-            playerVelocity = Vector3.zero;
+            if (controller.isGrounded && !Input.GetButton("Jump"))
+            {
+                isJumping = false;
+                jumpCount = 0;
+                playerVelocity = Vector3.zero;
+            }
+
+            // Get input from player, create vector, then move player.
+            moveDirection = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
+            controller.Move(moveDirection * speed * Time.deltaTime);
+
+            if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
+            {
+                isJumping = true;
+
+                AudioManager soundManager = AudioManager.Instance;
+                Audio Jump = soundManager.GetSoundByID("Jumps");
+                Jump.PlayOneShot(plrAudio);
+
+                jumpCount++;
+                playerVelocity.y = jumpHighSpeed;
+            }
+
+            if (Input.GetButtonUp("Jump") && playerVelocity.y > jumpCount)
+            {
+                playerVelocity.y = jumpLowSpeed;
+            }
+
+            playerVelocity.y -= gravity * Time.deltaTime;
+            controller.Move(playerVelocity * Time.deltaTime);
+
+            if (controller.isGrounded && moveDirection.magnitude > audioWalkTimer && !isWalking)
+            { StartCoroutine(PlayMovementAudio()); }
         }
-
-        // Get input from player, create vector, then move player.
-        moveDirection = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
-        controller.Move(moveDirection * speed * Time.deltaTime);
-
-        if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
-        {
-            isJumping = true;
-
-            AudioManager soundManager = AudioManager.Instance;
-            Audio Jump = soundManager.GetSoundByID("Jumps");
-            Jump.PlayOneShot(plrAudio);
-
-            jumpCount++;
-            playerVelocity.y = jumpHighSpeed;
-        }
-
-        if(Input.GetButtonUp("Jump") && playerVelocity.y > jumpCount)   
-        { 
-            playerVelocity.y = jumpLowSpeed;  
-        }
-
-        playerVelocity.y -= gravity * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
-
-        if (controller.isGrounded && moveDirection.magnitude > audioWalkTimer && !isWalking) 
-        { StartCoroutine(PlayMovementAudio()); } 
+          
+        
     }
 
     void sprint()
@@ -373,7 +378,9 @@ public class playerController : MonoBehaviour, IDamage
             HP -= amount;
         }
 
-        if (!isDamageHit) { StartCoroutine(PlayDamageHitSounds()); }
+        if (!isDamageHit)
+        { StartCoroutine(PlayDamageHitSounds()); }
+        
 
         updatePlayerUI();
 

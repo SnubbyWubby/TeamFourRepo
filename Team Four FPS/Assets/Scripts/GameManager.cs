@@ -58,6 +58,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text enemyCountText;
 
     public bool isPaused;
+    [Header("<=====DEATH CAMERA=====>")]
+
+    public bool stopCameraRotation;
+    public bool diedOnce;
+    public bool impCamera;
+    Vector3 camStart;
+    public Vector3 camEnd;
+    public bool lerpEnded;
+    public bool ignoreMovement;
+
 
     [Header("<=====GM_UI_STOPWATCH=====>")]
 
@@ -111,6 +121,23 @@ public class GameManager : MonoBehaviour
             currentTime += Time.deltaTime;
             StopwatchCurr.text = timerConvertor(currentTime);
         }
+        if (impCamera)
+        {
+            camStart = Camera.main.transform.localPosition;
+            Camera.main.transform.localPosition = Vector3.Lerp(camStart, camEnd, 3 * Time.deltaTime);
+            ignoreMovement = true;
+            
+
+            
+        }
+
+        if (lerpEnded && !isPaused)
+        {
+            statePause();
+            MenuActive = menuLose;
+            MenuActive.SetActive(isPaused);
+        
+        }
     }
 
     public void statePause()
@@ -156,11 +183,20 @@ public class GameManager : MonoBehaviour
 
     public void GameLoss()
     {
-        statePause();
-        MenuActive = menuLose;
-        MenuActive.SetActive(isPaused);
+        if (!diedOnce)
+        {
+            deathCam();
+            menuAudio.PlayOneShot(loseAudio[Random.Range(0, loseAudio.Length)], loseVolume);
+            diedOnce = true;
+            StartCoroutine(pauseOnDeath());
+        }
+        
 
-        menuAudio.PlayOneShot(loseAudio[Random.Range(0, loseAudio.Length)], loseVolume);
+        //statePause();
+        //MenuActive = menuLose;
+        //MenuActive.SetActive(isPaused);
+
+        //menuAudio.PlayOneShot(loseAudio[Random.Range(0, loseAudio.Length)], loseVolume);
 
         if (SaveManager.CurrentData.totalTime <= currentTime)
         {
@@ -201,5 +237,22 @@ public class GameManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(currTime);
         int milliseconds = Mathf.FloorToInt((currTime - seconds) * 100);
         return string.Format("{0:00}:{1:00}:{2:00}", seconds / 60, seconds % 60, milliseconds);
+    }
+
+    public void deathCam()
+    {
+        stopCameraRotation = true;
+        impCamera = true;
+        Camera.main.transform.localRotation = Quaternion.Euler(45f,0,0);
+
+    }
+    IEnumerator pauseOnDeath()
+    {
+        
+        lerpEnded = false;
+        yield return new WaitForSeconds(5f);
+        lerpEnded = true;
+        
+
     }
 }
