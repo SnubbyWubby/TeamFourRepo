@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using MyGame.SaveSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -67,7 +68,7 @@ public class GameManager : MonoBehaviour
     int enemyCount;
     int grenadeCount;
 
-    // Start is called before the first frame update
+    // Awake is called before the first frame update
     void Awake()
     {
         Instance = this;
@@ -75,6 +76,10 @@ public class GameManager : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         PlayerScript = Player.GetComponent<playerController>();
         MainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+
+        // Load data
+        SaveData data = SaveManager.Instance.Load("savefile.json");
+        StopwatchBest.text = timerConvertor(data.totalTime);
     }
 
     // Update is called once per frame
@@ -139,7 +144,13 @@ public class GameManager : MonoBehaviour
             MenuActive = menuWin;
             MenuActive.SetActive(isPaused);
 
-            menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume); 
+            menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume);
+
+            if (SaveManager.CurrentData.totalTime <= currentTime)
+            {
+                SaveManager.CurrentData.totalTime = currentTime;
+                SaveManager.Instance.Save("savefile.json");
+            }
         }
     }
 
@@ -149,7 +160,13 @@ public class GameManager : MonoBehaviour
         MenuActive = menuLose;
         MenuActive.SetActive(isPaused);
 
-        menuAudio.PlayOneShot(loseAudio[Random.Range(0, loseAudio.Length)], loseVolume); 
+        menuAudio.PlayOneShot(loseAudio[Random.Range(0, loseAudio.Length)], loseVolume);
+
+        if (SaveManager.CurrentData.totalTime <= currentTime)
+        {
+            SaveManager.CurrentData.totalTime = currentTime;
+            SaveManager.Instance.Save("savefile.json");
+        }
     }
 
     public void GameLoss(string cause)

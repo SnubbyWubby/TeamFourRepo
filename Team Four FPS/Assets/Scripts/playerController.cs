@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TackleBox.Audio;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static Unity.VisualScripting.Member;
 
 public class playerController : MonoBehaviour, IDamage
 {
@@ -255,7 +257,12 @@ public class playerController : MonoBehaviour, IDamage
     {
         isWalking = true;
 
-        plrAudio.PlayOneShot(movementAudio[Random.Range(0, movementAudio.Length)], movementVolume); 
+        //For audiomanager testing
+        AudioManager soundManager = AudioManager.Instance;
+        Audio Footstep = soundManager.GetSoundByID("Footstep");
+        Footstep.PlayOneShot(plrAudio);
+
+        //plrAudio.PlayOneShot(movementAudio[Random.Range(0, movementAudio.Length)], movementVolume); 
 
         if (!isRunning)
         {
