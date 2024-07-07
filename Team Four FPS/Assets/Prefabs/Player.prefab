@@ -404,7 +404,6 @@ MonoBehaviour:
   grenade: {fileID: 2164594306382342039, guid: 03b155c905f75fe40a956208a73440ed, type: 3}
   grenadeCount: 5
   grenadeReloadTime: 2
-  gunMod: {fileID: 1916082989148923062}
 --- !u!82 &8242299182703368241
 AudioSource:
   m_ObjectHideFlags: 0
@@ -803,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6902771824111704631, guid: c91a08e18c8d4734ca57be3841851edc, type: 3}
       propertyPath: spawnNumber
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6902771824111704631, guid: c91a08e18c8d4734ca57be3841851edc, type: 3}
       propertyPath: spawnObjects

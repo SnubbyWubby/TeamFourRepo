@@ -58,6 +58,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text enemyCountText;
 
     public bool isPaused;
+
+    public bool spawnMoreEnemies;
+
+    
     [Header("<=====DEATH CAMERA=====>")]
 
     public bool stopCameraRotation;
@@ -76,8 +80,9 @@ public class GameManager : MonoBehaviour
     bool stopWatchActive;
     float currentTime;
 
-    int enemyCount;
+    public int enemyCount;
     int grenadeCount;
+    public bool roundTransition;
 
     // Awake is called before the first frame update
     void Awake()
@@ -87,6 +92,7 @@ public class GameManager : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         PlayerScript = Player.GetComponent<playerController>();
         MainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        enemyCount = 0;
 
         // Load data
         SaveData data = SaveManager.Instance.Load("savefile.json");
@@ -168,6 +174,9 @@ public class GameManager : MonoBehaviour
         enemyCountText.text = enemyCount.ToString("F0");
         if(enemyCount <= 0)
         {
+            StartCoroutine(levelTrans());
+            spawnMoreEnemies = true;
+            
             //statePause();
             //MenuActive = menuWin;
             //MenuActive.SetActive(isPaused);
@@ -254,6 +263,13 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         lerpEnded = true;
         
+
+    }
+    IEnumerator levelTrans()
+    {
+        roundTransition = true;
+        yield return new WaitForSeconds(10f);
+        roundTransition = false; 
 
     }
 }

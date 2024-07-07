@@ -22,6 +22,7 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField] int spawnNumber;
 
     int spawnCount;
+    int numberSpawned=0;
 
     bool spawnTruth;   
     bool spawnStart;  
@@ -29,15 +30,24 @@ public class SpawnEnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.updateGameGoal(spawnNumber); 
+        
+        spawnCount = 15;
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawnStart && spawnCount < spawnNumber && !spawnTruth) 
+        if(GameManager.Instance.enemyCount == 0)
         {
-            StartCoroutine(EnemySpawn()); 
+            GameManager.Instance.spawnMoreEnemies = true;
+        }
+        if (GameManager.Instance.spawnMoreEnemies&& !spawnTruth && !GameManager.Instance.roundTransition )//spawnStart && spawnCount < spawnNumber && !spawnTruth) 
+        {
+            StartCoroutine(EnemySpawn());
+            if(GameManager.Instance.enemyCount == 0)
+            GameManager.Instance.updateGameGoal(15);
         }
     }
 
@@ -57,12 +67,22 @@ public class SpawnEnemies : MonoBehaviour
 
         Instantiate(spawnObjects, spawnPosition[posArray].position, spawnPosition[posArray].rotation);
 
-        spawnCount++;
-
+        numberSpawned++;
+        
         yield return new WaitForSeconds(spawnTimer);
 
         //adSpawn.PlayOneShot(spawnAudio[Random.Range(0, spawnAudio.Length)], spawnVolume);
+        
 
         spawnTruth = false;
+
+        if (numberSpawned >= spawnCount)
+        {
+            GameManager.Instance.spawnMoreEnemies = false;
+            numberSpawned = 0;
+        }
+        
+        
+        
     }
 }
