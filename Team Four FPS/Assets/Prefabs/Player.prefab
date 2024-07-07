@@ -392,52 +392,10 @@ MonoBehaviour:
   shootDamage: 0
   shootRate: 0
   shootDistance: 0
-  jumpAudio:
-  - {fileID: 8300000, guid: a4bac1308ca1b834db90d19d7a6c11b9, type: 3}
-  - {fileID: 8300000, guid: 5493ae8d80eb08c42b3e4a78503caf41, type: 3}
-  - {fileID: 8300000, guid: 0fac7ae2e3fb7334e89b459a8555556d, type: 3}
-  jumpVolume: 0.5
-  damageAudio:
-  - {fileID: 8300000, guid: 98d96eae5e7d7774b9597df196d188fe, type: 3}
-  - {fileID: 8300000, guid: 6bbc8bf8a0e1eb14dbc138cf01bf5725, type: 3}
-  - {fileID: 8300000, guid: 6f6fd342f9617e54299ce0a631aeaad8, type: 3}
-  - {fileID: 8300000, guid: e839effc007b19048ab0347992442ec3, type: 3}
-  - {fileID: 8300000, guid: aaec0f815d88d324386ddecc7f3fbad2, type: 3}
-  - {fileID: 8300000, guid: e9de63c05cd25ab46a47f4d6a1247932, type: 3}
-  damageVolume: 0.5
-  movementAudio:
-  - {fileID: 8300000, guid: a4bc87d5bed59ed4e8f4a3fa90876b2e, type: 3}
-  - {fileID: 8300000, guid: f5676e7a3001b1e48af62f29c2419511, type: 3}
-  - {fileID: 8300000, guid: 3ac87dfc648122a419815e6d305561bb, type: 3}
-  - {fileID: 8300000, guid: 8060e508da16361448a84e2fa2af247c, type: 3}
-  - {fileID: 8300000, guid: 5ee668956b300394ba529de16a01547b, type: 3}
-  - {fileID: 8300000, guid: f643903cecb86684782abe7841f1bbe9, type: 3}
-  - {fileID: 8300000, guid: f90d5bd870608884f8713321b5642f07, type: 3}
-  - {fileID: 8300000, guid: 82752a428667eac4cb061b50c5a0d01d, type: 3}
-  - {fileID: 8300000, guid: ba20d8ebbb033144e94d6de76844e03e, type: 3}
-  movementVolume: 0.1
-  grenadeAudio:
-  - {fileID: 8300000, guid: b74f0e32d102e2146837274dcdfb6906, type: 3}
-  grenadeVolume: 0.5
-  healthAudio:
-  - {fileID: 8300000, guid: 5d3f9f2f41073484f9c027e506fd9461, type: 3}
-  healthVolume: 0.5
-  armorAudio:
-  - {fileID: 8300000, guid: 4f5763eae85c37648802bb57511c5e07, type: 3}
-  armorVolume: 0.5
-  weaponAudio:
-  - {fileID: 8300000, guid: ff103a4322a900c44bd36485be367f87, type: 3}
-  - {fileID: 8300000, guid: 146c69ef2ea436c4fa797bbabc91899e, type: 3}
-  - {fileID: 8300000, guid: 5fe506c13d43d584084e9278f590279f, type: 3}
-  weaponVolume: 0.5
-  reloadAudio:
-  - {fileID: 8300000, guid: 82d85db9c9c777b4c98618fc6c480a49, type: 3}
-  - {fileID: 8300000, guid: ad5967b0668c075469756459be83e42f, type: 3}
-  - {fileID: 8300000, guid: 4ce47ea4b7a871a43a550df96b0bd656, type: 3}
-  - {fileID: 8300000, guid: a6cf392e9bde19e42a1794510a850628, type: 3}
-  - {fileID: 8300000, guid: 25d62477ccfd420499359aa55c59d487, type: 3}
-  - {fileID: 8300000, guid: 4346577301cd06543a543923ca6326b0, type: 3}
-  reloadVolume: 0.5
+  healthAudio: []
+  healthVolume: 0
+  armorAudio: []
+  armorVolume: 0
   speed: 10
   sprintModifier: 2
   slideDuration: 1.5

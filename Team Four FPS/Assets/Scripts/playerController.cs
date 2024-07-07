@@ -37,32 +37,6 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
     [SerializeField] int shootDistance;
 
-    [Header("<=====PLAYER_AUDIO=====>")]
-
-    [SerializeField] AudioClip[] jumpAudio;
-    [SerializeField] float jumpVolume;
-
-    [SerializeField] AudioClip[] damageAudio; 
-    [SerializeField] float damageVolume;
-
-    [SerializeField] AudioClip[] movementAudio; 
-    [SerializeField] float movementVolume;
-
-    [SerializeField] AudioClip[] grenadeAudio;
-    [SerializeField] float grenadeVolume;
-
-    [SerializeField] AudioClip[] healthAudio;
-    [SerializeField] float healthVolume;
-
-    [SerializeField] AudioClip[] armorAudio;
-    [SerializeField] float armorVolume;
-
-    [SerializeField] AudioClip[] weaponAudio;
-    [SerializeField] float weaponVolume;
-
-    [SerializeField] AudioClip[] reloadAudio;
-    [SerializeField] float reloadVolume;
-
     [Header("<=====PLAYER_MOVEMENT=====>")]
 
     [SerializeField] float speed;
@@ -143,7 +117,9 @@ public class playerController : MonoBehaviour, IDamage
 
             if (Input.GetButtonDown("Reload") && gunList.Count > 0 && gunList[selectedGun].ammoCurr < gunList[selectedGun].ammoMax) // Reload Guns
             {
-                plrAudio.PlayOneShot(reloadAudio[Random.Range(0, reloadAudio.Length)], reloadVolume); 
+                AudioManager soundManager = AudioManager.Instance;
+                Audio Reload = soundManager.GetSoundByID("Reloads");
+                Reload.PlayOneShot(plrAudio);
                 gunList[selectedGun].ammoCurr = gunList[selectedGun].ammoMax;
                 updatePlayerUI();
             }
@@ -174,7 +150,9 @@ public class playerController : MonoBehaviour, IDamage
         {
             isJumping = true;
 
-            plrAudio.PlayOneShot(jumpAudio[Random.Range(0, jumpAudio.Length)], jumpVolume); 
+            AudioManager soundManager = AudioManager.Instance;
+            Audio Jump = soundManager.GetSoundByID("Jumps");
+            Jump.PlayOneShot(plrAudio);
 
             jumpCount++;
             playerVelocity.y = jumpHighSpeed;
@@ -259,10 +237,8 @@ public class playerController : MonoBehaviour, IDamage
 
         //For audiomanager testing
         AudioManager soundManager = AudioManager.Instance;
-        Audio Footstep = soundManager.GetSoundByID("Footstep");
+        Audio Footstep = soundManager.GetSoundByID("Footsteps");
         Footstep.PlayOneShot(plrAudio);
-
-        //plrAudio.PlayOneShot(movementAudio[Random.Range(0, movementAudio.Length)], movementVolume); 
 
         if (!isRunning)
         {
@@ -286,7 +262,9 @@ public class playerController : MonoBehaviour, IDamage
 
         updatePlayerUI();
 
-        plrAudio.PlayOneShot(weaponAudio[Random.Range(0, weaponAudio.Length)], weaponVolume);
+        AudioManager soundManager = AudioManager.Instance;
+        Audio Weapon = soundManager.GetSoundByID("Weapons");
+        Weapon.PlayOneShot(plrAudio); 
 
         shootDamage = gun.shootDamage;
         shootRate = gun.shootRate;
@@ -365,7 +343,9 @@ public class playerController : MonoBehaviour, IDamage
 
         yield return new WaitForSeconds(grenadeReloadTime);
 
-        plrAudio.PlayOneShot(grenadeAudio[Random.Range(0, grenadeAudio.Length)], grenadeVolume);
+        AudioManager soundManager = AudioManager.Instance;
+        Audio Grenade = soundManager.GetSoundByID("Grenades"); 
+        Grenade.PlayOneShot(plrAudio);
 
         grenadeCount--;
 
@@ -407,7 +387,9 @@ public class playerController : MonoBehaviour, IDamage
     {
         isDamageHit = true;
 
-        plrAudio.PlayOneShot(damageAudio[Random.Range(0, damageAudio.Length)], damageVolume); 
+        AudioManager soundManager = AudioManager.Instance;
+        Audio Damage = soundManager.GetSoundByID("DamageHits"); 
+        Damage.PlayOneShot(plrAudio); 
 
         yield return new WaitForSeconds(audioDamageTimer);  
 
@@ -486,7 +468,9 @@ public class playerController : MonoBehaviour, IDamage
 
         updatePlayerUI();
 
-        plrAudio.PlayOneShot(healthAudio[Random.Range(0, healthAudio.Length)], healthVolume); 
+        AudioManager soundManager = AudioManager.Instance;
+        Audio Health = soundManager.GetSoundByID("HealthPickUp");
+        Health.PlayOneShot(plrAudio);
     }
 
     public void ArmorShield(int amount)
@@ -504,7 +488,9 @@ public class playerController : MonoBehaviour, IDamage
 
         updatePlayerUI();
 
-        plrAudio.PlayOneShot(armorAudio[Random.Range(0, armorAudio.Length)], armorVolume); 
+        AudioManager soundManager = AudioManager.Instance;
+        Audio Armor = soundManager.GetSoundByID("ArmorPickUp");
+        Armor.PlayOneShot(plrAudio);
     }
     #endregion
 }
