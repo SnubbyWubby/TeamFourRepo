@@ -57,8 +57,7 @@ public class playerController : MonoBehaviour, IDamage
 
     [SerializeField] int grenadeCount;
     [SerializeField] float grenadeReloadTime;
-    [Header("<=====DEATHCAM=====>")]
-    [SerializeField] GameObject gunMod;
+    
 
     Vector3 moveDirection;
     Vector3 playerVelocity;
@@ -130,7 +129,8 @@ public class playerController : MonoBehaviour, IDamage
             if (GameManager.Instance.diedOnce)
             {
                 //Meme Code - Blake Farrar
-                gunMod.transform.position = new Vector3(1000, 1000, 1000);
+                gunModel.transform.position = new Vector3(1000, 1000, 1000);
+
             }
 
             selectGun();

@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
             camStart = Camera.main.transform.localPosition;
             Camera.main.transform.localPosition = Vector3.Lerp(camStart, camEnd, 3 * Time.deltaTime);
             ignoreMovement = true;
+            stopWatchActive = false;
             
 
             
@@ -167,11 +168,11 @@ public class GameManager : MonoBehaviour
         enemyCountText.text = enemyCount.ToString("F0");
         if(enemyCount <= 0)
         {
-            statePause();
-            MenuActive = menuWin;
-            MenuActive.SetActive(isPaused);
+            //statePause();
+            //MenuActive = menuWin;
+            //MenuActive.SetActive(isPaused);
 
-            menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume);
+            //menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume);
 
             if (SaveManager.CurrentData.totalTime >= currentTime) 
             {
