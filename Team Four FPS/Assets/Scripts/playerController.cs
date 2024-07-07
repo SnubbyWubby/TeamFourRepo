@@ -237,7 +237,7 @@ public class playerController : MonoBehaviour, IDamage
 
         //For audiomanager testing
         AudioManager soundManager = AudioManager.Instance;
-        Audio Footstep = soundManager.GetSoundByID("Footsteps");
+        Audio Footstep = soundManager.GetSoundByID("Footstep");
         Footstep.PlayOneShot(plrAudio);
 
         if (!isRunning)

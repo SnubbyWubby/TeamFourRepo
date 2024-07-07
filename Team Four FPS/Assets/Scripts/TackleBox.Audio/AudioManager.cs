@@ -49,7 +49,7 @@ namespace TackleBox.Audio
         {
             foreach (Audio audio in AudioList)
             {
-                if (audio.ID == audioID) return audio;
+                if (audio && audio.ID.ToLower() == audioID.ToLower()) return audio;
             }
             return ScriptableObject.CreateInstance<Audio>();
         }
@@ -60,7 +60,7 @@ namespace TackleBox.Audio
             if (_instance == null)
             {
                 _instance = this;
-                DontDestroyOnLoad(_instance.gameObject);
+                //DontDestroyOnLoad(_instance.gameObject);
             }
             else if (_instance != this)
             {

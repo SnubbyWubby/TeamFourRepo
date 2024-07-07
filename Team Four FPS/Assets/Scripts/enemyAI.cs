@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TackleBox.Audio;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -37,8 +38,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] AudioClip[] gunAudio;
     [SerializeField] float gunVolume;
 
-    [SerializeField] AudioClip[] enemyHitAudio;
-    [SerializeField] float enemyHitVolume; 
+    //[SerializeField] AudioClip[] enemyHitAudio;
+    //[SerializeField] float enemyHitVolume; 
 
     bool wasShot;
     bool isShooting;
@@ -200,7 +201,12 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        enemyAudio.PlayOneShot(enemyHitAudio[Random.Range(0, enemyHitAudio.Length)], enemyHitVolume); 
+
+        AudioManager soundManager = AudioManager.Instance;
+        Audio Damage = soundManager.GetSoundByID("DamageHits");
+        Damage.PlayOneShot(enemyAudio);
+
+        //enemyAudio.PlayOneShot(enemyHitAudio[Random.Range(0, enemyHitAudio.Length)], enemyHitVolume); 
         model.material.color = Color.white;
     }
 
