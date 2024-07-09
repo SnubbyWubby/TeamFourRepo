@@ -1,4 +1,5 @@
 using System;
+using TackleBox.SaveSystem;
 using UnityEngine;
 
 namespace TackleBox.Audio
@@ -17,24 +18,22 @@ namespace TackleBox.Audio
             {
                 if (_instance == null)
                 {
-                    // Look for an existing instance of SoundManager
+                    // Search for an existing instance in the scene
                     _instance = FindObjectOfType<AudioManager>();
 
+                    // If none exists, create a new GameObject and attach SaveManager to it
                     if (_instance == null)
                     {
-                        // Create a new instance if none is found
                         GameObject soundManager = new GameObject("SoundManager");
                         _instance = soundManager.AddComponent<AudioManager>();
                     }
+
+                    // Mark the instance to not be destroyed on scene load
+                    DontDestroyOnLoad(_instance.gameObject);
                 }
                 return _instance;
             }
         }
-
-
-
-        // Ensure this class can't be instantiated from the outside
-        private AudioManager() { }
 
         // Make sure the instance is null if this object is destroyed
         private void OnDestroy()
@@ -60,7 +59,7 @@ namespace TackleBox.Audio
             if (_instance == null)
             {
                 _instance = this;
-                //DontDestroyOnLoad(_instance.gameObject);
+                DontDestroyOnLoad(_instance.gameObject);
             }
             else if (_instance != this)
             {

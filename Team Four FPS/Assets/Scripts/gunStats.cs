@@ -2,27 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
 
-public class gunStats : ScriptableObject
+namespace TackleBox.Guns
 {
-    [Header("<=====COMPONENTS=====>")]
+    [CreateAssetMenu(fileName = "Guns", menuName = "TackleBox.Guns/Gun Stats", order = 1)]
+    public class gunStats : ScriptableObject
+    {
+        [Header("<=====COMPONENTS=====>")]
 
-    public GameObject gunModel;
+        public GameObject gunModel;
 
-    [Header("<=====PLAYER_GUN_STATS=====>")]
+        [Header("<=====PLAYER_GUN_STATS=====>")]
 
-    [Range(1, 20)] public int shootDamage;
-    [Range(10, 500)] public int shootDistance;
+        [Range(1, 20)] public int shootDamage;
+        [Range(10, 500)] public int shootDistance;
 
-    [Range(0.1f, 3f)] public float shootRate;
-    [Range(0, 1)] public float audioVolume;
+        [Range(0.1f, 3f)] public float shootRate;
+        [Range(0, 1)] public float audioVolume;
 
-    public int ammoCurr;
-    public int ammoMax;
+        public int ammoCurr;
+        public int ammoMax;
 
-    [Header("<=====GUN_EFFECTS=====>")] 
+        [Header("<=====GUN_EFFECTS=====>")]
 
-    public ParticleSystem hitEffect;
-    public AudioClip shootSound;
+        public ParticleSystem hitEffect;
+        public AudioClip shootSound;
+    }
 }

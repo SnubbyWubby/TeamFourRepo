@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TackleBox.Audio
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "Audio", menuName = "TackleBox.Audio/Audio", order = 1)]
 
     public class Audio : ScriptableObject
     {

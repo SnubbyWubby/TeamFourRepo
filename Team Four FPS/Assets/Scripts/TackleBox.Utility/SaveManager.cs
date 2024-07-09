@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using UnityEngine;
 
-namespace MyGame.SaveSystem
+namespace TackleBox.SaveSystem
 {
     [Serializable]
     public class SaveData
@@ -52,14 +52,6 @@ namespace MyGame.SaveSystem
                     _currentData = value;
             }
 
-        }
-
-        // This method will be called before any scene is loaded
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        private static void Initialize()
-        {
-            // Ensure the instance is created
-            SaveManager instance = Instance;
         }
 
         private void Awake()

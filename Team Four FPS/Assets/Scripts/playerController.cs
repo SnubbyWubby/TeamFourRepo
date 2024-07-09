@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using TackleBox.Audio;
-using Unity.VisualScripting;
 using UnityEngine;
+using TackleBox;
+using TackleBox.Audio;
+using TackleBox.Guns;
+using Unity.VisualScripting;
+
 using UnityEngine.UIElements;
 using static Unity.VisualScripting.Member;
+
 
 public class playerController : MonoBehaviour, IDamage
 {

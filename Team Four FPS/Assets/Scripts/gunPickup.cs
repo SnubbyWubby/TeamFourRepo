@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TackleBox;
+using TackleBox.Guns;
 
 public class gunPickup : MonoBehaviour
 {
