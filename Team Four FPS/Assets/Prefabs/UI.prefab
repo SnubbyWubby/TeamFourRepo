@@ -570,8 +570,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: buttonFunctions, Assembly-CSharp
+      - m_Target: {fileID: 4845806719864746996}
+        m_TargetAssemblyTypeName: TackleBox.buttonFunctions, Assembly-CSharp
         m_MethodName: restart
         m_Mode: 1
         m_Arguments:
@@ -579,7 +579,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: resume
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &760680059764475078
@@ -703,8 +703,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: buttonFunctions, Assembly-CSharp
+      - m_Target: {fileID: 4845806719864746996}
+        m_TargetAssemblyTypeName: TackleBox.buttonFunctions, Assembly-CSharp
         m_MethodName: restart
         m_Mode: 1
         m_Arguments:
@@ -712,7 +712,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: resume
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &769614785419379732
@@ -4088,8 +4088,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: buttonFunctions, Assembly-CSharp
+      - m_Target: {fileID: 4845806719864746996}
+        m_TargetAssemblyTypeName: TackleBox.buttonFunctions, Assembly-CSharp
         m_MethodName: quit
         m_Mode: 1
         m_Arguments:
@@ -4097,7 +4097,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: resume
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5742510616378469238
@@ -4221,8 +4221,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: buttonFunctions, Assembly-CSharp
+      - m_Target: {fileID: 4845806719864746996}
+        m_TargetAssemblyTypeName: TackleBox.buttonFunctions, Assembly-CSharp
         m_MethodName: quit
         m_Mode: 1
         m_Arguments:
@@ -4230,7 +4230,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: resume
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5745642723055092839
@@ -4354,8 +4354,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: buttonFunctions, Assembly-CSharp
+      - m_Target: {fileID: 4845806719864746996}
+        m_TargetAssemblyTypeName: TackleBox.buttonFunctions, Assembly-CSharp
         m_MethodName: resume
         m_Mode: 1
         m_Arguments:
@@ -4363,7 +4363,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: resume
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5888098018601390700
@@ -4487,8 +4487,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: buttonFunctions, Assembly-CSharp
+      - m_Target: {fileID: 4845806719864746996}
+        m_TargetAssemblyTypeName: TackleBox.buttonFunctions, Assembly-CSharp
         m_MethodName: quit
         m_Mode: 1
         m_Arguments:
@@ -4496,7 +4496,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: resume
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6326703657914261101
@@ -5440,8 +5440,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: buttonFunctions, Assembly-CSharp
+      - m_Target: {fileID: 4845806719864746996}
+        m_TargetAssemblyTypeName: TackleBox.buttonFunctions, Assembly-CSharp
         m_MethodName: restart
         m_Mode: 1
         m_Arguments:
@@ -5449,7 +5449,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: resume
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7380432137907393182
@@ -6333,6 +6333,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3169b1becdf8fb842b498e5ba09d015a, type: 3}
+--- !u!114 &4845806719864746996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4884247339112708392, guid: 3169b1becdf8fb842b498e5ba09d015a, type: 3}
+  m_PrefabInstance: {fileID: 69689907975064284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe2b05f11ad2504c924f1a7c054ed8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5229443466488687150 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5216612827741233394, guid: 3169b1becdf8fb842b498e5ba09d015a, type: 3}
