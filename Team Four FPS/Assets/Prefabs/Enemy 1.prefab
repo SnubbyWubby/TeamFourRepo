@@ -2065,6 +2065,7 @@ MonoBehaviour:
   shootPos: {fileID: 5411576382329752283}
   headPos: {fileID: 786861220900562865}
   HP: 5
+  maxHP: 5
   shootAngle: 5
   animTranSpeed: 4
   faceTargetSpeed: 5
@@ -2079,6 +2080,8 @@ MonoBehaviour:
   gunAudio:
   - {fileID: 8300000, guid: a7519540b2862714b81fd4991b55ca1f, type: 3}
   gunVolume: 0.5
+  enemyHitAudio: []
+  enemyHitVolume: 0
   waypoints: []
 --- !u!95 &1442296102632694662
 Animator:

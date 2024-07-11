@@ -485,6 +485,7 @@ MonoBehaviour:
   shootPos: {fileID: 170874778005857661}
   headPos: {fileID: 7427844138876398439}
   HP: 10
+  maxHP: 10
   shootAngle: 5
   animTranSpeed: 5
   faceTargetSpeed: 10
@@ -494,6 +495,7 @@ MonoBehaviour:
   roamTimer: 3
   willPatrol: 0
   willRoam: 1
+  hordeSpawn: 0
   enemyAudio: {fileID: 5173031067356285768}
   gunAudio:
   - {fileID: 8300000, guid: a13ca424624aa904a81cfc9366c6e3f9, type: 3}

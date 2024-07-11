@@ -216,10 +216,16 @@ public class EnemyAI : MonoBehaviour, IDamage
                 StopMoving();
                 Destroy(gameObject, 1f);
                 StartCoroutine(ResetBool2());
-                
+                Ragdoll();
             }
             StartCoroutine(ResetBool1());
         }
+    }
+    public void Ragdoll()
+    {
+        GetComponent<Animator>().enabled = false;
+        //SetRigidBodyState(false);
+        //SetColliderState(true);
     }
 
     IEnumerator flashDamage()
