@@ -105,7 +105,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                 {
                     Retaliate();
                 }
-                else if (!willRoam)
+                else if (willRoam)
                 {
                     StartCoroutine(roam());
                 }
@@ -114,7 +114,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         if (GameManager.Instance.roundPassed > 0)
         {
-            //incrementStats();
+            incrementStats();
         }
     }
 
@@ -216,7 +216,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                 StopMoving();
                 Destroy(gameObject, 1f);
                 StartCoroutine(ResetBool2());
-                Ragdoll();
+                
             }
             StartCoroutine(ResetBool1());
         }
@@ -265,12 +265,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         isShooting = false;
     }
     
-    public void Ragdoll()
-    {
-        GetComponent<Animator>().enabled = false;
-        //SetRigidBodyState(false);
-        //SetColliderState(true);
-    }
+   
 
     public void StopMoving()
     {
