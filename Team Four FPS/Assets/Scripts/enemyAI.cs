@@ -32,6 +32,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] bool willPatrol;
     [SerializeField] bool willRoam;
     [SerializeField] bool hordeSpawn;
+
     float enemySpeed = 3.5f; // for scaling logic
     float enemyHp = 10f;
 
@@ -42,8 +43,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] AudioClip[] gunAudio;
     [SerializeField] float gunVolume;
 
-    //[SerializeField] AudioClip[] enemyHitAudio;
-    //[SerializeField] float enemyHitVolume; 
+    [SerializeField] AudioClip[] enemyHitAudio;
+    [SerializeField] float enemyHitVolume; 
 
     bool wasShot;
     bool isShooting;
@@ -60,26 +61,18 @@ public class EnemyAI : MonoBehaviour, IDamage
     int patrolPoint;
     float stoppingDistOrig;
     float angleToPlayer;
-
-
-    
      
     // Start is called before the first frame update
     void Start()
     {
         origPos = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
-        canTakeDamage = true;
-        
-        
+        canTakeDamage = true;        
     }
 
     // Update is called once per frame
     void Update()
-
     {
-       
-
         playerDirection = GameManager.Instance.Player.transform.position - transform.position;
         float agentSpeed = agent.velocity.normalized.magnitude;
         anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agentSpeed, Time.deltaTime * animTranSpeed));
@@ -89,7 +82,6 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
         else
         {
-
             //for standard behavior make sure horde spawn is unchecked.
             if (playerInRange)
             {
@@ -113,17 +105,17 @@ public class EnemyAI : MonoBehaviour, IDamage
                 {
                     Retaliate();
                 }
-                else if (willRoam)
+                else if (!willRoam)
                 {
                     StartCoroutine(roam());
                 }
             }
         }
+
         if (GameManager.Instance.roundPassed > 0)
         {
-            incrementStats();
+            //incrementStats();
         }
-
     }
 
     IEnumerator roam()
@@ -144,7 +136,6 @@ public class EnemyAI : MonoBehaviour, IDamage
 
             destChosen = false;
         }
-       
     }
 
     bool canSeePlayer()
@@ -161,6 +152,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             {
                 agent.stoppingDistance = stoppingDistOrig;
                 agent.SetDestination(GameManager.Instance.Player.transform.position);
+
                 if (agent.remainingDistance < agent.stoppingDistance)
                 {
                     FaceTarget();
@@ -181,6 +173,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         Quaternion rot = Quaternion.LookRotation(playerDirection);
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceTargetSpeed);
     }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -304,19 +297,19 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
           return;
         }
+
         UpdateDestination();
+
         if (Vector3.Distance(transform.position, target) < 10)
         {
             UpdateIndex();
         }
     }
+
     public void incrementStats()
     {
         //working on this soon. Needs to seperate HP from MAX hp so setting the max hp isn't infinite healing
         //enemyHp = HP = 10 + ((enemyHp*.05f) * GameManager.Instance.roundNumber);
         //enemySpeed = agent.speed =  Mathf.Clamp(enemySpeed + ((enemySpeed*.05f) * GameManager.Instance.roundNumber), 2.0f, 11f);
-        
-
-
     }
 }
