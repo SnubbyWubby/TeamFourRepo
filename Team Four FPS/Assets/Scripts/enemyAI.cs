@@ -18,7 +18,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [Header("<=====ENEMY_GUN_STATS=====>")]
 
-    [SerializeField] int HP;
+    [SerializeField] float HP;
     [SerializeField] int shootAngle;
     [SerializeField] int animTranSpeed;
     [SerializeField] int faceTargetSpeed;
@@ -31,6 +31,9 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] float roamTimer;
     [SerializeField] bool willPatrol;
     [SerializeField] bool willRoam;
+    [SerializeField] bool hordeSpawn;
+    float enemySpeed = 3.5f; // for scaling logic
+    float enemyHp = 10f;
 
     [Header("<=====ENEMY_AUDIO_SOUNDS=====>")]
 
@@ -47,6 +50,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     bool playerInRange;
     bool canTakeDamage;
     bool destChosen;
+    bool hasSpawned;
 
     Vector3 playerDirection;
     Vector3 origPos;
@@ -56,6 +60,9 @@ public class EnemyAI : MonoBehaviour, IDamage
     int patrolPoint;
     float stoppingDistOrig;
     float angleToPlayer;
+
+
+    
      
     // Start is called before the first frame update
     void Start()
@@ -63,44 +70,60 @@ public class EnemyAI : MonoBehaviour, IDamage
         origPos = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
         canTakeDamage = true;
+        
+        
     }
 
     // Update is called once per frame
     void Update()
+
     {
+       
+
         playerDirection = GameManager.Instance.Player.transform.position - transform.position;
         float agentSpeed = agent.velocity.normalized.magnitude;
         anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agentSpeed, Time.deltaTime * animTranSpeed));
-        //agent.SetDestination(GameManager.Instance.Player.transform.position);
-
-        //comment this out and uncomment section beneath for standard ai behaviour
-        if (playerInRange)
+        if (hordeSpawn)
         {
-            FaceChaseShoot();
+            agent.SetDestination(GameManager.Instance.Player.transform.position);
+        }
+        else
+        {
+
+            //for standard behavior make sure horde spawn is unchecked.
+            if (playerInRange)
+            {
+                FaceChaseShoot();
+            }
+
+            if (playerInRange && !canSeePlayer())
+            {
+                if (willRoam)
+                {
+                    StartCoroutine(roam());
+                }
+                else if (willPatrol)
+                {
+                    Retaliate();
+                }
+            }
+            else if (!playerInRange)
+            {
+                if (willPatrol)
+                {
+                    Retaliate();
+                }
+                else if (willRoam)
+                {
+                    StartCoroutine(roam());
+                }
+            }
+        }
+        if (GameManager.Instance.roundPassed > 0)
+        {
+            incrementStats();
         }
 
-        //if (playerInRange && !canSeePlayer())
-        //{
-        //    if (willRoam)
-        //    {
-        //        StartCoroutine(roam());
-        //    }
-        //    else if (willPatrol)
-        //    {
-        //        Retaliate();
-        //    }
-        //}
-        //else if (!playerInRange)
-        //{
-        //    if (willPatrol)
-        //    {
-        //        Retaliate();
-        //    }
-        //    else if (willRoam)
-        //    {
-        //        StartCoroutine(roam());
-        //    }
-        //}
     }
 
     IEnumerator roam()
@@ -121,6 +144,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
             destChosen = false;
         }
+       
     }
 
     bool canSeePlayer()
@@ -285,5 +309,14 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             UpdateIndex();
         }
+    }
+    public void incrementStats()
+    {
+        //working on this soon. Needs to seperate HP from MAX hp so setting the max hp isn't infinite healing
+        //enemyHp = HP = 10 + ((enemyHp*.05f) * GameManager.Instance.roundNumber);
+        //enemySpeed = agent.speed =  Mathf.Clamp(enemySpeed + ((enemySpeed*.05f) * GameManager.Instance.roundNumber), 2.0f, 11f);
+        
+
+
     }
 }

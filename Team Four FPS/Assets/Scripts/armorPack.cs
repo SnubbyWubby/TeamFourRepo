@@ -29,6 +29,8 @@ public class armorPack : MonoBehaviour
             plrArmor.GetComponent<ArmorSystem>().ArmorPack(armorValue, gameObject); 
 
             Destroy(gameObject);
+            
         }
     }
+
 }

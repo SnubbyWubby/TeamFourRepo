@@ -2074,6 +2074,7 @@ MonoBehaviour:
   roamTimer: 3
   willPatrol: 0
   willRoam: 1
+  hordeSpawn: 0
   enemyAudio: {fileID: -1746418114760955427}
   gunAudio:
   - {fileID: 8300000, guid: a7519540b2862714b81fd4991b55ca1f, type: 3}

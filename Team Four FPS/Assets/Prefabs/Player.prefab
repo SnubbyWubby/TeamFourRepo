@@ -524,7 +524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6625404434985380509
 Transform:
   m_ObjectHideFlags: 0
@@ -711,8 +711,8 @@ MonoBehaviour:
   plrAudio: {fileID: 8242299182703368241}
   HP: 10
   maxArmorHP: 10
-  jumpMax: 2
-  jumpHighSpeed: 15
+  jumpMax: 1
+  jumpHighSpeed: 10
   jumpLowSpeed: 5
   gravity: 20
   audioDamageTimer: 0.1
@@ -1134,8 +1134,12 @@ PrefabInstance:
       value: Zomb Spawn loc 1
       objectReference: {fileID: 0}
     - target: {fileID: 6902771824111704631, guid: c91a08e18c8d4734ca57be3841851edc, type: 3}
+      propertyPath: setSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902771824111704631, guid: c91a08e18c8d4734ca57be3841851edc, type: 3}
       propertyPath: spawnNumber
-      value: 15
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6902771824111704631, guid: c91a08e18c8d4734ca57be3841851edc, type: 3}
       propertyPath: spawnObjects

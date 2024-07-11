@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TackleBox;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 
 public class SpawnEnemies : MonoBehaviour
 {
     [Header("<=====COMPONENTS=====>")]
-
+    
     [SerializeField] GameObject spawnObjects;
     [SerializeField] Transform[] spawnPosition;
+    
 
     [Header("<=====SPAWN_AUDIO=====>")]
 
@@ -21,18 +24,22 @@ public class SpawnEnemies : MonoBehaviour
 
     [SerializeField] int spawnTimer;
     [SerializeField] int spawnNumber;
+    
+    
+    [SerializeField] bool setSpawn;
 
-    int spawnCount;
-    int numberSpawned=0;
+    
+    int numberSpawned = 0;
 
     bool spawnTruth;   
     bool spawnStart;  
 
+
     // Start is called before the first frame update
     void Start()
     {
+
         
-        spawnCount = 15;
         
         
     }
@@ -40,15 +47,23 @@ public class SpawnEnemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.enemyCount == 0)
-        {
-            GameManager.Instance.spawnMoreEnemies = true;
-        }
-        if (GameManager.Instance.spawnMoreEnemies&& !spawnTruth && !GameManager.Instance.roundTransition )//spawnStart && spawnCount < spawnNumber && !spawnTruth) 
+        if (setSpawn && spawnStart && numberSpawned < spawnNumber && !spawnTruth)
         {
             StartCoroutine(EnemySpawn());
-            if(GameManager.Instance.enemyCount == 0)
-            GameManager.Instance.updateGameGoal(15);
+        }
+        else if(!setSpawn)
+        {
+            if (GameManager.Instance.enemyCount == 0)
+            {
+                GameManager.Instance.spawnMoreEnemies = true;
+                
+            }
+            if (GameManager.Instance.spawnMoreEnemies && !spawnTruth && !GameManager.Instance.roundTransition && spawnStart && numberSpawned < spawnNumber)//spawnStart && spawnCount < spawnNumber && !spawnTruth) 
+            {
+                StartCoroutine(EnemySpawn());
+                
+                
+            }
         }
     }
 
@@ -70,18 +85,27 @@ public class SpawnEnemies : MonoBehaviour
 
         numberSpawned++;
         
+        GameManager.Instance.updateGameGoal(1);
+        
         yield return new WaitForSeconds(spawnTimer);
+
+
 
         //adSpawn.PlayOneShot(spawnAudio[Random.Range(0, spawnAudio.Length)], spawnVolume);
         
 
         spawnTruth = false;
 
-        if (numberSpawned >= spawnCount)
+        if (numberSpawned >= spawnNumber && !setSpawn)
         {
             GameManager.Instance.spawnMoreEnemies = false;
             numberSpawned = 0;
+            spawnNumber += 2;
+           
+            
+                        
         }
+       
         
         
         

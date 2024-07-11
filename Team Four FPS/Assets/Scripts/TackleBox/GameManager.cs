@@ -64,6 +64,8 @@ namespace TackleBox
         public bool isPaused;
 
         public bool spawnMoreEnemies;
+        public int roundNumber =0;
+        
 
 
         [Header("<=====DEATH CAMERA=====>")]
@@ -87,6 +89,7 @@ namespace TackleBox
         public int enemyCount;
         int grenadeCount;
         public bool roundTransition;
+        public int roundPassed;
 
         // Awake is called before the first frame update
         void Awake()
@@ -206,6 +209,8 @@ namespace TackleBox
             if (enemyCount <= 0)
             {
                 StartCoroutine(levelTrans());
+                roundPassed++;
+                roundNumber++;
                 spawnMoreEnemies = true;
 
                 //statePause();
@@ -231,6 +236,7 @@ namespace TackleBox
                 diedOnce = true;
                 StartCoroutine(pauseOnDeath());
             }
+            
 
 
             //statePause();
