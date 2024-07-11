@@ -7,11 +7,11 @@ namespace TackleBox.Audio
     public class AudioManager : MonoBehaviour
     {
 
-        // Static instance of SoundManager which allows it to be accessed by any other script
+        // Static instance of AudioManager which allows it to be accessed by any other script
         private static AudioManager _instance;
         [SerializeField] private Audio[] AudioList;
 
-        // Property to access the instance of the SoundManager
+        // Property to access the instance of the AudioManager
         public static AudioManager Instance
         {
             get
@@ -24,8 +24,8 @@ namespace TackleBox.Audio
                     // If none exists, create a new GameObject and attach SaveManager to it
                     if (_instance == null)
                     {
-                        GameObject soundManager = new GameObject("SoundManager");
-                        _instance = soundManager.AddComponent<AudioManager>();
+                        GameObject audioManager = new GameObject("AudioManager");
+                        _instance = audioManager.AddComponent<AudioManager>();
                     }
 
                     // Mark the instance to not be destroyed on scene load

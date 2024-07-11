@@ -19,6 +19,11 @@ namespace TackleBox
             GameManager.Instance.stateUnpause();
         }
 
+        public void mainmenu()
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
+
         public void quit()
         {
 #if UNITY_EDITOR

@@ -95,8 +95,8 @@ namespace TackleBox
         void Awake()
         {
             _instance = Instance;
-            
 
+            Time.timeScale = 1;
             stopWatchActive = true;
             Player = GameObject.FindWithTag("Player");
             PlayerScript = Player.GetComponent<playerController>();
@@ -111,6 +111,9 @@ namespace TackleBox
         // Update is called once per frame
         void Update()
         {
+            //if (Player == null)
+            //    Awake();
+
             if (Input.GetButtonDown("Cancel"))
             {
                 if (MenuActive == null)
@@ -156,6 +159,12 @@ namespace TackleBox
             }
         }
 
+        private void gameStart()
+        {
+
+
+        }
+
         public static GameManager Instance
         {
             get
@@ -173,9 +182,6 @@ namespace TackleBox
                         GameObject gameManager = new GameObject("GameManager");
                         _instance = gameManager.AddComponent<GameManager>();
                     }
-
-                    // Mark the instance to not be destroyed on scene load
-                    DontDestroyOnLoad(_instance.gameObject);
                 }
                 return _instance;
             }
@@ -184,7 +190,7 @@ namespace TackleBox
         public void statePause()
         {
             grenadeIcon.SetActive(false);
-            isPaused = !isPaused;
+            isPaused = true;
             Time.timeScale = 0;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -193,7 +199,7 @@ namespace TackleBox
 
         public void stateUnpause()
         {
-            isPaused = !isPaused;
+            isPaused = false;
             Time.timeScale = 1;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
