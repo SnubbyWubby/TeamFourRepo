@@ -11,7 +11,7 @@ namespace TackleBox.UI
         [Header("<=====VIDEO_GAME_MENUS=====>")]
 
         [SerializeField] string PlayScene;
-        public string playNewGame;
+        
         private string loadCurrGame;
 
         [SerializeField] private GameObject noFileFound = null; 
