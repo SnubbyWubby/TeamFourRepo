@@ -87,7 +87,7 @@ namespace TackleBox
         float currentTime;
 
         public int enemyCount;
-        int grenadeCount;
+        public int grenadeCount;
         public bool roundTransition;
         public int roundPassed;
 

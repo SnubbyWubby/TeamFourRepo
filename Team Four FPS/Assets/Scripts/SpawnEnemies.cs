@@ -101,6 +101,11 @@ public class SpawnEnemies : MonoBehaviour
             GameManager.Instance.spawnMoreEnemies = false;
             numberSpawned = 0;
             spawnNumber += 2;
+            EnemyAI ai = spawnObjects.GetComponent<EnemyAI>();
+            ai.HP *= 1.05f;
+            ai.agent.speed *= 1.05f;
+            
+                
            
             
                         

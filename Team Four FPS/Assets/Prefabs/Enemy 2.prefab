@@ -484,8 +484,9 @@ MonoBehaviour:
   agent: {fileID: 8915140903008015503}
   shootPos: {fileID: 170874778005857661}
   headPos: {fileID: 7427844138876398439}
+  healthDrop: {fileID: 4922032196411983371, guid: 53eb2452c3a363c45b2b816f03df8c29, type: 3}
+  bulletDrop: {fileID: 3226869189621625867, guid: a03f755af2dee354da80b425f31ab184, type: 3}
   HP: 10
-  maxHP: 10
   shootAngle: 5
   animTranSpeed: 5
   faceTargetSpeed: 10

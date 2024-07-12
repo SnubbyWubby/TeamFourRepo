@@ -21,7 +21,7 @@ public class playerController : MonoBehaviour, IDamage
 
     [Header("<=====PLAYER_STATS=====>")] 
 
-    [SerializeField] int HP;
+    [SerializeField] public int HP;
     [SerializeField] int maxArmorHP; 
     [SerializeField] int jumpMax;
     [SerializeField] int jumpHighSpeed;
@@ -32,7 +32,7 @@ public class playerController : MonoBehaviour, IDamage
 
     [Header("<=====PLAYER_GUNS=====>")]
 
-    [SerializeField] List<gunStats> gunList = new List<gunStats>();
+    [SerializeField] public List<gunStats> gunList = new List<gunStats>();
 
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject flashMuzzle;
@@ -59,7 +59,7 @@ public class playerController : MonoBehaviour, IDamage
 
     [SerializeField] GameObject grenade;
 
-    [SerializeField] int grenadeCount;
+    [SerializeField] public int grenadeCount;
     [SerializeField] float grenadeReloadTime;
     
 
@@ -418,7 +418,7 @@ public class playerController : MonoBehaviour, IDamage
     #endregion
 
     #region Player UI Functionality
-    void updatePlayerUI()
+    public void updatePlayerUI()
     {
         float healthPercentage = (float)HP / originalHP;
         GameManager.Instance.playerHPBar.fillAmount = healthPercentage;

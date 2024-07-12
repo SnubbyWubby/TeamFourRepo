@@ -1,30 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using TackleBox;
+using UnityEditor;
 using UnityEngine;
 
 public class healthPack : MonoBehaviour
 {
-    playerController plrHealthPack;
+    
 
-    [Header("<=====PLAYER_HEALTH_BOOST=====>")]
+    
 
-    public int healthBoost;
+    
+    
 
     // Awake Function Is Called Right After The Start Function 
-    void Awake()
+    void Start()
     {
-        plrHealthPack = FindObjectOfType<playerController>(); 
+         
     }
 
-    void OnTriggerEnter(Collider plrHealth)
+    void OnTriggerEnter(Collider other)
     {
         // Allows The Player To Pick-Up A Full Health-Pack Blue Sphere 
 
-        if (plrHealth.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            plrHealth.GetComponent<playerController>().HealthPack(healthBoost);
-
+            playerController toAdd = GameManager.Instance.PlayerScript;
+            toAdd.HP = 10;
             Destroy(gameObject);
+
+            
         } 
     }
 }

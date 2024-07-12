@@ -12,13 +12,15 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] Animator anim;
     [SerializeField] Renderer model;
     [SerializeField] GameObject bullet;
-    [SerializeField] NavMeshAgent agent;
+    [SerializeField] public NavMeshAgent agent;
     [SerializeField] Transform shootPos;
     [SerializeField] Transform headPos;
+    [SerializeField] GameObject healthDrop;
+    [SerializeField] GameObject bulletDrop;
 
     [Header("<=====ENEMY_GUN_STATS=====>")]
 
-    [SerializeField] float HP;
+    [SerializeField] public float HP;
     [SerializeField] int shootAngle;
     [SerializeField] int animTranSpeed;
     [SerializeField] int faceTargetSpeed;
@@ -216,6 +218,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                 StopMoving();
                 Destroy(gameObject, 1f);
                 StartCoroutine(ResetBool2());
+                randomDrop();
                 Ragdoll();
             }
             StartCoroutine(ResetBool1());
@@ -312,5 +315,20 @@ public class EnemyAI : MonoBehaviour, IDamage
         //working on this soon. Needs to seperate HP from MAX hp so setting the max hp isn't infinite healing
         //enemyHp = HP = 10 + ((enemyHp*.05f) * GameManager.Instance.roundNumber);
         //enemySpeed = agent.speed =  Mathf.Clamp(enemySpeed + ((enemySpeed*.05f) * GameManager.Instance.roundNumber), 2.0f, 11f);
+    }
+    public void randomDrop()
+    {
+        Vector3 dropLoc = transform.position;
+        dropLoc.y += 2;
+        Quaternion rotate = Quaternion.identity;
+        int random = Random.Range(0, 10);
+        if(random == 5)
+        {
+            Instantiate(bulletDrop,dropLoc,rotate);
+        }
+        if(random == 9)
+        {
+            Instantiate(healthDrop, dropLoc, rotate);
+        }
     }
 }
