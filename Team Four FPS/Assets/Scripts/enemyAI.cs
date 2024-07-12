@@ -82,6 +82,10 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             agent.SetDestination(GameManager.Instance.Player.transform.position);
         }
+        if(hordeSpawn && playerInRange)
+        {
+            FaceChaseShoot();
+        }
         else
         {
             //for standard behavior make sure horde spawn is unchecked.
@@ -114,10 +118,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             }
         }
 
-        if (GameManager.Instance.roundPassed > 0)
-        {
-            incrementStats();
-        }
+        
     }
 
     IEnumerator roam()
@@ -310,18 +311,13 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 
-    public void incrementStats()
-    {
-        //working on this soon. Needs to seperate HP from MAX hp so setting the max hp isn't infinite healing
-        //enemyHp = HP = 10 + ((enemyHp*.05f) * GameManager.Instance.roundNumber);
-        //enemySpeed = agent.speed =  Mathf.Clamp(enemySpeed + ((enemySpeed*.05f) * GameManager.Instance.roundNumber), 2.0f, 11f);
-    }
+    
     public void randomDrop()
     {
         Vector3 dropLoc = transform.position;
         dropLoc.y += 2;
         Quaternion rotate = Quaternion.identity;
-        int random = Random.Range(0, 10);
+        int random = Random.Range(0, 50);
         if(random == 5)
         {
             Instantiate(bulletDrop,dropLoc,rotate);

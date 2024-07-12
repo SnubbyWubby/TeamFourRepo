@@ -176,6 +176,7 @@ MonoBehaviour:
   spawnVolume: 0.15
   spawnTimer: 0
   spawnNumber: 20
+  setSpawn: 1
 --- !u!33 &1799191988031948130
 MeshFilter:
   m_ObjectHideFlags: 0
