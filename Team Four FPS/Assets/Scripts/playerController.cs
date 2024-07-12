@@ -43,7 +43,7 @@ public class playerController : MonoBehaviour, IDamage
 
     [Header("<=====PLAYER_MOVEMENT=====>")]
 
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
     [SerializeField] float sprintModifier;
 
     [SerializeField] float slideDuration;

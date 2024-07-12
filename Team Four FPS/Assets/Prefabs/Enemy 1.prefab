@@ -2066,7 +2066,7 @@ MonoBehaviour:
   headPos: {fileID: 786861220900562865}
   healthDrop: {fileID: 4922032196411983371, guid: 53eb2452c3a363c45b2b816f03df8c29, type: 3}
   bulletDrop: {fileID: 3226869189621625867, guid: a03f755af2dee354da80b425f31ab184, type: 3}
-  HP: 5
+  HP: 6.381407
   shootAngle: 5
   animTranSpeed: 4
   faceTargetSpeed: 5
@@ -2138,7 +2138,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4.051687
   m_Acceleration: 32
   avoidancePriority: 50
   m_AngularSpeed: 600
