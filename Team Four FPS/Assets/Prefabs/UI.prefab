@@ -841,7 +841,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4845806719864746996}
         m_TargetAssemblyTypeName: TackleBox.buttonFunctions, Assembly-CSharp
-        m_MethodName: quit
+        m_MethodName: restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
