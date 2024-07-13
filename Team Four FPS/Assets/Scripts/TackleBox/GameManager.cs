@@ -159,12 +159,6 @@ namespace TackleBox
             }
         }
 
-        private void gameStart()
-        {
-
-
-        }
-
         public static GameManager Instance
         {
             get

@@ -2220,6 +2220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55697390352a4f549bef9cd189b1528c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 24100000, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
   AudioList:
   - {fileID: 11400000, guid: ed0119f11d469c445a778c7e5f646b93, type: 2}
   - {fileID: 11400000, guid: 8520573450835074b9e55c0bac94cefc, type: 2}
@@ -2509,6 +2510,7 @@ GameObject:
   - component: {fileID: 7182137892912222893}
   - component: {fileID: 5755515313323809730}
   - component: {fileID: 8534743322224736524}
+  - component: {fileID: 8430813697152721593}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2625,6 +2627,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8430813697152721593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2319337941379774620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e9a25d498a20d428d9ee6c66ce370d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _MenuList:
+  - {fileID: 4361632096517699313}
+  activeMenu: {fileID: 0}
 --- !u!1 &2415336104062805454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,7 +2980,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumePara: MasterVolume
-  audioMixer: {fileID: 24100000, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
   slider: {fileID: 1096021195591036487}
   multiplier: 20
   toggle: {fileID: 482985585049887303}
@@ -5159,7 +5175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumePara: SoundEffectsVolume
-  audioMixer: {fileID: 24100000, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
   slider: {fileID: 7870827003750534584}
   multiplier: 20
   toggle: {fileID: 152563358976186922}
@@ -6826,7 +6841,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumePara: MusicVolume
-  audioMixer: {fileID: 24100000, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
   slider: {fileID: 1075429744333108275}
   multiplier: 20
   toggle: {fileID: 7640958208969648982}

@@ -2,13 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIMenu : MonoBehaviour
+namespace TackleBox.UI
 {
-    public List<GameObject> MenuElements = new List<GameObject>();
-
-    public GameObject GetElement(string element)
+    public class UIMenu : MonoBehaviour
     {
+        public List<GameObject> MenuElements = new List<GameObject>();
 
-        return null;
+        public GameObject GetElement(string elementName)
+        {
+            foreach (GameObject element in MenuElements)
+            {
+                if (element != null && element.name == elementName)
+                    return element;
+            }
+
+
+            return null;
+        }
     }
 }
