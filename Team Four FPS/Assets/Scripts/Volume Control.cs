@@ -14,6 +14,7 @@ namespace TackleBox.Audio
         [SerializeField] Slider slider;
         [SerializeField] float multiplier = 20f;
         [SerializeField] Toggle toggle;
+        [SerializeField] GameObject musicPreview;
         bool disableToggleEvent;
 
         public void HandleToggleValueChanged(bool enableSound)
@@ -22,20 +23,20 @@ namespace TackleBox.Audio
                 return;
 
             if (slider != null)
-                slider.value = enableSound ? .01f : .99f;
+                slider.value = enableSound ? .05f : .95f;
 
-            //if (enableSound)
-            //    slider.value = .01f;
-            //else
-            //    slider.value = .99f;
+            if (enableSound)
+                slider.value = .05f;
+            else
+                slider.value = .95f;
 
         }
 
         public void HandleSliderValueChanged(float value)
         {
-
-            AudioManager.Instance.AudioMixer.SetFloat(volumePara, Mathf.Log10(value) * multiplier);
-
+            float volue = Mathf.Clamp(Mathf.Log10(value)* multiplier, -80, 110);
+            AudioManager.Instance.AudioMixer.SetFloat(volumePara, volue);
+            
             disableToggleEvent = true;
             toggle.isOn = slider.value > .01f;
             disableToggleEvent = false;
