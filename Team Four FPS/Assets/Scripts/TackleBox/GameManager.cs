@@ -97,12 +97,13 @@ namespace TackleBox
         {
             _instance = Instance;
 
-            Time.timeScale = 1;
+            
             stopWatchActive = true;
             Player = GameObject.FindWithTag("Player");
             PlayerScript = Player.GetComponent<playerController>();
             MainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
             enemyCount = 0;
+            Time.timeScale = 1;
 
             // Load data
             SaveData data = SaveManager.Instance.Load("savefile.json");

@@ -1,21 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using TackleBox.Audio;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace TackleBox.UI
 {
     public class UIManager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        static UIManager _instance;
+        [SerializeField] List<GameObject> _MenuList = new List<GameObject>();
+        public GameObject activeMenu;
 
+        public List<GameObject> GetUIList()
+        {
+            return _MenuList;
         }
 
-        // Update is called once per frame
-        void Update()
+        public static UIManager Instance
         {
+            get
+            {
+                if (_instance == null)
+                {
+                    // Search for an existing instance in the scene
+                    _instance = FindObjectOfType<UIManager>();
 
+                    if (_instance != null)
+                        Debug.LogError("UIManager instance not found! Try adding one to the scene first.");
+                }
+                return _instance;
+            }
         }
     }
 }

@@ -301,7 +301,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayScene: 
-  playNewGame: 
   noFileFound: {fileID: 8183628459311151372, guid: d7f03db8bb8a34b449197358b769d8f0, type: 3}
 --- !u!1 &439808847
 GameObject:
@@ -1115,7 +1114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayScene: Prototype 2 Scene
-  playNewGame: 
   noFileFound: {fileID: 0}
 --- !u!114 &676529984
 MonoBehaviour:
@@ -3489,7 +3487,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayScene: Prototype 2 Scene
-  playNewGame: 
   noFileFound: {fileID: 0}
 --- !u!1 &1867726207
 GameObject:
@@ -3524,7 +3521,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayScene: Prototype 2 Scene
-  playNewGame: 
   noFileFound: {fileID: 0}
 --- !u!114 &1867726209
 MonoBehaviour:
@@ -4133,7 +4129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: -75}
   m_SizeDelta: {x: 750, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1937446363

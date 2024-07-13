@@ -1,6 +1,8 @@
 using System;
 using TackleBox.SaveSystem;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace TackleBox.Audio
 {
@@ -9,7 +11,9 @@ namespace TackleBox.Audio
 
         // Static instance of AudioManager which allows it to be accessed by any other script
         private static AudioManager _instance;
-        [SerializeField] private Audio[] AudioList;
+
+        public AudioMixer AudioMixer;
+        [SerializeField] Audio[] AudioList;
 
         // Property to access the instance of the AudioManager
         public static AudioManager Instance
@@ -47,9 +51,8 @@ namespace TackleBox.Audio
         public Audio GetSoundByID(string audioID)
         {
             foreach (Audio audio in AudioList)
-            {
                 if (audio && audio.ID.ToLower() == audioID.ToLower()) return audio;
-            }
+
             return ScriptableObject.CreateInstance<Audio>();
         }
 

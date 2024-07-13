@@ -1,64 +1,53 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TackleBox.Audio;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class VolumeControl : MonoBehaviour
+namespace TackleBox.Audio
 {
-    [SerializeField] string volumePara = "MasterVolume";
-    [SerializeField] AudioMixer audioMixer;
-    [SerializeField] Slider slider;
-    [SerializeField] float multiplier = 20f;
-    [SerializeField] Toggle toggle;
-    bool disableToggleEvent;
-
-
-    // Start is called before the first frame update
-    void Awake()
+    public class VolumeControl : MonoBehaviour
     {
-        slider.onValueChanged.AddListener(HandleSliderValueChanged);
-        toggle.onValueChanged.AddListener(HandleToggleValueChanged);
-    }
+        [SerializeField] string volumePara = "MasterVolume";
+        [SerializeField] Slider slider;
+        [SerializeField] float multiplier = 20f;
+        [SerializeField] Toggle toggle;
+        bool disableToggleEvent;
 
-    private void HandleToggleValueChanged(bool enableSound)
-    {
-        if (disableToggleEvent)
+        public void HandleToggleValueChanged(bool enableSound)
         {
-            return;
-        }
-        if (enableSound) 
-        {
-            slider.value = .01f;
-        }
-        else
-        {
-            slider.value = .99f; 
-        }
-    }
+            if (disableToggleEvent)
+                return;
 
-    private void HandleSliderValueChanged(float value)
-    {
-        audioMixer.SetFloat(volumePara, Mathf.Log10(value) * multiplier);
-        
-        disableToggleEvent = true;
-        toggle.isOn = slider.value > .01f;
-        disableToggleEvent = false;
-    }
-    private void OnDisable()
-    {
-        PlayerPrefs.SetFloat(volumePara, slider.value);
-    }
-    private void Start()
-    {
-        slider.value = PlayerPrefs.GetFloat(volumePara, slider.value);
-        
-    }
+            if (slider != null)
+                slider.value = enableSound ? .01f : .99f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            //if (enableSound)
+            //    slider.value = .01f;
+            //else
+            //    slider.value = .99f;
+
+        }
+
+        public void HandleSliderValueChanged(float value)
+        {
+
+            AudioManager.Instance.AudioMixer.SetFloat(volumePara, Mathf.Log10(value) * multiplier);
+
+            disableToggleEvent = true;
+            toggle.isOn = slider.value > .01f;
+            disableToggleEvent = false;
+        }
+        private void OnDisable()
+        {
+            PlayerPrefs.SetFloat(volumePara, slider.value);
+        }
+        private void Start()
+        {
+            slider.value = PlayerPrefs.GetFloat(volumePara, slider.value);
+
+        }
     }
 }
