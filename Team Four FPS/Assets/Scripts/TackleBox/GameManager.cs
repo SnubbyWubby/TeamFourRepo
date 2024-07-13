@@ -26,6 +26,7 @@ namespace TackleBox
         [SerializeField] GameObject menuWin;
         [SerializeField] GameObject menuLose;
         [SerializeField] TMP_Text menuLoseCause;
+        [SerializeField] GameObject audioMenu;
 
         [Header("<=====GM_UI_GRENADE=====>")]
 
@@ -312,6 +313,19 @@ namespace TackleBox
             yield return new WaitForSeconds(10f);
             roundTransition = false;
 
+        }
+        public void AudioMenu()
+        {
+            
+           
+            MenuActive = audioMenu;
+            MenuActive.SetActive(true);
+        }
+        public void AudioMenuBack()
+        {
+            audioMenu.SetActive(false);
+            MenuActive = MenuPause;
+            
         }
     }
 }

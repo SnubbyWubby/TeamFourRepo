@@ -9,6 +9,7 @@ public class CameraFollowPlayer : MonoBehaviour
     [SerializeField] private float offSetX;
     [SerializeField] private float offSetZ; 
     [SerializeField] private float spdLerp;
+    
 
     private void CameraUpdate() 
     {
