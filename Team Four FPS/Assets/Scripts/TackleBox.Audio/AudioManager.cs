@@ -1,5 +1,6 @@
 using System;
 using TackleBox.SaveSystem;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -13,7 +14,11 @@ namespace TackleBox.Audio
         private static AudioManager _instance;
 
         public AudioMixer AudioMixer;
+        public AudioMixerGroup[] AudioMixerGroups;
         [SerializeField] Audio[] AudioList;
+
+        private static AudioSource _audioSource;
+        private static AudioSource _musicSource;
 
         // Property to access the instance of the AudioManager
         public static AudioManager Instance
@@ -32,10 +37,47 @@ namespace TackleBox.Audio
                         _instance = audioManager.AddComponent<AudioManager>();
                     }
 
-                    // Mark the instance to not be destroyed on scene load
-                    DontDestroyOnLoad(_instance.gameObject);
                 }
                 return _instance;
+            }
+        }
+
+        public static AudioSource AudioSource
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = Instance;
+
+
+                if (_audioSource == null)
+                {
+                    _audioSource = _instance.gameObject.AddComponent<AudioSource>();
+                    _audioSource.name = "Audio";
+                    _musicSource.outputAudioMixerGroup = _instance.GetMusicGroup("Sound Effects");
+                    _audioSource.loop = true;
+                }
+
+                return _audioSource;
+            }
+        }
+
+        public static AudioSource MusicSource
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = Instance;
+
+                if (_musicSource == null)
+                {
+                    _musicSource = _instance.gameObject.AddComponent<AudioSource>();
+                    _musicSource.name = "Music";
+                    _musicSource.outputAudioMixerGroup = _instance.GetMusicGroup("Music");
+                    _musicSource.loop = true;
+                }
+
+                return _musicSource;
             }
         }
 
@@ -56,13 +98,20 @@ namespace TackleBox.Audio
             return ScriptableObject.CreateInstance<Audio>();
         }
 
+        public AudioMixerGroup GetMusicGroup(string GroupID)
+        {
+            foreach (AudioMixerGroup group in AudioMixerGroups)
+                if (group && group.name.ToLower() == GroupID.ToLower()) return group;
+
+            return null;
+        }
+
         // Ensure that the instance is not destroyed when the scene changes
         private void Awake()
         {
             if (_instance == null)
             {
                 _instance = this;
-                DontDestroyOnLoad(_instance.gameObject);
             }
             else if (_instance != this)
             {

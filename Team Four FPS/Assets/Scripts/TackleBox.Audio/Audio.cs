@@ -20,14 +20,15 @@ namespace TackleBox.Audio
 
         public void PlayOneShot(AudioSource source)
         {
+            var audioSource = source != null ? source : AudioManager.AudioSource;
             //Play Audio
             if (string.IsNullOrEmpty(_name))
                 return;
 
             if (audio.Length > 1)
-                source.PlayOneShot(audio[Random.Range(0, audio.Length)], Volume);
+                audioSource.PlayOneShot(audio[Random.Range(0, audio.Length)], Volume);
             else
-                source.PlayOneShot(audio[0], Volume);
+                audioSource.PlayOneShot(audio[0], Volume);
         }
     }
 }
