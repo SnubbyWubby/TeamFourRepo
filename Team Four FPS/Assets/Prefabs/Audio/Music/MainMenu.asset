@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: MainMenu
   m_EditorClassIdentifier: 
   _name: Main Menu
+  _trackName: Junkyard Tribe
+  _trackArtist: Kevin Macleod
   audio: {fileID: 8300000, guid: 074aa99b359c32d458473496af014bad, type: 3}
-  Volume: 0.5
+  Volume: 0.1

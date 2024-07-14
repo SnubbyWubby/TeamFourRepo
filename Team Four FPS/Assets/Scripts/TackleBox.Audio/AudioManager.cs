@@ -18,8 +18,8 @@ namespace TackleBox.Audio
         [SerializeField] Audio[] AudioList;
         [SerializeField] Music[] MusicList;
 
-        private static AudioSource _audioSource;
-        private static AudioSource _musicSource;
+        public static AudioSource _audioSource;
+        public static AudioSource _musicSource;
 
         // Property to access the instance of the AudioManager
         public static AudioManager Instance
@@ -54,7 +54,6 @@ namespace TackleBox.Audio
                 if (_audioSource == null)
                 {
                     _audioSource = _instance.gameObject.AddComponent<AudioSource>();
-                    _audioSource.name = "Audio";
                     _musicSource.outputAudioMixerGroup = _instance.GetMusicGroup("Sound Effects");
                     _audioSource.loop = true;
                 }
@@ -73,7 +72,6 @@ namespace TackleBox.Audio
                 if (_musicSource == null)
                 {
                     _musicSource = _instance.gameObject.AddComponent<AudioSource>();
-                    _musicSource.name = "Music";
                     _musicSource.outputAudioMixerGroup = _instance.GetMusicGroup("Music");
                     _musicSource.loop = true;
                 }

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 using UnityEngine.SceneManagement;
-using TMPro; 
+using TMPro;
+using TackleBox.Audio;
 
 namespace TackleBox.UI
 {
@@ -14,7 +15,7 @@ namespace TackleBox.UI
         [SerializeField] string PlayScene;
         [SerializeField] private GameObject noFileFound = null;
         [SerializeField] private GameObject confirmPrompt = null;
-        [SerializeField] AudioSource menuAudio;
+        [SerializeField] string BackgroundMusic = "Main Menu";
 
         [Header("<=====OPTIONS_MENU=====>")]
 
@@ -59,6 +60,8 @@ namespace TackleBox.UI
                     currIdxResolution = num;    
                 }
             }
+
+            AudioManager.Instance.GetMusicByID(BackgroundMusic).PlayMusic();
 
             drpdwnResolution.AddOptions(options);
             drpdwnResolution.value = currIdxResolution;
