@@ -66,14 +66,14 @@ public class playerController : MonoBehaviour, IDamage
     Vector3 moveDirection;
     Vector3 playerVelocity;
 
+    public bool isSprinting { get; private set; }
+    public bool isWalking { get; private set; }
+
     bool isShooting;
     bool isCrouching;
-    bool isSprinting;
     bool isSliding;
     bool isJumping;
     bool isStraight;
-    bool isWalking;
-    bool isRunning;
     bool isDamageHit;
 
     int originalHP;
@@ -201,15 +201,11 @@ public class playerController : MonoBehaviour, IDamage
 
             speed *= sprintModifier;
             isSprinting = true;
-
-            isRunning = true;
         }
         else if (Input.GetButtonUp("Sprint"))
         {
             speed /= sprintModifier;
             isSprinting = false;
-
-            isRunning = false;
         }
     }
 
@@ -258,7 +254,7 @@ public class playerController : MonoBehaviour, IDamage
         Audio Footstep = soundManager.GetSoundByID("Footstep");
         Footstep.PlayOneShot(plrAudio);
 
-        if (!isRunning)
+        if (!isSprinting)
         {
             yield return new WaitForSeconds(audioWalkTimer);
         }

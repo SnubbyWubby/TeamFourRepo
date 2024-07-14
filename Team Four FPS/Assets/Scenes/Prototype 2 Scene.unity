@@ -1289,7 +1289,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2880173082235516941, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 654141894}
+    - targetCorrespondingSourceObject: {fileID: 1288567147526338810, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 581350626}
   m_SourcePrefab: {fileID: 100100000, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
 --- !u!1001 &309634281
 PrefabInstance:
@@ -2868,6 +2874,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4799120485058021814, guid: 9f795aaac20e95640a49342f1c3f2e46, type: 3}
   m_PrefabInstance: {fileID: 574088165}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &581350623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1288567147526338810, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
+  m_PrefabInstance: {fileID: 303950748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &581350626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581350623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f1d121a72911e4dbb63e4103b69723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceSpeed: 10
+  bounceDistance: 0.01
+  bounceSprintSpeed: 2
+  bounceSprintModifier: 1
 --- !u!1001 &588940362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3149,6 +3176,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4955285288068566865, guid: 6451e4e5c01a0594ca44f6099d78458f, type: 3}
   m_PrefabInstance: {fileID: 635976425}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &654141889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2880173082235516941, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
+  m_PrefabInstance: {fileID: 303950748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &654141894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654141889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f1d121a72911e4dbb63e4103b69723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceSpeed: 10
+  bounceDistance: 0.02
+  bounceSprintSpeed: 2
+  bounceSprintModifier: 1
 --- !u!1001 &661625758
 PrefabInstance:
   m_ObjectHideFlags: 0
