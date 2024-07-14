@@ -8,7 +8,7 @@ namespace TackleBox.Audio
     {
         [SerializeField] private string _name;
         [SerializeField] AudioClip[] audio;
-        [SerializeField] float Volume;
+        [SerializeField][Range(0,1)] float Volume = 1;
 
         public string ID
         {
