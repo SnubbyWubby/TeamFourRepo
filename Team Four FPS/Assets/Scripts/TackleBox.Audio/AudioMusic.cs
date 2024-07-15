@@ -7,8 +7,10 @@ namespace TackleBox.Audio
     public class Music : ScriptableObject
     {
         [SerializeField] private string _name;
+        [SerializeField] private string _trackName;
+        [SerializeField] private string _trackArtist;
         [SerializeField] AudioClip audio;
-        [SerializeField] float Volume;
+        [SerializeField] float Volume = 0.5f;
 
         public string ID
         {
@@ -18,7 +20,7 @@ namespace TackleBox.Audio
             }
         }
 
-        public void PlayMusic(AudioSource source)
+        public void PlayMusic(AudioSource source = null)
         {
             var musicSource = source != null ? source : AudioManager.MusicSource;
             //Play Audio
@@ -26,6 +28,7 @@ namespace TackleBox.Audio
                 return;
             if (audio != null)
             {
+                musicSource.volume = Volume;
                 musicSource.clip = audio;
                 musicSource.Play();
             }

@@ -176,12 +176,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2738759736254170981, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 074aa99b359c32d458473496af014bad, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c0664f5ce01ffbf469a26651bc27b66d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
-  Mute: 0
+  Loop: 1
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -2349,6 +2349,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioMixer: {fileID: 24100000, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
+  AudioMixerGroups:
+  - {fileID: 24300002, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
+  - {fileID: 2738759736254170981, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
+  - {fileID: -5318043678123373426, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
   AudioList:
   - {fileID: 11400000, guid: ed0119f11d469c445a778c7e5f646b93, type: 2}
   - {fileID: 11400000, guid: 8520573450835074b9e55c0bac94cefc, type: 2}
@@ -2358,6 +2362,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fc6039c9491b85f42bc5ca51d82604bb, type: 2}
   - {fileID: 11400000, guid: 3367e27851336d941ab72f3510ec5bbf, type: 2}
   - {fileID: 11400000, guid: 16592df4594516d49a448fa2c6138fe8, type: 2}
+  MusicList:
+  - {fileID: 11400000, guid: ca9722c33d10bac4e8efb2500462f11d, type: 2}
+  - {fileID: 11400000, guid: 364bdcc528a240d4cb16e85f975a8272, type: 2}
 --- !u!1 &2124399324646239672
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,7 +3119,7 @@ MonoBehaviour:
   slider: {fileID: 1096021195591036487}
   multiplier: 20
   toggle: {fileID: 482985585049887303}
-  musicPreview: {fileID: 5093924576992880411}
+  musicPreview: {fileID: 0}
 --- !u!114 &1096021195591036487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5086,10 +5093,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -5318043678123373426, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
   m_audioClip: {fileID: 8300000, guid: a13ca424624aa904a81cfc9366c6e3f9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128

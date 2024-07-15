@@ -92,6 +92,9 @@ namespace TackleBox
         public bool roundTransition;
         public int roundPassed;
 
+        [Header("Music:")]
+        [SerializeField] string BackgroundMusic = "Gameplay 1";
+
         // Awake is called before the first frame update
         void Awake()
         {
@@ -108,6 +111,11 @@ namespace TackleBox
             // Load data
             SaveData data = SaveManager.Instance.Load("savefile.json");
             StopwatchBest.text = timerConvertor(data.totalTime);
+        }
+
+        void Start()
+        {
+            AudioManager.Instance.GetMusicByID(BackgroundMusic).PlayMusic();
         }
 
         // Update is called once per frame
@@ -158,6 +166,8 @@ namespace TackleBox
 
             }
         }
+
+       
 
         public static GameManager Instance
         {
@@ -311,8 +321,6 @@ namespace TackleBox
         }
         public void AudioMenu()
         {
-            
-           
             MenuActive = audioMenu;
             MenuActive.SetActive(true);
         }
@@ -320,7 +328,6 @@ namespace TackleBox
         {
             audioMenu.SetActive(false);
             MenuActive = MenuPause;
-            
         }
     }
 }

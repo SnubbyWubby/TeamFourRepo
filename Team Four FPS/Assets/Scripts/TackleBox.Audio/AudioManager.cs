@@ -16,9 +16,10 @@ namespace TackleBox.Audio
         public AudioMixer AudioMixer;
         public AudioMixerGroup[] AudioMixerGroups;
         [SerializeField] Audio[] AudioList;
+        [SerializeField] Music[] MusicList;
 
-        private static AudioSource _audioSource;
-        private static AudioSource _musicSource;
+        static AudioSource _audioSource;
+        static AudioSource _musicSource;
 
         // Property to access the instance of the AudioManager
         public static AudioManager Instance
@@ -53,7 +54,6 @@ namespace TackleBox.Audio
                 if (_audioSource == null)
                 {
                     _audioSource = _instance.gameObject.AddComponent<AudioSource>();
-                    _audioSource.name = "Audio";
                     _musicSource.outputAudioMixerGroup = _instance.GetMusicGroup("Sound Effects");
                     _audioSource.loop = true;
                 }
@@ -72,7 +72,6 @@ namespace TackleBox.Audio
                 if (_musicSource == null)
                 {
                     _musicSource = _instance.gameObject.AddComponent<AudioSource>();
-                    _musicSource.name = "Music";
                     _musicSource.outputAudioMixerGroup = _instance.GetMusicGroup("Music");
                     _musicSource.loop = true;
                 }
@@ -96,6 +95,13 @@ namespace TackleBox.Audio
                 if (audio && audio.ID.ToLower() == audioID.ToLower()) return audio;
 
             return ScriptableObject.CreateInstance<Audio>();
+        }
+        public Music GetMusicByID(string musicID)
+        {
+            foreach (Music music in MusicList)
+                if (music && music.ID.ToLower() == musicID.ToLower()) return music;
+
+            return ScriptableObject.CreateInstance<Music>();
         }
 
         public AudioMixerGroup GetMusicGroup(string GroupID)

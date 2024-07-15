@@ -8,7 +8,7 @@ namespace TackleBox.Audio
     {
         [SerializeField] private string _name;
         [SerializeField] AudioClip[] audio;
-        [SerializeField] float Volume;
+        [SerializeField][Range(0,1)] float Volume = 0.5f;
 
         public string ID
         {
@@ -18,7 +18,7 @@ namespace TackleBox.Audio
             }
         }
 
-        public void PlayOneShot(AudioSource source)
+        public void PlayOneShot(AudioSource source = null)
         {
             var audioSource = source != null ? source : AudioManager.AudioSource;
             //Play Audio

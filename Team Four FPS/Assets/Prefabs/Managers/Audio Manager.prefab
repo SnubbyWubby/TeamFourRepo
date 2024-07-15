@@ -45,13 +45,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioMixer: {fileID: 24100000, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
+  AudioMixerGroups:
+  - {fileID: -5318043678123373426, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
+  - {fileID: 2738759736254170981, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
+  - {fileID: 24300002, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
   AudioList:
-  - {fileID: 11400000, guid: a5e378dd4f647a14d9c32d52dee1b117, type: 2}
-  - {fileID: 11400000, guid: 22c07d6f39a3b604b8bf1bcfbb49de78, type: 2}
-  - {fileID: 11400000, guid: 8520573450835074b9e55c0bac94cefc, type: 2}
-  - {fileID: 11400000, guid: 3367e27851336d941ab72f3510ec5bbf, type: 2}
-  - {fileID: 11400000, guid: 35b1434b7ca94864594abd25b5858774, type: 2}
-  - {fileID: 11400000, guid: 16592df4594516d49a448fa2c6138fe8, type: 2}
-  - {fileID: 11400000, guid: ad0edd40d55e5844e8ddc066007625a0, type: 2}
   - {fileID: 11400000, guid: ed0119f11d469c445a778c7e5f646b93, type: 2}
-  - {fileID: 11400000, guid: 811ab6c8dcb83f84ba195c52d5bc4cb1, type: 2}
+  - {fileID: 11400000, guid: 8520573450835074b9e55c0bac94cefc, type: 2}
+  - {fileID: 11400000, guid: f1d25443db87c954eaebdb7c4d4ca90d, type: 2}
+  - {fileID: 11400000, guid: 35b1434b7ca94864594abd25b5858774, type: 2}
+  - {fileID: 11400000, guid: ad0edd40d55e5844e8ddc066007625a0, type: 2}
+  - {fileID: 11400000, guid: fc6039c9491b85f42bc5ca51d82604bb, type: 2}
+  - {fileID: 11400000, guid: 3367e27851336d941ab72f3510ec5bbf, type: 2}
+  - {fileID: 11400000, guid: 16592df4594516d49a448fa2c6138fe8, type: 2}
+  MusicList:
+  - {fileID: 11400000, guid: 364bdcc528a240d4cb16e85f975a8272, type: 2}
+  - {fileID: 11400000, guid: ca9722c33d10bac4e8efb2500462f11d, type: 2}
