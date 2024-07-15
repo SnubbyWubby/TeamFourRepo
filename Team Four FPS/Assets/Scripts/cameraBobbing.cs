@@ -27,23 +27,20 @@ public class cameraBobbing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.stopCameraRotation)
+        if (GameManager.Instance.PlayerScript.isWalking && !GameManager.Instance.PlayerScript.isSprinting) // If player is walking and not sprinting
         {
-            if (GameManager.Instance.PlayerScript.isWalking && !GameManager.Instance.PlayerScript.isSprinting) // If player is walking and not sprinting
-            {
-                timer += Time.deltaTime * bounceSpeed;
-                transform.localPosition = new Vector3(transform.localPosition.x, originalYPosition + Mathf.Sin(timer) * bounceDistance, transform.localPosition.z);
-            }
-            else if (GameManager.Instance.PlayerScript.isWalking && GameManager.Instance.PlayerScript.isSprinting) // If player is sprinting
-            {
-                timer += Time.deltaTime * bounceSpeed * bounceSprintSpeed;
-                transform.localPosition = new Vector3(transform.localPosition.x, originalYPosition + Mathf.Sin(timer) * (bounceDistance * bounceSprintModifier), transform.localPosition.z);
-            }
-            else // If player is idle
-            {
-                timer = 0;
-                transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, originalYPosition, Time.deltaTime * bounceSpeed), transform.localPosition.z);
-            }
+            timer += Time.deltaTime * bounceSpeed;
+            transform.localPosition = new Vector3(transform.localPosition.x, originalYPosition + Mathf.Sin(timer) * bounceDistance, transform.localPosition.z);
+        }
+        else if (GameManager.Instance.PlayerScript.isWalking && GameManager.Instance.PlayerScript.isSprinting) // If player is sprinting
+        {
+            timer += Time.deltaTime * bounceSpeed * bounceSprintSpeed;
+            transform.localPosition = new Vector3(transform.localPosition.x, originalYPosition + Mathf.Sin(timer) * (bounceDistance * bounceSprintModifier), transform.localPosition.z);
+        }
+        else // If player is idle
+        {
+            timer = 0;
+            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, originalYPosition, Time.deltaTime * bounceSpeed), transform.localPosition.z);
         }
     }
 }
