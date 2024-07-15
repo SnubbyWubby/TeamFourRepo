@@ -18,8 +18,8 @@ namespace TackleBox.Audio
         [SerializeField] Audio[] AudioList;
         [SerializeField] Music[] MusicList;
 
-        public static AudioSource _audioSource;
-        public static AudioSource _musicSource;
+        static AudioSource _audioSource;
+        static AudioSource _musicSource;
 
         // Property to access the instance of the AudioManager
         public static AudioManager Instance
