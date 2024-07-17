@@ -30,9 +30,9 @@ namespace TackleBox.UI
         [SerializeField] private Slider ctrlSenSlider = null;
         [SerializeField] private Toggle invertYToggle = null;
         [SerializeField] private Toggle fullScrnToggle; 
-        [SerializeField] private float senDefault = 0.5f;
         [SerializeField] private TMP_Dropdown drpdwnQuality;
-  
+        [SerializeField] private float senDefault = 0.5f;
+
         public float mainControlSen = 0.5f;
         public TMP_Dropdown drpdwnResolution;
 
@@ -42,7 +42,7 @@ namespace TackleBox.UI
         private float lvlBrightness;
         private bool truFullScreen;
 
-        private void Start()
+        private void Start() 
         {
             scrResolution = Screen.resolutions; 
             drpdwnResolution.ClearOptions();
@@ -104,7 +104,7 @@ namespace TackleBox.UI
 
         public void ApplyVolume() 
         {
-            PlayerPrefs.SetFloat("Master-Volume", AudioListener.volume);
+            PlayerPrefs.SetFloat("MasterVolume", AudioListener.volume);
             StartCoroutine(SaveBoxConfirm());  
         }
 
@@ -118,14 +118,14 @@ namespace TackleBox.UI
         {
             if (invertYToggle.isOn) 
             {
-                PlayerPrefs.SetFloat("Master-InvertY", 1.0f); // Invert Y Controller Button
+                PlayerPrefs.SetFloat("MasterInvertY", 1.0f); // Invert Y Controller Button
             }
             else
             {
-                PlayerPrefs.SetFloat("Master-InvertY", 0.0f); // Did Not Invert Y Controller Button
+                PlayerPrefs.SetFloat("MasterInvertY", 0.0f); // Did Not Invert Y Controller Button
             }
 
-            PlayerPrefs.SetFloat("Master-Sensitivity", mainControlSen);
+            PlayerPrefs.SetFloat("MasterSensitivity", mainControlSen);
             StartCoroutine(SaveBoxConfirm());
         }
 
@@ -142,12 +142,12 @@ namespace TackleBox.UI
         public void ApplyGraphics() 
         {
             // Able To Change Your Brightness Level With Your Liking 
-            PlayerPrefs.SetFloat("Master-Brightness", lvlBrightness);
+            PlayerPrefs.SetFloat("MasterBrightness", lvlBrightness);
 
-            PlayerPrefs.SetInt("Master-Quality", levelQuality);
+            PlayerPrefs.SetInt("MasterQuality", levelQuality);
             QualitySettings.SetQualityLevel(levelQuality);
 
-            PlayerPrefs.SetInt("Master-FullScreen", (truFullScreen ? 1 : 0));
+            PlayerPrefs.SetInt("MasterFullScreen", (truFullScreen ? 1 : 0));
             Screen.fullScreen = truFullScreen;
 
             StartCoroutine(SaveBoxConfirm()); 

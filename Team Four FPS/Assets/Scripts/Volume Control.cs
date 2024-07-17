@@ -13,15 +13,15 @@ namespace TackleBox.Audio
         [SerializeField] string volumePara = "MasterVolume";
         [SerializeField] Slider slider;
         [SerializeField] float multiplier = 20f;
-        [SerializeField] Toggle toggle;
+        [SerializeField] Toggle toggle;   
         [SerializeField] GameObject musicPreview;
         bool previewPlaying = false;
         bool disableToggleEvent;
 
         public void HandleToggleValueChanged(bool enableSound)
         {
-            if (disableToggleEvent)
-                return;
+            if (disableToggleEvent) 
+                return;    
 
             if (slider != null)
                 slider.value = enableSound ? .05f : .95f;
@@ -30,8 +30,6 @@ namespace TackleBox.Audio
                 slider.value = .05f;
             else
                 slider.value = .95f;
-
-
         }
 
         public void HandleSliderValueChanged(float value)
@@ -39,22 +37,23 @@ namespace TackleBox.Audio
             float volue = Mathf.Clamp(Mathf.Log10(value)* multiplier, -80, 110);
             AudioManager.Instance.AudioMixer.SetFloat(volumePara, volue);
 
-            disableToggleEvent = true;
-            toggle.isOn = slider.value > .01f;
-            disableToggleEvent = false;
+            //disableToggleEvent = true;
+            //toggle.isOn = slider.value > .01f;
+            //disableToggleEvent = false;
 
             if (musicPreview != null)
             {
                 playPreview();
                 musicPreview.GetComponent<AudioSource>().volume = slider.value;
-            }
-                
+            }        
         }
+
         private void OnDisable()
         {
             PlayerPrefs.SetFloat(volumePara, slider.value);
         }
-        private void Start()
+
+        private void Start()  
         {
             slider.value = PlayerPrefs.GetFloat(volumePara, slider.value);
             if (musicPreview != null)

@@ -225,7 +225,7 @@ namespace TackleBox
 
                 menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume);
 
-                if (SaveManager.CurrentData.totalTime >= currentTime) 
+                if (SaveManager.CurrentData.totalTime >= currentTime)  
                 {
                     SaveManager.CurrentData.totalTime = currentTime;
                     SaveManager.Instance.Save("savefile.json");
@@ -294,7 +294,7 @@ namespace TackleBox
         {
             stopCameraRotation = true;
             impCamera = true;
-            Camera.main.transform.localRotation = Quaternion.Euler(45f, 0, 0);
+            Camera.main.transform.localRotation = Quaternion.Euler(5.0f, 0, 0);   
         }
 
         IEnumerator pauseOnDeath()
@@ -307,7 +307,7 @@ namespace TackleBox
         IEnumerator levelTrans()
         {
             roundTransition = true;
-            yield return new WaitForSeconds(10f); 
+            yield return new WaitForSeconds(5f); 
             roundTransition = false;
         }
 
