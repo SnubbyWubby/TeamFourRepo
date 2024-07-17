@@ -16,8 +16,9 @@ namespace TackleBox
         [Header("<=====GM_UI_OUTOFBOUNDS=====>")]
 
         [SerializeField] GameObject OutofBoundsUI;
-        [SerializeField] TMP_Text OutofBoundsTimer;
         [SerializeField] GameObject OutofBoundsBackground;
+
+        [SerializeField] TMP_Text OutofBoundsTimer;
 
         [Header("<=====GM_UI_GAME_MENUS=====>")]
 
@@ -25,8 +26,9 @@ namespace TackleBox
         [SerializeField] GameObject MenuPause;
         [SerializeField] GameObject menuWin;
         [SerializeField] GameObject menuLose;
-        [SerializeField] TMP_Text menuLoseCause;
         [SerializeField] GameObject audioMenu;
+
+        [SerializeField] TMP_Text menuLoseCause;
 
         [Header("<=====GM_UI_GRENADE=====>")]
 
@@ -51,46 +53,45 @@ namespace TackleBox
         public playerController PlayerScript;
 
         public GameObject Player;
+        public GameObject plrArmorHPBack;
 
         public Camera MainCamera;
 
         public Image playerHPBar;
         public Image plrArmorHPBar;
-        public GameObject plrArmorHPBack;
 
         public TMP_Text ammoCurrent, ammoMaximum;
-
         [SerializeField] TMP_Text enemyCountText;
 
         public bool isPaused;
-
         public bool spawnMoreEnemies;
-        public int roundNumber =0;
+
+        public int roundNumber = 0;
         
-
-
         [Header("<=====DEATH CAMERA=====>")]
 
         public bool stopCameraRotation;
         public bool diedOnce;
         public bool impCamera;
-        Vector3 camStart;
-        public Vector3 camEnd;
         public bool lerpEnded;
         public bool ignoreMovement;
 
+        Vector3 camStart;
+        public Vector3 camEnd;
 
         [Header("<=====GM_UI_STOPWATCH=====>")]
 
         [SerializeField] TMP_Text StopwatchCurr;
         [SerializeField] TMP_Text StopwatchBest;
-        bool stopWatchActive;
-        float currentTime;
 
+        public bool roundTransition;
+        bool stopWatchActive;
+        
         public int enemyCount;
         public int grenadeCount;
-        public bool roundTransition;
         public int roundPassed;
+
+        float currentTime;
 
         [Header("Music:")]
         [SerializeField] string BackgroundMusic = "Gameplay 1";
@@ -99,7 +100,6 @@ namespace TackleBox
         void Awake()
         {
             _instance = Instance;
-
             
             stopWatchActive = true;
             Player = GameObject.FindWithTag("Player");
@@ -121,7 +121,6 @@ namespace TackleBox
         // Update is called once per frame
         void Update()
         {
-
             if (Input.GetButtonDown("Cancel"))
             {
                 if (MenuActive == null)
@@ -147,15 +146,13 @@ namespace TackleBox
                 currentTime += Time.deltaTime;
                 StopwatchCurr.text = timerConvertor(currentTime);
             }
+
             if (impCamera)
             {
                 camStart = Camera.main.transform.localPosition;
                 Camera.main.transform.localPosition = Vector3.Lerp(camStart, camEnd, 3 * Time.deltaTime);
                 ignoreMovement = true;
                 stopWatchActive = false;
-
-
-
             }
 
             if (lerpEnded && !isPaused)
@@ -164,10 +161,9 @@ namespace TackleBox
                 MenuActive = menuLose;
                 MenuActive.SetActive(isPaused);
 
+                menuAudio.PlayOneShot(loseAudio[Random.Range(0, loseAudio.Length)], loseVolume);
             }
         }
-
-       
 
         public static GameManager Instance
         {
@@ -223,13 +219,13 @@ namespace TackleBox
                 roundNumber++;
                 spawnMoreEnemies = true;
 
-                //statePause();
-                //MenuActive = menuWin;
-                //MenuActive.SetActive(isPaused);
+                statePause();
+                MenuActive = menuWin;
+                MenuActive.SetActive(isPaused);
 
-                //menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume);
+                menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume);
 
-                if (SaveManager.CurrentData.totalTime >= currentTime)
+                if (SaveManager.CurrentData.totalTime >= currentTime) 
                 {
                     SaveManager.CurrentData.totalTime = currentTime;
                     SaveManager.Instance.Save("savefile.json");
@@ -247,8 +243,6 @@ namespace TackleBox
                 StartCoroutine(pauseOnDeath());
             }
             
-
-
             //statePause();
             //MenuActive = menuLose;
             //MenuActive.SetActive(isPaused);
@@ -301,29 +295,28 @@ namespace TackleBox
             stopCameraRotation = true;
             impCamera = true;
             Camera.main.transform.localRotation = Quaternion.Euler(45f, 0, 0);
-
         }
+
         IEnumerator pauseOnDeath()
         {
-
             lerpEnded = false;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f); 
             lerpEnded = true;
-
-
         }
+
         IEnumerator levelTrans()
         {
             roundTransition = true;
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(10f); 
             roundTransition = false;
-
         }
+
         public void AudioMenu()
         {
             MenuActive = audioMenu;
             MenuActive.SetActive(true);
         }
+
         public void AudioMenuBack()
         {
             audioMenu.SetActive(false);
