@@ -16,10 +16,17 @@ public class playerCameraController : MonoBehaviour
     float cameraFov;
     float xChange = 0;
     float yChange = 0;
+    public float[] sprayPattern = new float[5];
+    public int sprayIter;
 
     // Start is called before the first frame update
     void Start()
     {
+        for (int i=0; i<sprayPattern.Length; i++)
+        {
+            
+            sprayPattern[i] = (-0.05f * Mathf.Log10(i + 1)) + .05f;
+        }
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         GameManager.Instance.camEnd = new Vector3(Camera.main.transform.localPosition.x,
@@ -39,10 +46,18 @@ public class playerCameraController : MonoBehaviour
 
             if (GameManager.Instance.playerShot && !GameManager.Instance.isPaused)
             {
-                float xChange = xMouse;
-                float yChange = yMouse;
-                xMouse += Random.Range(-.2f, GameManager.Instance.PlayerScript.gunList[GameManager.Instance.PlayerScript.selectedGun].recoilAmount);
-                yMouse += Random.Range(.1f, GameManager.Instance.PlayerScript.gunList[GameManager.Instance.PlayerScript.selectedGun].recoilAmount); ;
+                 xChange = xMouse;
+                 yChange = yMouse;
+                if(!GameManager.Instance.PlayerScript.resetRecoil)
+                {
+                    sprayIter = 0;
+                }
+                xMouse += (GameManager.Instance.PlayerScript.gunList[GameManager.Instance.PlayerScript.selectedGun].recoilAmount) + sprayPattern[sprayIter];
+                yMouse += (GameManager.Instance.PlayerScript.gunList[GameManager.Instance.PlayerScript.selectedGun].recoilAmount) + sprayPattern[sprayIter];
+                if (sprayIter < 4)
+                {
+                    sprayIter++;
+                }
                 
             }
 
@@ -70,8 +85,9 @@ public class playerCameraController : MonoBehaviour
             // Rotate The Player On The Y-Axis 
 
             transform.parent.Rotate(Vector3.up * xMouse);
-            Mathf.Lerp(xMouse, xChange, .1f);
-            Mathf.Lerp(yMouse, yChange, .1f);
+            //Debug.Log(xMouse);
+            //Debug.Log(yChange); 
+           
             xChange = 0;
             yChange = 0;    
         }

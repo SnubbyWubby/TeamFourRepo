@@ -17,11 +17,11 @@ MonoBehaviour:
   shootDistance: 250
   shootRate: 0.125
   audioVolume: 0.5
-  ammoCurr: 0
-  ammoMax: 0
+  ammoCurr: 25
+  ammoMax: 47
   clipSize: 25
   reloadTime: 3
   ammoCapacity: 100
-  recoilAmount: 0.3
+  recoilAmount: 0.07
   hitEffect: {fileID: 628175838704602489, guid: 061519b21f59a944fbceeb3d93b3d102, type: 3}
   shootSound: {fileID: 8300000, guid: d72f0864326b5f34e947c3e62af72fab, type: 3}

@@ -42,6 +42,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
     [SerializeField] int shootDistance;
     bool isReloading;
+    public bool resetRecoil;
 
     [Header("<=====PLAYER_MOVEMENT=====>")]
 
@@ -85,6 +86,7 @@ public class playerController : MonoBehaviour, IDamage
 
     float playerHeight;
     float crouchHeight; 
+
 
     // Start is called before the first frame update
     void Start()
@@ -334,6 +336,7 @@ public class playerController : MonoBehaviour, IDamage
         {
             isShooting = true;
             StartCoroutine(StartRecoil());
+            StartCoroutine(ResetRecoil());
             
 
             plrAudio.PlayOneShot(gunList[selectedGun].shootSound, gunList[selectedGun].audioVolume);
@@ -386,6 +389,12 @@ public class playerController : MonoBehaviour, IDamage
         grenadeCount--;
 
         GameManager.Instance.updateGrenadeCount(-1);
+    }
+    IEnumerator ResetRecoil()
+    {
+        resetRecoil = true;
+        yield return new WaitForSeconds(2f);
+        resetRecoil = false;
     }
     #endregion
 
