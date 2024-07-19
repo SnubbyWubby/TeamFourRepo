@@ -36,6 +36,7 @@ public class playerController : MonoBehaviour, IDamage
 
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject flashMuzzle;
+    [SerializeField] GameObject hitMarker;
 
     [SerializeField] int shootDamage;
     [SerializeField] float shootRate;
@@ -354,6 +355,7 @@ public class playerController : MonoBehaviour, IDamage
                 if (hit.transform != transform && damageable != null)
                 {
                     damageable.takeDamage(shootDamage);
+                    StartCoroutine(EnableHitMarker());
                 }
                 else
                 {
@@ -482,6 +484,12 @@ public class playerController : MonoBehaviour, IDamage
         isReloading = true;
         yield return new WaitForSeconds(gunList[selectedGun].reloadTime);
         isReloading = false;
+    }
+    IEnumerator EnableHitMarker()
+    {
+        hitMarker.SetActive(true);
+        yield return new WaitForSeconds(.15f);
+        hitMarker.SetActive(false);
     }
 
     IEnumerator MuzzleFlash()

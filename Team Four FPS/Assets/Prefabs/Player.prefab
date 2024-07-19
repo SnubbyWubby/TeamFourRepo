@@ -475,6 +475,7 @@ MonoBehaviour:
   gunList: []
   gunModel: {fileID: 1916082989148923062}
   flashMuzzle: {fileID: 1915239553719123681}
+  hitMarker: {fileID: 0}
   shootDamage: 0
   shootRate: 0
   shootDistance: 0
