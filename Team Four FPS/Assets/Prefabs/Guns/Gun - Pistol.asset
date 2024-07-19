@@ -22,5 +22,6 @@ MonoBehaviour:
   clipSize: 10
   reloadTime: 1
   ammoCapacity: 240
+  recoilAmount: 0.5
   hitEffect: {fileID: 4756644639911493075, guid: b476d3514fec8fa4799bf1c6730c3c99, type: 3}
   shootSound: {fileID: 8300000, guid: a7519540b2862714b81fd4991b55ca1f, type: 3}
