@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace TackleBox.SaveSystem
 {
@@ -9,6 +10,12 @@ namespace TackleBox.SaveSystem
     {
         public int totalScore = 0;
         public float totalTime = 0f;
+    }
+
+    [Serializable]
+    public class SaveDataGroup
+    {
+        List<SaveData> data { get;}
     }
     public class SaveManager : MonoBehaviour
     {

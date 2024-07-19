@@ -37,7 +37,7 @@ public class playerCameraController : MonoBehaviour
             float xMouse = Input.GetAxis("Mouse X") * cameraSensitivity * Time.deltaTime;
             float yMouse = Input.GetAxis("Mouse Y") * cameraSensitivity * Time.deltaTime;
 
-            if (GameManager.Instance.playerShot)
+            if (GameManager.Instance.playerShot && !GameManager.Instance.isPaused)
             {
                 float xChange = xMouse;
                 float yChange = yMouse;
