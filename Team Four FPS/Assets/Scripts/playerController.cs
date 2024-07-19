@@ -81,7 +81,7 @@ public class playerController : MonoBehaviour, IDamage
     int originalHP;
     int armHP;
     int jumpCount;
-    int selectedGun;
+    public int selectedGun;
 
     float playerHeight;
     float crouchHeight; 

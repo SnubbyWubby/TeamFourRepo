@@ -25,6 +25,7 @@ namespace TackleBox.Guns
         public int clipSize;
         public float reloadTime;
         public int ammoCapacity;
+        public float recoilAmount;
 
         [Header("<=====GUN_EFFECTS=====>")]
 

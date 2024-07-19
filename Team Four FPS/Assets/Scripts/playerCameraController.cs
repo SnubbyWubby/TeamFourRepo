@@ -41,8 +41,8 @@ public class playerCameraController : MonoBehaviour
             {
                 float xChange = xMouse;
                 float yChange = yMouse;
-                xMouse += Random.Range(-.2f, .2f);
-                yMouse += Random.Range(.1f, .2f); ;
+                xMouse += Random.Range(-.2f, GameManager.Instance.PlayerScript.gunList[GameManager.Instance.PlayerScript.selectedGun].recoilAmount);
+                yMouse += Random.Range(.1f, GameManager.Instance.PlayerScript.gunList[GameManager.Instance.PlayerScript.selectedGun].recoilAmount); ;
                 
             }
 
