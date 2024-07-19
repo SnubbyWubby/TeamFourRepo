@@ -294,7 +294,7 @@ namespace TackleBox
         {
             stopCameraRotation = true;
             impCamera = true;
-            Camera.main.transform.localRotation = Quaternion.Euler(5.0f, 0, 0);   
+            Camera.main.transform.localRotation = Quaternion.Euler(45f, 0, 0);   
         }
 
         IEnumerator pauseOnDeath()
