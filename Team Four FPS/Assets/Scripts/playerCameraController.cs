@@ -14,6 +14,8 @@ public class playerCameraController : MonoBehaviour
 
     float cameraRotationX;
     float cameraFov;
+    float xChange = 0;
+    float yChange = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,15 @@ public class playerCameraController : MonoBehaviour
         {
             float xMouse = Input.GetAxis("Mouse X") * cameraSensitivity * Time.deltaTime;
             float yMouse = Input.GetAxis("Mouse Y") * cameraSensitivity * Time.deltaTime;
+
+            if (GameManager.Instance.playerShot)
+            {
+                float xChange = xMouse;
+                float yChange = yMouse;
+                xMouse += Random.Range(-.2f, .2f);
+                yMouse += Random.Range(.1f, .2f); ;
+                
+            }
 
             if (cameraInvertY)
             {
@@ -59,6 +70,10 @@ public class playerCameraController : MonoBehaviour
             // Rotate The Player On The Y-Axis 
 
             transform.parent.Rotate(Vector3.up * xMouse);
+            Mathf.Lerp(xMouse, xChange, .1f);
+            Mathf.Lerp(yMouse, yChange, .1f);
+            xChange = 0;
+            yChange = 0;    
         }
         
     }
@@ -79,4 +94,5 @@ public class playerCameraController : MonoBehaviour
         
 
     }
+   
 }

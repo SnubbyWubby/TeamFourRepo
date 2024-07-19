@@ -65,6 +65,7 @@ namespace TackleBox
 
         public bool isPaused;
         public bool spawnMoreEnemies;
+        public bool playerShot;
 
         public int roundNumber = 0;
         
@@ -323,4 +324,5 @@ namespace TackleBox
             MenuActive = MenuPause;
         }
     }
+    
 }

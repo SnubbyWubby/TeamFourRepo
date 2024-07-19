@@ -333,6 +333,8 @@ public class playerController : MonoBehaviour, IDamage
         if (!isReloading)
         {
             isShooting = true;
+            StartCoroutine(StartRecoil());
+            
 
             plrAudio.PlayOneShot(gunList[selectedGun].shootSound, gunList[selectedGun].audioVolume);
 
@@ -539,6 +541,12 @@ public class playerController : MonoBehaviour, IDamage
         AudioManager soundManager = AudioManager.Instance;
         Audio Armor = soundManager.GetSoundByID("ArmorPickUp");
         Armor.PlayOneShot(plrAudio);
+    }
+    IEnumerator StartRecoil()
+    {
+        GameManager.Instance.playerShot = true;
+        yield return new WaitForSeconds(.1f);
+        GameManager.Instance.playerShot = false;
     }
     #endregion
 }
