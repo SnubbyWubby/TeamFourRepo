@@ -18,6 +18,9 @@ MonoBehaviour:
   shootRate: 0.125
   audioVolume: 0.5
   ammoCurr: 0
-  ammoMax: 50
+  ammoMax: 100
+  clipSize: 20
+  reloadTime: 1.5
+  ammoCapacity: 100
   hitEffect: {fileID: 1780941303093551375, guid: 3901c3df533155849aff7749b4d56901, type: 3}
   shootSound: {fileID: 8300000, guid: b0b1acb54e8c4114bb1bb60f7a366471, type: 3}

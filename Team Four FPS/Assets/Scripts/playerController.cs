@@ -40,6 +40,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int shootDamage;
     [SerializeField] float shootRate;
     [SerializeField] int shootDistance;
+    bool isReloading;
 
     [Header("<=====PLAYER_MOVEMENT=====>")]
 
@@ -121,12 +122,24 @@ public class playerController : MonoBehaviour, IDamage
                 if (Input.GetButtonDown("Crouch") && isSprinting && !isSliding) // Slide
                     StartCoroutine(slide());
 
-                if (Input.GetButtonDown("Reload") && gunList.Count > 0 && gunList[selectedGun].ammoCurr < gunList[selectedGun].ammoMax) // Reload Guns
+                if (Input.GetButtonDown("Reload") && gunList.Count > 0 && gunList[selectedGun].ammoCurr < gunList[selectedGun].ammoMax && !isReloading) // Reload Guns
                 {
+                    StartCoroutine(StopShootingAndReloading());
                     AudioManager soundManager = AudioManager.Instance;
                     Audio Reload = soundManager.GetSoundByID("Reloads");
                     Reload.PlayOneShot(plrAudio);
-                    gunList[selectedGun].ammoCurr = gunList[selectedGun].ammoMax;
+                    if (gunList[selectedGun].ammoMax - (gunList[selectedGun].clipSize - gunList[selectedGun].ammoCurr) < 0)
+                    {
+                        gunList[selectedGun].ammoCurr += gunList[selectedGun].ammoMax;
+                        gunList[selectedGun].ammoMax = 0;
+                    }
+                    else
+                    {
+                        Debug.Log("Hit it!");
+                        gunList[selectedGun].ammoMax -= (gunList[selectedGun].clipSize - gunList[selectedGun].ammoCurr);
+                        gunList[selectedGun].ammoCurr = gunList[selectedGun].clipSize;
+                    }
+                    
                     updatePlayerUI();
                 }
             }
@@ -316,37 +329,42 @@ public class playerController : MonoBehaviour, IDamage
 
     IEnumerator shoot()
     {
-        isShooting = true;
-
-        plrAudio.PlayOneShot(gunList[selectedGun].shootSound, gunList[selectedGun].audioVolume); 
-
-        gunList[selectedGun].ammoCurr--;
-
-        updatePlayerUI();
-
-        StartCoroutine(MuzzleFlash());
-
-        RaycastHit hit;
-
-        // Use raycast and get gameobject that is hit
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance))
+        if (!isReloading)
         {
-            Debug.Log(hit.transform.name);
-            // Get IDamage component if gameobject is damageable
-            IDamage damageable = hit.collider.GetComponent<IDamage>();
+            isShooting = true;
 
-            if (hit.transform != transform && damageable != null)
+            plrAudio.PlayOneShot(gunList[selectedGun].shootSound, gunList[selectedGun].audioVolume);
+
+            gunList[selectedGun].ammoCurr--;
+
+            updatePlayerUI();
+
+            StartCoroutine(MuzzleFlash());
+
+            RaycastHit hit;
+
+
+            // Use raycast and get gameobject that is hit
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance))
             {
-                damageable.takeDamage(shootDamage);
+                Debug.Log(hit.transform.name);
+                // Get IDamage component if gameobject is damageable
+                IDamage damageable = hit.collider.GetComponent<IDamage>();
+
+                if (hit.transform != transform && damageable != null)
+                {
+                    damageable.takeDamage(shootDamage);
+                }
+                else
+                {
+                    Instantiate(gunList[selectedGun].hitEffect, hit.point, Quaternion.identity);
+                }
             }
-            else
-            {
-                Instantiate(gunList[selectedGun].hitEffect, hit.point, Quaternion.identity);
-            }
+
+
+            yield return new WaitForSeconds(shootRate);
+            isShooting = false;
         }
-
-        yield return new WaitForSeconds(shootRate);
-        isShooting = false;
     }
 
     IEnumerator throwGrenade()
@@ -458,6 +476,12 @@ public class playerController : MonoBehaviour, IDamage
             GameManager.Instance.ammoCurrent.text = gunList[selectedGun].ammoCurr.ToString("F0");
             GameManager.Instance.ammoMaximum.text = gunList[selectedGun].ammoMax.ToString("F0");
         }
+    }
+    IEnumerator StopShootingAndReloading()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(gunList[selectedGun].reloadTime);
+        isReloading = false;
     }
 
     IEnumerator MuzzleFlash()

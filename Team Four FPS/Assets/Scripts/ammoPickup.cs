@@ -31,7 +31,8 @@ public class ammoPickup : MonoBehaviour
             foreach(TackleBox.Guns.gunStats gun in playerAmmo.gunList)
             {
                 boxAudio.Stop(); 
-                gun.ammoCurr = gun.ammoMax;
+                gun.ammoCurr = gun.clipSize;
+                gun.ammoMax = gun.ammoCapacity;
             }
 
             playerAmmo.grenadeCount = 5;

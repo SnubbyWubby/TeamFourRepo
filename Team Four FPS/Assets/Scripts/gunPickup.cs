@@ -12,7 +12,8 @@ public class gunPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gun.ammoCurr = gun.ammoMax; 
+            gun.ammoCurr = gun.clipSize;
+            gun.ammoMax = gun.ammoCapacity;
 
             GameManager.Instance.PlayerScript.getGunStats(gun);
             Destroy(gameObject);

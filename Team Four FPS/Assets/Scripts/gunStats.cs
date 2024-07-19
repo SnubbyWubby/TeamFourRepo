@@ -22,6 +22,9 @@ namespace TackleBox.Guns
 
         public int ammoCurr;
         public int ammoMax;
+        public int clipSize;
+        public float reloadTime;
+        public int ammoCapacity;
 
         [Header("<=====GUN_EFFECTS=====>")]
 
