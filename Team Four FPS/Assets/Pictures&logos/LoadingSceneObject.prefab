@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &967086559861442052
 RectTransform:
   m_ObjectHideFlags: 0
@@ -327,8 +327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ce21125d457234b9017f424b1239e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingScene: {fileID: 0}
-  floatingBarFill: {fileID: 0}
+  floatingScene: {fileID: 2838480296136857376}
+  floatingBarFill: {fileID: 6670019031955451258}
   slow: 0
 --- !u!1 &7339716770331828831
 GameObject:
