@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 
 using UnityEngine.UIElements;
 using static Unity.VisualScripting.Member;
+using TackleBox.Level;
 
 
 public class playerController : MonoBehaviour, IDamage
@@ -80,7 +81,7 @@ public class playerController : MonoBehaviour, IDamage
     bool isDamageHit;
 
     int originalHP;
-    int armHP;
+    public int armHP;
     int jumpCount;
     public int selectedGun;
 
@@ -92,7 +93,6 @@ public class playerController : MonoBehaviour, IDamage
     void Start()
     {
         originalHP = HP;
-
         isStraight = true;
 
         updatePlayerUI();

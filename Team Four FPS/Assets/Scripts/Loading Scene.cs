@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TackleBox;
+using TackleBox.Level;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -43,6 +45,8 @@ public class LoadingScene : MonoBehaviour
             yield return null;
 
         }
+
+        //new LevelDataTransition(GameManager.Instance.PlayerScript);
 
         operation.allowSceneActivation = true;
 
