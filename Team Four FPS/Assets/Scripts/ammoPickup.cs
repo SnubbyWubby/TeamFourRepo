@@ -7,15 +7,13 @@ using UnityEngine;
 
 public class ammoPickup : MonoBehaviour
 {
-    [Header("<=====AMMO_PICK_UP_AUDIO=====>")]
-
-    [SerializeField] AudioSource boxAudio;
-
     // Awake is called before the first frame update
     void Awake() 
     {
-        playerController playerAmmo = GameManager.Instance.PlayerScript;
-        
+        playerController plrAmmo = GameManager.Instance.PlayerScript;
+        AudioManager mgrSound = AudioManager.Instance;
+        Audio AmmoDrop = mgrSound.GetSoundByID("AmmoDrop");
+        AmmoDrop.PlayOneShot(GameManager.Instance.PlayerScript.plrAudio);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,14 +23,13 @@ public class ammoPickup : MonoBehaviour
             playerController playerAmmo = GameManager.Instance.PlayerScript;
             foreach(TackleBox.Guns.gunStats gun in playerAmmo.gunList)
             {
-                boxAudio.Stop(); 
                 gun.ammoCurr = gun.clipSize;
                 gun.ammoMax = gun.ammoCapacity;
             }
 
             AudioManager soundManager = AudioManager.Instance;
-            Audio Weapon = soundManager.GetSoundByID("HealthPickUp");
-            Weapon.PlayOneShot(GameManager.Instance.PlayerScript.plrAudio);
+            Audio AmmoBox = soundManager.GetSoundByID("AmmoBox");
+            AmmoBox.PlayOneShot(GameManager.Instance.PlayerScript.plrAudio);
 
             playerAmmo.grenadeCount = 5;
             GameManager.Instance.grenadeCount = 5;

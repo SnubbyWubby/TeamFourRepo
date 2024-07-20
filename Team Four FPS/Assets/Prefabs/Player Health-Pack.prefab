@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5169472872410597873}
-  - component: {fileID: 2548078162248159851}
+  - component: {fileID: -3834762679739993600}
   - component: {fileID: 1146781650044755452}
   - component: {fileID: 2237267979896672142}
   - component: {fileID: 1716652111124930436}
@@ -28,14 +28,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5943683953474228717}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2548078162248159851
+--- !u!114 &-3834762679739993600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,10 +44,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5943683953474228717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9476e5087a7e6324096b267881219b2c, type: 3}
+  m_Script: {fileID: 11500000, guid: d7f668a26ca99604ba3ae0d795e8d9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBoost: 10
+  hltAmount: 10
 --- !u!33 &1146781650044755452
 MeshFilter:
   m_ObjectHideFlags: 0

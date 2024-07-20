@@ -2810,7 +2810,7 @@ RectTransform:
   m_Children:
   - {fileID: 6724130467118377487}
   - {fileID: 5229443466488687150}
-  - {fileID: 2267123276657642022}
+  - {fileID: 2955545949627399682}
   - {fileID: 7666900940569161998}
   - {fileID: 4950986545743315199}
   - {fileID: 6019082442067818498}
@@ -3610,6 +3610,18 @@ MonoBehaviour:
       - m_Target: {fileID: 218457700471227084}
         m_TargetAssemblyTypeName: TackleBox.GameManager, Assembly-CSharp
         m_MethodName: AudioMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6135,6 +6147,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4994467030122191619
 GameObject:
   m_ObjectHideFlags: 0
@@ -7469,6 +7493,18 @@ MonoBehaviour:
           m_StringArgument: resume
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5798317527360391316
 GameObject:
   m_ObjectHideFlags: 0
@@ -7813,7 +7849,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: resume
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5888098018601390700
@@ -9846,7 +9882,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: resume
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7369988721698983118
@@ -11101,7 +11137,7 @@ GameObject:
   - component: {fileID: 3357162606503586574}
   - component: {fileID: 8442918246450099651}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Hit Maker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11583,8 +11619,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
---- !u!4 &2267123276657642022 stripped
+--- !u!4 &2955545949627399682 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4318699676545471478, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
   m_PrefabInstance: {fileID: 2637256579172571600}
   m_PrefabAsset: {fileID: 0}
