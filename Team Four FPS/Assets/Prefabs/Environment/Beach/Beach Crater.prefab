@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 7467453383725026855}
   - component: {fileID: 7008087759232602296}
   - component: {fileID: 3013772893521967185}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Beach Crater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3995788274588735272
 Transform:
@@ -27,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9101559532476415126}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 38, y: 0, z: 74.25}
-  m_LocalScale: {x: 2.1962, y: 2.1962, z: 2.1962}
+  m_LocalScale: {x: 2.589492, y: 2.589492, z: 2.589492}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

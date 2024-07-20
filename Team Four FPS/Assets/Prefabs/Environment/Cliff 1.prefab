@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7120234281982892235}
   - component: {fileID: 5506058705793814264}
   - component: {fileID: 1459339711981498303}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cliff 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5987441032772888763}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.86602443, z: -0, w: 0.5000018}
+  m_LocalRotation: {x: 0, y: -0.86602545, z: 0, w: 0.49999994}
   m_LocalPosition: {x: 91.19259, y: -48.964, z: 168.84949}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
