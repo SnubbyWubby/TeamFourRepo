@@ -17,7 +17,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] CharacterController controller;
     [SerializeField] Transform throwPos;
     [SerializeField] Transform feetPos;
-    [SerializeField] AudioSource plrAudio;
+    [SerializeField] public AudioSource plrAudio;
 
     [Header("<=====PLAYER_STATS=====>")] 
 
@@ -353,6 +353,7 @@ public class playerController : MonoBehaviour, IDamage
             // Use raycast and get gameobject that is hit
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance))
             {
+                
                 Debug.Log(hit.transform.name);
                 // Get IDamage component if gameobject is damageable
                 IDamage damageable = hit.collider.GetComponent<IDamage>();
@@ -360,6 +361,16 @@ public class playerController : MonoBehaviour, IDamage
                 if (hit.transform != transform && damageable != null)
                 {
                     damageable.takeDamage(shootDamage);
+                    StartCoroutine(EnableHitMarker());
+                }
+                else if(hit.transform != transform && hit.collider.CompareTag("Head"))
+                {
+                    Transform t = hit.collider.gameObject.transform;
+                    while (!t.CompareTag("Enemy"))
+                    {
+                        t = t.parent;
+                    }
+                    t.GetComponent<IDamage>().takeDamage(2*shootDamage);
                     StartCoroutine(EnableHitMarker());
                 }
                 else

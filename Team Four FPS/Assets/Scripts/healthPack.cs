@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TackleBox;
+using TackleBox.Audio;
+using TackleBox.Guns;
 using UnityEditor;
 using UnityEngine;
 
@@ -25,8 +27,12 @@ public class healthPack : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            AudioManager soundManager = AudioManager.Instance;
+            Audio Weapon = soundManager.GetSoundByID("HealthPickUp");
+            Weapon.PlayOneShot(GameManager.Instance.PlayerScript.plrAudio);
             playerController toAdd = GameManager.Instance.PlayerScript;
             toAdd.HP = 10;
+            GameManager.Instance.PlayerScript.updatePlayerUI();
             Destroy(gameObject);
 
             

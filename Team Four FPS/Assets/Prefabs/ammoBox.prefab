@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -3313417764890666609}
   - component: {fileID: 6134140138235795464}
   - component: {fileID: -2626725907298476100}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ammoBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4950,10 +4950,10 @@ AudioSource:
   m_GameObject: {fileID: 3226869189621625867}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5318043678123373426, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

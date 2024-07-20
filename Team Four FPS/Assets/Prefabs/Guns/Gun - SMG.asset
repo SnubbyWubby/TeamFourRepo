@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Gun - SMG
   m_EditorClassIdentifier: 
   gunModel: {fileID: 1312551688009478, guid: da29ba09b0ae85b44a5c25f14124dc88, type: 3}
-  shootDamage: 3
+  shootDamage: 1
   shootDistance: 150
-  shootRate: 0.125
+  shootRate: 0.1
   audioVolume: 0.5
-  ammoCurr: 20
-  ammoMax: 20
+  ammoCurr: 0
+  ammoMax: 0
   clipSize: 20
   reloadTime: 1.5
   ammoCapacity: 100

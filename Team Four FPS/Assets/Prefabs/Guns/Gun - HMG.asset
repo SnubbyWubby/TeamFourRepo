@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Gun - HMG
   m_EditorClassIdentifier: 
   gunModel: {fileID: 7608175346215777194, guid: 24fcea4d2b51b2f4dbf59da7ab0e64a9, type: 3}
-  shootDamage: 1
+  shootDamage: 2
   shootDistance: 250
   shootRate: 0.125
   audioVolume: 0.5
-  ammoCurr: 25
-  ammoMax: 47
+  ammoCurr: 24
+  ammoMax: 75
   clipSize: 25
   reloadTime: 3
   ammoCapacity: 100

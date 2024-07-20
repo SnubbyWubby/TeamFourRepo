@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7713866126963650601}
   - component: {fileID: 5315254520560314513}
   - component: {fileID: 3928530340876163078}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: healthPack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9476e5087a7e6324096b267881219b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBoost: 0
 --- !u!23 &5265704608814736276
 MeshRenderer:
   m_ObjectHideFlags: 0

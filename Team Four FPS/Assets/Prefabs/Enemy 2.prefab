@@ -1434,7 +1434,7 @@ GameObject:
   - component: {fileID: 429773573320649399}
   m_Layer: 0
   m_Name: Bip001 Head
-  m_TagString: Untagged
+  m_TagString: Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1474,8 +1474,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.16336262
-  m_Center: {x: -0.16336262, y: 0, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: -0.16336262, y: 0.09, z: 0}
 --- !u!54 &1798859030554276286
 Rigidbody:
   m_ObjectHideFlags: 0
