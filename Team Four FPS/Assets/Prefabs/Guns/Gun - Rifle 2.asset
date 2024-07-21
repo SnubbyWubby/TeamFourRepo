@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579de555ddb26c749b9d49b032536fd8, type: 3}
+  m_Name: Gun - Rifle 2
+  m_EditorClassIdentifier: 
+  gunModel: {fileID: 1169496428303040, guid: c2ab92584ea61e6449efbbf1366854f2, type: 3}
+  shootDamage: 10
+  shootDistance: 500
+  shootRate: 1
+  audioVolume: 0.5
+  ammoCurr: 4
+  ammoMax: 46
+  clipSize: 15
+  reloadTime: 1.5
+  ammoCapacity: 60
+  recoilAmount: 0
+  hitEffect: {fileID: 5956217556098347199, guid: 2e53dfa075dc7ee44b7c3921acef2462, type: 3}
+  shootSound: {fileID: 8300000, guid: a13ca424624aa904a81cfc9366c6e3f9, type: 3}

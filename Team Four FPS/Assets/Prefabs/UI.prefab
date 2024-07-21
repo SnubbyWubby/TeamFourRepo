@@ -2882,7 +2882,7 @@ RectTransform:
   m_Children:
   - {fileID: 6724130467118377487}
   - {fileID: 5229443466488687150}
-  - {fileID: 2267123276657642022}
+  - {fileID: 2955545949627399682}
   - {fileID: 7666900940569161998}
   - {fileID: 4950986545743315199}
   - {fileID: 6019082442067818498}
@@ -9924,7 +9924,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.78616345, g: 0.78616345, b: 0.78616345, a: 1}
+    m_HighlightedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_PressedColor: {r: 0.16470589, g: 0.27058825, b: 0.39607844, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -9942,7 +9942,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1578621531585781588}
+  m_TargetGraphic: {fileID: 1810623147997610048}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -11696,8 +11696,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
---- !u!4 &2267123276657642022 stripped
+--- !u!4 &2955545949627399682 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4318699676545471478, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
   m_PrefabInstance: {fileID: 2637256579172571600}
   m_PrefabAsset: {fileID: 0}

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579de555ddb26c749b9d49b032536fd8, type: 3}
+  m_Name: Gun - SMG 2
+  m_EditorClassIdentifier: 
+  gunModel: {fileID: 1103976567916202, guid: b4257e3a382258e408664ce4cfedcba6, type: 3}
+  shootDamage: 4
+  shootDistance: 150
+  shootRate: 0.125
+  audioVolume: 0.5
+  ammoCurr: 30
+  ammoMax: 150
+  clipSize: 40
+  reloadTime: 1.5
+  ammoCapacity: 160
+  recoilAmount: 0
+  hitEffect: {fileID: 628175838704602489, guid: 8c17e6c64ee2cd54694e22a1415e732e, type: 3}
+  shootSound: {fileID: 8300000, guid: b0b1acb54e8c4114bb1bb60f7a366471, type: 3}
