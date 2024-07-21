@@ -55,6 +55,7 @@ namespace TackleBox
 
         public GameObject Player;
         public GameObject plrArmorHPBack;
+        public GameObject invulnShow;
 
         public Camera MainCamera;
 
@@ -67,6 +68,8 @@ namespace TackleBox
         public bool isPaused;
         public bool spawnMoreEnemies;
         public bool playerShot;
+        public bool tookDamageRecently;
+        
 
         public int roundNumber = 0;
         
@@ -175,6 +178,14 @@ namespace TackleBox
                 MenuActive.SetActive(isPaused);
 
                 menuAudio.PlayOneShot(loseAudio[Random.Range(0, loseAudio.Length)], loseVolume);
+            }
+            if (tookDamageRecently)
+            {
+                invulnShow.SetActive(true);
+            }
+            else
+            {
+                invulnShow.SetActive(false);    
             }
         }
 

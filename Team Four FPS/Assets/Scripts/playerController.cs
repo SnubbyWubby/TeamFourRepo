@@ -28,6 +28,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int jumpHighSpeed;
     [SerializeField] int jumpLowSpeed;
     [SerializeField] int gravity;
+    
 
     [Range(0.1f, 0.5f)] public float audioDamageTimer; 
 
@@ -412,32 +413,35 @@ public class playerController : MonoBehaviour, IDamage
     #region Player Damage Functionality
     public void takeDamage(int amount)
     {
-        if (armHP > 0)
+        if (!GameManager.Instance.tookDamageRecently)
         {
-            int dmgRemainder = 0;
-
-            if (amount > armHP)
+            if (armHP > 0)
             {
-                dmgRemainder = amount % armHP;
+                int dmgRemainder = 0;
+
+                if (amount > armHP)
+                {
+                    dmgRemainder = amount % armHP;
+                }
+
+                armHP -= amount;
+                HP -= dmgRemainder;
+            }
+            else
+            {
+                HP -= amount;
             }
 
-            armHP -= amount;
-            HP -= dmgRemainder;
-        }
-        else
-        {
-            HP -= amount;
-        }
+            if (!isDamageHit && !GameManager.Instance.diedOnce)
+            { StartCoroutine(PlayDamageHitSounds()); }
 
-        if (!isDamageHit && !GameManager.Instance.diedOnce)
-        { StartCoroutine(PlayDamageHitSounds()); }
-        
+            StartCoroutine(JustTookDamage());
+            updatePlayerUI();
 
-        updatePlayerUI();
-
-        if (HP <= 0 && armHP <= 0)
-        {
-            GameManager.Instance.GameLoss("You Are Dead!");
+            if (HP <= 0 && armHP <= 0)
+            {
+                GameManager.Instance.GameLoss("You Are Dead!");
+            }
         }
     }
 
@@ -521,6 +525,14 @@ public class playerController : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.125f);
 
         flashMuzzle.SetActive(false);
+    }
+    IEnumerator JustTookDamage()
+    {
+        GameManager.Instance.tookDamageRecently = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        GameManager.Instance.tookDamageRecently = false;
     }
     #endregion
 
