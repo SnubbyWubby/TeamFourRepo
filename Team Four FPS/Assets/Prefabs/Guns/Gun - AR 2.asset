@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 579de555ddb26c749b9d49b032536fd8, type: 3}
-  m_Name: Gun - HMG
+  m_Name: Gun - AR 2
   m_EditorClassIdentifier: 
-  gunModel: {fileID: 7608175346215777194, guid: 24fcea4d2b51b2f4dbf59da7ab0e64a9, type: 3}
-  shootDamage: 2
+  gunModel: {fileID: 1704588758205608, guid: 11a30ed2979cb5040a4f6218afaadab3, type: 3}
+  shootDamage: 5
   shootDistance: 250
   shootRate: 0.125
   audioVolume: 0.5
-  ammoCurr: 25
-  ammoMax: 77
-  clipSize: 25
-  reloadTime: 3
-  ammoCapacity: 100
-  recoilAmount: 0.03
-  hitEffect: {fileID: 628175838704602489, guid: 061519b21f59a944fbceeb3d93b3d102, type: 3}
+  ammoCurr: 50
+  ammoMax: 200
+  clipSize: 50
+  reloadTime: 2
+  ammoCapacity: 200
+  recoilAmount: 0
+  hitEffect: {fileID: 628175838704602489, guid: b221963ed4510424e85651d0f0cf90d2, type: 3}
   shootSound: {fileID: 8300000, guid: d72f0864326b5f34e947c3e62af72fab, type: 3}

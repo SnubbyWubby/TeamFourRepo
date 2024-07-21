@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 579de555ddb26c749b9d49b032536fd8, type: 3}
-  m_Name: Gun - SMG
+  m_Name: Gun - SMG 1
   m_EditorClassIdentifier: 
-  gunModel: {fileID: 1312551688009478, guid: da29ba09b0ae85b44a5c25f14124dc88, type: 3}
-  shootDamage: 1
+  gunModel: {fileID: 1610841271661122, guid: 835b93aa50faf814ab0c7882b52f05d4, type: 3}
+  shootDamage: 4
   shootDistance: 150
-  shootRate: 0.1
+  shootRate: 0.125
   audioVolume: 0.5
-  ammoCurr: 8
-  ammoMax: 0
-  clipSize: 20
+  ammoCurr: 30
+  ammoMax: 150
+  clipSize: 50
   reloadTime: 1.5
-  ammoCapacity: 100
-  recoilAmount: 0.02
-  hitEffect: {fileID: 1780941303093551375, guid: 3901c3df533155849aff7749b4d56901, type: 3}
+  ammoCapacity: 150
+  recoilAmount: 0
+  hitEffect: {fileID: 628175838704602489, guid: ca24a8141c8367541a3706ba9cfce478, type: 3}
   shootSound: {fileID: 8300000, guid: b0b1acb54e8c4114bb1bb60f7a366471, type: 3}
