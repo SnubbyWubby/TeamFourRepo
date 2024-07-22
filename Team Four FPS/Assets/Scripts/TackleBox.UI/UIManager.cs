@@ -26,7 +26,7 @@ namespace TackleBox.UI
                     // Search for an existing instance in the scene
                     _instance = FindObjectOfType<UIManager>();
 
-                    if (_instance != null)
+                    if (_instance != null) 
                         Debug.LogError("UIManager instance not found! Try adding one to the scene first.");
                 }
                 return _instance;

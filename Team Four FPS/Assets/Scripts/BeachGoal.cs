@@ -8,7 +8,7 @@ public class BeachGoal : MonoBehaviour, ILevelGoal
 {
     public bool updateGameGoal(int enemies)
     {
-        Debug.Log(enemies);
+        //Debug.Log(enemies);
         if (enemies <= 0)
         {
             StartCoroutine(GameManager.Instance.levelTrans());

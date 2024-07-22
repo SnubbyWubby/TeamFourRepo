@@ -109,7 +109,7 @@ public class playerController : MonoBehaviour, IDamage
     {
         if (!GameManager.Instance.isPaused)
         {
-            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDistance, Color.red);
+            //Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDistance, Color.red);
 
             movement();
             if (!GameManager.Instance.diedOnce)
@@ -139,7 +139,7 @@ public class playerController : MonoBehaviour, IDamage
                     }
                     else
                     {
-                        Debug.Log("Hit it!");
+                        //Debug.Log("Hit it!");
                         gunList[selectedGun].ammoMax -= (gunList[selectedGun].clipSize - gunList[selectedGun].ammoCurr);
                         gunList[selectedGun].ammoCurr = gunList[selectedGun].clipSize;
                     }
@@ -355,7 +355,7 @@ public class playerController : MonoBehaviour, IDamage
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance))
             {
                 
-                Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.name);
                 // Get IDamage component if gameobject is damageable
                 IDamage damageable = hit.collider.GetComponent<IDamage>();
 

@@ -84,7 +84,7 @@ namespace TackleBox.SaveSystem
                     string json = JsonUtility.ToJson(CurrentData, true);
                     writer.Write(json);
                 }
-                Debug.Log($"Data successfully saved to {path}");
+                //Debug.Log($"Data successfully saved to {path}");
             }
             catch (Exception e)
             {
