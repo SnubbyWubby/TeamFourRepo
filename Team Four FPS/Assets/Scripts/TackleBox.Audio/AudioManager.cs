@@ -54,8 +54,8 @@ namespace TackleBox.Audio
                 if (_audioSource == null)
                 {
                     _audioSource = _instance.gameObject.AddComponent<AudioSource>();
-                    _musicSource.outputAudioMixerGroup = _instance.GetMusicGroup("Sound Effects");
-                    _audioSource.loop = true;
+                    _audioSource.outputAudioMixerGroup = _instance.GetAudioGroup("Sound Effects");
+                    _audioSource.loop = false;
                 }
 
                 return _audioSource;
@@ -72,7 +72,7 @@ namespace TackleBox.Audio
                 if (_musicSource == null)
                 {
                     _musicSource = _instance.gameObject.AddComponent<AudioSource>();
-                    _musicSource.outputAudioMixerGroup = _instance.GetMusicGroup("Music");
+                    _musicSource.outputAudioMixerGroup = _instance.GetAudioGroup("Music");
                     _musicSource.loop = true;
                 }
 
@@ -104,12 +104,19 @@ namespace TackleBox.Audio
             return ScriptableObject.CreateInstance<Music>();
         }
 
-        public AudioMixerGroup GetMusicGroup(string GroupID)
+        public AudioMixerGroup GetAudioGroup(string GroupID)
         {
             foreach (AudioMixerGroup group in AudioMixerGroups)
                 if (group && group.name.ToLower() == GroupID.ToLower()) return group;
 
             return null;
+        }
+
+        public void PlayOneShot(string audioID, AudioSource source = null)
+        {
+            Audio sound = GetSoundByID(audioID);
+            if (!string.IsNullOrEmpty(sound.name))
+                sound.PlayOneShot(source);
         }
 
         // Ensure that the instance is not destroyed when the scene changes
