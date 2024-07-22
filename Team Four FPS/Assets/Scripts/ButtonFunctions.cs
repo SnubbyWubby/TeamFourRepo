@@ -33,5 +33,11 @@ namespace TackleBox
         Application.Quit();
 #endif
         }
+
+        public void nextLevel()
+        {
+            int nextScene = GameManager.Instance.currentSceneID++;
+            SceneManager.LoadScene(nextScene);
+        }
     }
 }

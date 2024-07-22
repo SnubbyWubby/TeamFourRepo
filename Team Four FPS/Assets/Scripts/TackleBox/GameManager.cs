@@ -7,6 +7,7 @@ using TackleBox.SaveSystem;
 using TackleBox.Audio;
 using UnityEngine.TextCore.Text;
 using TackleBox.Level;
+using UnityEngine.SceneManagement;
 
 namespace TackleBox
 {
@@ -102,6 +103,14 @@ namespace TackleBox
         [Header("Music:")]
         [SerializeField] string BackgroundMusic = "Gameplay 1";
 
+        [Header("Loading Screen:")]
+        [SerializeField] LoadingScene loadingScene;
+
+        public int currentSceneID;
+        public int sceneCount;
+        ILevelGoal winConScript;
+        bool playerWon;
+
         // Awake is called before the first frame update
         void Awake()
         {
@@ -122,6 +131,11 @@ namespace TackleBox
         void Start()
         {
             AudioManager.Instance.GetMusicByID(BackgroundMusic).PlayMusic();
+
+            currentSceneID = SceneManager.GetActiveScene().buildIndex;
+            sceneCount = SceneManager.sceneCount;
+
+            winConScript = GameObject.FindWithTag("WinCon").GetComponent<ILevelGoal>();
 
             if (PlayerScript && LevelDataTransition.Instance != null)
             {
@@ -237,6 +251,28 @@ namespace TackleBox
         {
             enemyCount += amount;
             enemyCountText.text = enemyCount.ToString("F0");
+
+            if (winConScript != null)
+            {
+                playerWon = winConScript.updateGameGoal(enemyCount);
+            }
+
+            if (playerWon)
+            {
+                statePause();
+                MenuActive = menuWin;
+                MenuActive.SetActive(isPaused);
+
+                menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume);
+
+                if (SaveManager.CurrentData.totalTime >= currentTime)
+                {
+                    SaveManager.CurrentData.totalTime = currentTime;
+                    SaveManager.Instance.Save("savefile.json");
+                }
+            }
+            
+            /*
             if (enemyCount <= 0)
             {
                 StartCoroutine(levelTrans());
@@ -256,6 +292,7 @@ namespace TackleBox
                     SaveManager.Instance.Save("savefile.json");
                 }
             }
+            */
         }
 
         public void GameLoss()
@@ -329,7 +366,7 @@ namespace TackleBox
             lerpEnded = true;
         }
 
-        IEnumerator levelTrans()
+        public IEnumerator levelTrans()
         {
             roundTransition = true;
             yield return new WaitForSeconds(5f); 

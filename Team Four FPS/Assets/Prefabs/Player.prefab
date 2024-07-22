@@ -303,6 +303,13 @@ MonoBehaviour:
   cameraLockVertMin: -90
   cameraLockVertMax: 90
   cameraInvertY: 0
+  sprayPattern:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  sprayIter: 0
 --- !u!20 &6484729993299645420
 Camera:
   m_ObjectHideFlags: 0
@@ -479,7 +486,8 @@ MonoBehaviour:
   shootDamage: 0
   shootRate: 0
   shootDistance: 0
-  speed: 10
+  resetRecoil: 0
+  speed: 5
   sprintModifier: 2
   slideDuration: 1.5
   slideModifier: 1.25
@@ -490,6 +498,8 @@ MonoBehaviour:
   grenade: {fileID: 2164594306382342039, guid: 03b155c905f75fe40a956208a73440ed, type: 3}
   grenadeCount: 5
   grenadeReloadTime: 2
+  armHP: 0
+  selectedGun: 0
 --- !u!82 &8242299182703368241
 AudioSource:
   m_ObjectHideFlags: 0
