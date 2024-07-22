@@ -381,9 +381,12 @@ public class playerController : MonoBehaviour, IDamage
             }
 
 
-            yield return new WaitForSeconds(shootRate);
-            isShooting = false;
+            //yield return new WaitForSeconds(shootRate);
+           // isShooting = false;
         }
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
+
     }
 
     IEnumerator throwGrenade()

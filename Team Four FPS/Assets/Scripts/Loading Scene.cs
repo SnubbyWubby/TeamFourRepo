@@ -65,6 +65,11 @@ public class LoadingScene : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             floatScene(optionalSceneLoad);
+            if(optionalSceneLoad == 0)
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+            }
         }
     }
 
