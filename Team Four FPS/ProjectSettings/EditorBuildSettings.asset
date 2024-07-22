@@ -8,10 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Primary.unity
     guid: 9fc62536b76f3ef4b871da450816a571
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Menu.unity
     guid: fb8689f5874fe7e4ea18df386a7713da
   - enabled: 1
-    path: Assets/Scenes/Prototype 2 Scene.unity
+    path: Assets/Scenes/Level 1 (Beach).unity
     guid: e5cc1b3e489f5ca439165b33374fde80
+  - enabled: 1
+    path: Assets/Scenes/Level 2 (Town).unity
+    guid: bb193290e30eb554cb3079c5a38f5499
+  - enabled: 1
+    path: Assets/Scenes/Level 3 (Bunker).unity
+    guid: c62980d15c8d50d48ac3a53fd056f515
   m_configObjects: {}

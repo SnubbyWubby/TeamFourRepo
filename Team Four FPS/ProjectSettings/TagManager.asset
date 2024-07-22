@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Wallrunnable
   - Head
+  - WinCon
   layers:
   - Default
   - TransparentFX
