@@ -2,35 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hive : MonoBehaviour, IDamage
+public class Hive : MonoBehaviour
 {
-    [SerializeField] float HP;
-    [SerializeField] GameObject spawner;
-    [SerializeField] GameObject winSpawner;
+    public GameObject transferLevels;
+    public GameObject particleEffects;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        transferLevels.SetActive(true); 
+        particleEffects.SetActive(true);    
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void takeDamage(int amount)
-    {
-        HP -= amount;
-        if (HP <= 0)
-        {
-            spawner.SetActive(true);
-            winSpawner.SetActive(true);   
-            Destroy(gameObject);
-        }
-    }
-
 
 }

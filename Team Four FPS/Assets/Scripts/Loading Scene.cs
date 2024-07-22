@@ -16,6 +16,7 @@ public class LoadingScene : MonoBehaviour
     public GameObject floatingScene;
     public Image floatingBarFill;
     public bool slow;
+    public int optionalSceneLoad;
 
 
     public void floatScene(int sceneID)
@@ -58,6 +59,13 @@ public class LoadingScene : MonoBehaviour
         slow = false;
         yield return new WaitForSeconds(5f);
         slow = true;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            floatScene(optionalSceneLoad);
+        }
     }
 
 }

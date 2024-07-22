@@ -29,6 +29,7 @@ namespace TackleBox
         [SerializeField] GameObject menuWin;
         [SerializeField] GameObject menuLose;
         [SerializeField] GameObject audioMenu;
+        [SerializeField] GameObject levelTransfer;
 
         [SerializeField] TMP_Text menuLoseCause;
 
@@ -259,9 +260,10 @@ namespace TackleBox
 
             if (playerWon)
             {
-                statePause();
-                MenuActive = menuWin;
-                MenuActive.SetActive(isPaused);
+                levelTransfer.SetActive(true);
+                //statePause();
+                //MenuActive = menuWin;
+                //MenuActive.SetActive(isPaused);
 
                 menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume);
 
