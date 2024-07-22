@@ -114,7 +114,7 @@ public class playerController : MonoBehaviour, IDamage
             movement();
             if (!GameManager.Instance.diedOnce)
             {
-                if (Input.GetButton("Fire1") && gunList.Count > 0 && gunList[selectedGun].ammoCurr > 0 && !isShooting) // Shoot Weapons 
+                if (Input.GetButton("Fire1") && gunList.Count > 0 && !isShooting) // Shoot Weapons 
                     StartCoroutine(shoot());
 
                 if (Input.GetButtonDown("Grenade") && grenadeCount > 0) // Throw Grenade
@@ -128,23 +128,8 @@ public class playerController : MonoBehaviour, IDamage
 
                 if (Input.GetButtonDown("Reload") && gunList.Count > 0 && gunList[selectedGun].ammoCurr < gunList[selectedGun].ammoMax && !isReloading) // Reload Guns
                 {
-                    StartCoroutine(StopShootingAndReloading());
-                    AudioManager soundManager = AudioManager.Instance;
-                    Audio Reload = soundManager.GetSoundByID("Reloads");
-                    Reload.PlayOneShot(plrAudio);
-                    if (gunList[selectedGun].ammoMax - (gunList[selectedGun].clipSize - gunList[selectedGun].ammoCurr) < 0)
-                    {
-                        gunList[selectedGun].ammoCurr += gunList[selectedGun].ammoMax;
-                        gunList[selectedGun].ammoMax = 0;
-                    }
-                    else
-                    {
-                        //Debug.Log("Hit it!");
-                        gunList[selectedGun].ammoMax -= (gunList[selectedGun].clipSize - gunList[selectedGun].ammoCurr);
-                        gunList[selectedGun].ammoCurr = gunList[selectedGun].clipSize;
-                    }
+                    Reload();      
                     
-                    updatePlayerUI();
                 }
             }
             if (GameManager.Instance.diedOnce)
@@ -333,6 +318,10 @@ public class playerController : MonoBehaviour, IDamage
 
     IEnumerator shoot()
     {
+        if (gunList[selectedGun].ammoCurr == 0)
+        {
+           Reload();
+        }
         if (!isReloading)
         {
             isShooting = true;
@@ -536,6 +525,26 @@ public class playerController : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.5f);
 
         GameManager.Instance.tookDamageRecently = false;
+    }
+    public void Reload()
+    {
+        StartCoroutine(StopShootingAndReloading());
+        AudioManager soundManager = AudioManager.Instance;
+        Audio Reload = soundManager.GetSoundByID("Reloads");
+        Reload.PlayOneShot(plrAudio);
+        if (gunList[selectedGun].ammoMax - (gunList[selectedGun].clipSize - gunList[selectedGun].ammoCurr) < 0)
+        {
+            gunList[selectedGun].ammoCurr += gunList[selectedGun].ammoMax;
+            gunList[selectedGun].ammoMax = 0;
+        }
+        else
+        {
+            //Debug.Log("Hit it!");
+            gunList[selectedGun].ammoMax -= (gunList[selectedGun].clipSize - gunList[selectedGun].ammoCurr);
+            gunList[selectedGun].ammoCurr = gunList[selectedGun].clipSize;
+        }
+
+        updatePlayerUI();
     }
     #endregion
 
