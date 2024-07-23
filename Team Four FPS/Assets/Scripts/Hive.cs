@@ -10,7 +10,8 @@ public class Hive : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         transferLevels.SetActive(true); 
-        particleEffects.SetActive(true);    
+        particleEffects.SetActive(true);
+        
     }
 
 }
