@@ -214,7 +214,8 @@ public class EnemyAI : MonoBehaviour, IDamage
             if (HP <= 0)
             {
                 canTakeDamage = false;
-                GameManager.Instance.updateGameGoal(-1);
+                //GameManager.Instance.updateGameGoal(-1);
+                GameManager.Instance.GameGoalEvent.Invoke(-1);
 
                 StopMoving();
                 Destroy(gameObject, 1f);

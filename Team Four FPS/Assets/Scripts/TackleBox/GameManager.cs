@@ -8,6 +8,7 @@ using TackleBox.Audio;
 using UnityEngine.TextCore.Text;
 using TackleBox.Level;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 namespace TackleBox
 {
@@ -114,6 +115,12 @@ namespace TackleBox
         ILevelGoal winConScript;
         bool playerWon;
 
+        //Events
+        [System.Serializable]
+        public class IntEvent : UnityEvent<int> { }
+
+        public IntEvent GameGoalEvent = new IntEvent();
+
         // Awake is called before the first frame update
         void Awake()
         {
@@ -125,6 +132,9 @@ namespace TackleBox
             MainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
             enemyCount = 0;
             Time.timeScale = 1;
+
+            //Events
+            GameGoalEvent.AddListener(updateGameGoal);
 
             // Load data
             SaveData data = SaveManager.Instance.Load("savefile.json");

@@ -14,7 +14,8 @@ public class healthPack : MonoBehaviour
         playerController plrHealth = GameManager.Instance.PlayerScript;
         AudioManager mgrSound = AudioManager.Instance;
         Audio HealthDrop = mgrSound.GetSoundByID("HealthDrop");
-        HealthDrop.PlayOneShot(GameManager.Instance.PlayerScript.plrAudio);
+        if (GameManager.Instance.PlayerScript && GameManager.Instance.PlayerScript.plrAudio)
+            HealthDrop.PlayOneShot(GameManager.Instance.PlayerScript.plrAudio);
     }
 
     void OnTriggerEnter(Collider other)

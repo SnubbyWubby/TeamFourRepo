@@ -4,5 +4,8 @@ using UnityEngine;
 
 public interface ILevelGoal
 {
+
     bool updateGameGoal(int enemies);
+
+
 }

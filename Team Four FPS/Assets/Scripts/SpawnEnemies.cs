@@ -85,8 +85,9 @@ public class SpawnEnemies : MonoBehaviour
 
         numberSpawned++;
         
-        GameManager.Instance.updateGameGoal(1);
-        
+        //GameManager.Instance.updateGameGoal(1);
+        GameManager.Instance.GameGoalEvent.Invoke(1);
+
         yield return new WaitForSeconds(spawnTimer);
 
 

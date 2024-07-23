@@ -29,7 +29,6 @@ namespace TackleBox.Level
                 if (playerController)
                     savePlayerStats(playerController);
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
             }
         }
 

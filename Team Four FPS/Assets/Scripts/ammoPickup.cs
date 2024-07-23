@@ -13,7 +13,8 @@ public class ammoPickup : MonoBehaviour
         playerController plrAmmo = GameManager.Instance.PlayerScript;
         AudioManager mgrSound = AudioManager.Instance;
         Audio AmmoDrop = mgrSound.GetSoundByID("AmmoDrop");
-        AmmoDrop.PlayOneShot(GameManager.Instance.PlayerScript.plrAudio);
+        if (GameManager.Instance.PlayerScript && GameManager.Instance.PlayerScript.plrAudio)
+            AmmoDrop.PlayOneShot(GameManager.Instance.PlayerScript.plrAudio);
     }
 
     private void OnTriggerEnter(Collider other)
