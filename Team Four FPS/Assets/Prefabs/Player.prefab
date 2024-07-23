@@ -475,7 +475,7 @@ MonoBehaviour:
   HP: 10
   maxArmorHP: 10
   jumpMax: 2
-  jumpHighSpeed: 15
+  jumpHighSpeed: 10
   jumpLowSpeed: 5
   gravity: 20
   audioDamageTimer: 0.1
