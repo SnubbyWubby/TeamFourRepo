@@ -82,19 +82,19 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             agent.SetDestination(GameManager.Instance.Player.transform.position);
         }
-        if(hordeSpawn && playerInRange)
+        if(hordeSpawn && playerInRange && HP > 0)
         {
             FaceChaseShoot();
         }
         else
         {
             //for standard behavior make sure horde spawn is unchecked.
-            if (playerInRange)
+            if (playerInRange && HP > 0)
             {
                 FaceChaseShoot();
             }
 
-            if (playerInRange && !canSeePlayer())
+            if (playerInRange && !canSeePlayer() && HP > 0)
             {
                 if (willRoam)
                 {

@@ -114,7 +114,7 @@ public class playerController : MonoBehaviour, IDamage
             movement();
             if (!GameManager.Instance.diedOnce)
             {
-                if (Input.GetButton("Fire1") && gunList.Count > 0 && !isShooting) // Shoot Weapons 
+                if (Input.GetButton("Fire1") && gunList.Count > 0 && !isShooting && !isReloading) // Shoot Weapons 
                     StartCoroutine(shoot());
 
                 if (Input.GetButtonDown("Grenade") && grenadeCount > 0) // Throw Grenade
@@ -318,12 +318,14 @@ public class playerController : MonoBehaviour, IDamage
 
     IEnumerator shoot()
     {
-        if (gunList[selectedGun].ammoCurr == 0)
+        if (gunList[selectedGun].ammoCurr == 0 && gunList[selectedGun].ammoMax > 0)
         {
-           Reload();
+            Reload();
         }
-        if (!isReloading)
+
+        if (!isReloading && gunList[selectedGun].ammoCurr > 0)
         {
+
             isShooting = true;
             StartCoroutine(StartRecoil());
             StartCoroutine(ResetRecoil());
