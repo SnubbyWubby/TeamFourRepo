@@ -278,6 +278,7 @@ namespace TackleBox
                 //MenuActive.SetActive(isPaused);
                 levelTransferGoal.SetActive(true);  
                 currentGoal.SetActive(false);
+                stopWatchActive = false;
 
                 menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume);
 
