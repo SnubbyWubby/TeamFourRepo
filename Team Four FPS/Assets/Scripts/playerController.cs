@@ -382,6 +382,10 @@ public class playerController : MonoBehaviour, IDamage
 
     IEnumerator throwGrenade()
     {
+        grenadeCount--;
+        GameManager.Instance.updateGrenadeCount(-1);
+
+
         // TODO: Write code to create better arc.
 
         Instantiate(grenade, throwPos.position, transform.rotation);
@@ -392,9 +396,9 @@ public class playerController : MonoBehaviour, IDamage
         Audio Grenade = soundManager.GetSoundByID("Grenades"); 
         Grenade.PlayOneShot(plrAudio);
 
-        grenadeCount--;
+        
 
-        GameManager.Instance.updateGrenadeCount(-1);
+        
     }
     IEnumerator ResetRecoil()
     {
