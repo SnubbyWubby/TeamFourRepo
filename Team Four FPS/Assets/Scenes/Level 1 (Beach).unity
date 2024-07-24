@@ -5073,6 +5073,10 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 8747580888731150466, guid: 791a76573dceb374aa9136d92a7c4f92, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5318043678123373426, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8302,6 +8306,10 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 8747580888731150466, guid: 791a76573dceb374aa9136d92a7c4f92, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5318043678123373426, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12704,6 +12712,10 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 8747580888731150466, guid: 791a76573dceb374aa9136d92a7c4f92, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5318043678123373426, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
