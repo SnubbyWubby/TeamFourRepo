@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8496315637199263511}
   - component: {fileID: 2317260761989694390}
   - component: {fileID: 635683170109451035}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 90
   m_InnerSpotAngle: 1
