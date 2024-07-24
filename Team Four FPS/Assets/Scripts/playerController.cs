@@ -109,6 +109,7 @@ public class playerController : MonoBehaviour, IDamage
     {
         if (!GameManager.Instance.isPaused)
         {
+           
             //Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDistance, Color.red);
 
             movement();
@@ -143,6 +144,7 @@ public class playerController : MonoBehaviour, IDamage
         }
 
         sprint();
+        
     }
 
     #region Player Movement Functionality
@@ -158,6 +160,7 @@ public class playerController : MonoBehaviour, IDamage
                 jumpCount = 0;
                 playerVelocity = Vector3.zero;
             }
+            
 
             // Get input from player, create vector, then move player.
             moveDirection = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
@@ -186,8 +189,9 @@ public class playerController : MonoBehaviour, IDamage
             if (controller.isGrounded && moveDirection.magnitude > audioWalkTimer && !isWalking)
             { StartCoroutine(PlayMovementAudio()); }
         }
-          
         
+
+
     }
 
     void sprint()
@@ -208,7 +212,15 @@ public class playerController : MonoBehaviour, IDamage
         {
             speed /= sprintModifier;
             isSprinting = false;
+            if(speed != 5)
+            {
+                speed = 5;
+            }
         }
+        
+        
+            
+        
     }
 
     void crouch()
@@ -244,6 +256,10 @@ public class playerController : MonoBehaviour, IDamage
         // Stand back up and remove slideModifier
         //crouch();
         speed /= slideModifier;
+        if(speed != 5)
+        {
+            speed = 5;
+        }
         isSliding = false;
     }
 

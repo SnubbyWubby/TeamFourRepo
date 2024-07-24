@@ -1659,6 +1659,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4190759946557676130, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190759946557676130, guid: 1d3611beecb3d914ea00baa33cd114dc, type: 3}
       propertyPath: hitMarker
       value: 
       objectReference: {fileID: 1511815716}
@@ -11080,6 +11084,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5027745383562112625, guid: c246d66dd646f1744b1adba5adf5fda2, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5318043678123373426, guid: a0f4d201d0a06fe48b2367e7181b190a, type: 2}
     - target: {fileID: 5698547037828283003, guid: c246d66dd646f1744b1adba5adf5fda2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -11088,6 +11096,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 639778690}
+    - target: {fileID: 7484084768103214560, guid: c246d66dd646f1744b1adba5adf5fda2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
