@@ -185,10 +185,10 @@ MonoBehaviour:
   faceTargetSpeed: 7
   shootRate: 0.5
   viewAngle: 90
-  roamDist: 3
-  roamTimer: 5
+  roamDist: 15
+  roamTimer: 1.5
   willPatrol: 0
-  willRoam: 0
+  willRoam: 1
   hordeSpawn: 0
   enemyAudio: {fileID: 6243027766388030898}
   gunAudio:
