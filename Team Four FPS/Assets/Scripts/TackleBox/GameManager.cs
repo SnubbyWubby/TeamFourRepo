@@ -114,6 +114,7 @@ namespace TackleBox
         public int sceneCount;
         ILevelGoal winConScript;
         bool playerWon;
+        public bool invertCam;
 
         //Events
         [System.Serializable]

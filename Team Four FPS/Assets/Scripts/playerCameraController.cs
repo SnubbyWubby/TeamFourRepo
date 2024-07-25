@@ -10,7 +10,7 @@ public class playerCameraController : MonoBehaviour
     [SerializeField] int cameraLockVertMin;
     [SerializeField] int cameraLockVertMax;
 
-    [SerializeField] bool cameraInvertY;
+    
 
     float cameraRotationX;
     float cameraFov;
@@ -18,6 +18,7 @@ public class playerCameraController : MonoBehaviour
     float yChange = 0;
     public float[] sprayPattern = new float[5];
     public int sprayIter;
+    public bool invertCamY;
 
     // Start is called before the first frame update
     void Start()
@@ -33,12 +34,13 @@ public class playerCameraController : MonoBehaviour
                                                   Camera.main.transform.localPosition.y + 5,
                                                   Camera.main.transform.localPosition.z - 7);
         cameraFov = Camera.main.fieldOfView;
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        invertCamY = PlayerPrefs.GetFloat("MasterInvertY") == 1.0f;
         if (!GameManager.Instance.stopCameraRotation)
         {
             float xMouse = Input.GetAxis("Mouse X") * cameraSensitivity * Time.deltaTime;
@@ -61,7 +63,7 @@ public class playerCameraController : MonoBehaviour
                 
             }
 
-            if (cameraInvertY)
+            if (invertCamY)
             {
                 cameraRotationX += yMouse;
             }
@@ -110,5 +112,5 @@ public class playerCameraController : MonoBehaviour
         
 
     }
-   
+    
 }

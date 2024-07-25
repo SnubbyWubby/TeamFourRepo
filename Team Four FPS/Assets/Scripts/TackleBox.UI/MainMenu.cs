@@ -119,10 +119,12 @@ namespace TackleBox.UI
             if (invertYToggle.isOn) 
             {
                 PlayerPrefs.SetFloat("MasterInvertY", 1.0f); // Invert Y Controller Button
+                GameManager.Instance.invertCam = true;
             }
             else
             {
                 PlayerPrefs.SetFloat("MasterInvertY", 0.0f); // Did Not Invert Y Controller Button
+                GameManager.Instance.invertCam = false;
             }
 
             PlayerPrefs.SetFloat("MasterSensitivity", mainControlSen);
