@@ -22,6 +22,7 @@ namespace TackleBox
         public void mainmenu()
         {
             SceneManager.LoadScene("Main Menu");
+            Time.timeScale = 1.0f;
         }
        
 

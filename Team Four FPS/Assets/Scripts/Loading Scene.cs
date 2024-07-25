@@ -23,6 +23,7 @@ public class LoadingScene : MonoBehaviour
     {
 
         StartCoroutine(LoadSceneAsync(sceneID));
+       
 
     }
     IEnumerator LoadSceneAsync(int sceneID)
@@ -30,6 +31,7 @@ public class LoadingScene : MonoBehaviour
 
         floatingScene.SetActive(true);
         StartCoroutine(GottaWaitFast());
+        
 
 
 
@@ -39,17 +41,20 @@ public class LoadingScene : MonoBehaviour
 
         while (!operation.isDone && !slow)
         {
-
+            Debug.Log("inTheWhile");
             float currProgress = Mathf.Clamp01(operation.progress / 0.9f);
             floatingBarFill.fillAmount = currProgress;
 
             yield return null;
 
         }
+        Debug.Log("Exited while");
 
         //new LevelDataTransition(GameManager.Instance.PlayerScript);
-
+        Debug.Log("Before Scene Activation");
+        Debug.Log(operation.progress);
         operation.allowSceneActivation = true;
+        Debug.Log("After Scene Activation");
 
 
 
@@ -57,7 +62,7 @@ public class LoadingScene : MonoBehaviour
     IEnumerator GottaWaitFast()
     {
         slow = false;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         slow = true;
     }
     private void OnTriggerEnter(Collider other)

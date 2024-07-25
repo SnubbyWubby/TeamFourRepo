@@ -125,12 +125,13 @@ namespace TackleBox
         // Awake is called before the first frame update
         void Awake()
         {
-            _instance = Instance;
-            
-            stopWatchActive = true;
             Player = GameObject.FindWithTag("Player");
             PlayerScript = Player.GetComponent<playerController>();
             MainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+            _instance = Instance;
+            
+            stopWatchActive = true;
+            
             enemyCount = 0;
             Time.timeScale = 1;
 
@@ -144,6 +145,9 @@ namespace TackleBox
 
         void Start()
         {
+           
+
+
             AudioManager.Instance.GetMusicByID(BackgroundMusic).PlayMusic();
 
             currentSceneID = SceneManager.GetActiveScene().buildIndex;
