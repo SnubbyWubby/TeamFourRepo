@@ -9,6 +9,7 @@ using UnityEngine.TextCore.Text;
 using TackleBox.Level;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using System;
 
 namespace TackleBox
 {
@@ -114,6 +115,7 @@ namespace TackleBox
         public int sceneCount;
         ILevelGoal winConScript;
         bool playerWon;
+        public float brightness;
         
 
         //Events
@@ -145,7 +147,7 @@ namespace TackleBox
 
         void Start()
         {
-           
+            
 
 
             AudioManager.Instance.GetMusicByID(BackgroundMusic).PlayMusic();
@@ -170,6 +172,10 @@ namespace TackleBox
         // Update is called once per frame
         void Update()
         {
+            brightness = PlayerPrefs.GetFloat("MasterBrightness");
+            RenderSettings.ambientIntensity = brightness;
+           
+
             if (Input.GetButtonDown("Cancel"))
             {
                 if (MenuActive == null)
@@ -210,7 +216,7 @@ namespace TackleBox
                 MenuActive = menuLose;
                 MenuActive.SetActive(isPaused);
 
-                menuAudio.PlayOneShot(loseAudio[Random.Range(0, loseAudio.Length)], loseVolume);
+                menuAudio.PlayOneShot(loseAudio[UnityEngine.Random.Range(0, loseAudio.Length)], loseVolume);
             }
             if (tookDamageRecently)
             {
@@ -285,7 +291,7 @@ namespace TackleBox
                 currentGoal.SetActive(false);
                 stopWatchActive = false;
 
-                menuAudio.PlayOneShot(winAudio[Random.Range(0, winAudio.Length)], winVolume);
+                menuAudio.PlayOneShot(winAudio[UnityEngine.Random.Range(0, winAudio.Length)], winVolume);
 
                 if (SaveManager.CurrentData.totalTime >= currentTime)
                 {
@@ -322,7 +328,7 @@ namespace TackleBox
             if (!diedOnce)
             {
                 deathCam();
-                menuAudio.PlayOneShot(loseAudio[Random.Range(0, loseAudio.Length)], loseVolume);
+                menuAudio.PlayOneShot(loseAudio[UnityEngine.Random.Range(0, loseAudio.Length)], loseVolume);
                 diedOnce = true;
                 StartCoroutine(pauseOnDeath());
             }

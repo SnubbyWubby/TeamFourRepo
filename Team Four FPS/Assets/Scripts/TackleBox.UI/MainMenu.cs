@@ -134,6 +134,7 @@ namespace TackleBox.UI
         public void SetBrightness(float bright) 
         {
             lvlBrightness = bright;
+            
             brightTextValue.text = bright.ToString("0.0"); 
         }
 
@@ -145,6 +146,7 @@ namespace TackleBox.UI
         {
             // Able To Change Your Brightness Level With Your Liking 
             PlayerPrefs.SetFloat("MasterBrightness", lvlBrightness);
+            
 
             PlayerPrefs.SetInt("MasterQuality", levelQuality);
             QualitySettings.SetQualityLevel(levelQuality);

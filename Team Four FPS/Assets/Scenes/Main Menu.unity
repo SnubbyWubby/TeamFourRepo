@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.47
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -1334,7 +1334,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 734711942869789606, guid: b5636571c57457347be8986d7b52f1cc, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 734711942869789606, guid: b5636571c57457347be8986d7b52f1cc, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1482,7 +1482,7 @@ PrefabInstance:
       objectReference: {fileID: 388988829}
     - target: {fileID: 6664540352315139753, guid: b5636571c57457347be8986d7b52f1cc, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6664540352315139753, guid: b5636571c57457347be8986d7b52f1cc, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1490,12 +1490,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6664540352315139753, guid: b5636571c57457347be8986d7b52f1cc, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6792821963091724301, guid: b5636571c57457347be8986d7b52f1cc, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1845046974}
+    - target: {fileID: 6971844292222349590, guid: b5636571c57457347be8986d7b52f1cc, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971844292222349590, guid: b5636571c57457347be8986d7b52f1cc, type: 3}
+      propertyPath: m_MaxValue
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971844292222349590, guid: b5636571c57457347be8986d7b52f1cc, type: 3}
+      propertyPath: m_MinValue
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6971844292222349590, guid: b5636571c57457347be8986d7b52f1cc, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

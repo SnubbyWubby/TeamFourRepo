@@ -41,20 +41,20 @@ public class LoadingScene : MonoBehaviour
 
         while (!operation.isDone && !slow)
         {
-            Debug.Log("inTheWhile");
+           // Debug.Log("inTheWhile");
             float currProgress = Mathf.Clamp01(operation.progress / 0.9f);
             floatingBarFill.fillAmount = currProgress;
 
             yield return null;
 
         }
-        Debug.Log("Exited while");
+        //Debug.Log("Exited while");
 
         //new LevelDataTransition(GameManager.Instance.PlayerScript);
-        Debug.Log("Before Scene Activation");
-        Debug.Log(operation.progress);
+       // Debug.Log("Before Scene Activation");
+        //Debug.Log(operation.progress);
         operation.allowSceneActivation = true;
-        Debug.Log("After Scene Activation");
+       // Debug.Log("After Scene Activation");
 
 
 
