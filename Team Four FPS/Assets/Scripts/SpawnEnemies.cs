@@ -32,7 +32,8 @@ public class SpawnEnemies : MonoBehaviour
     int numberSpawned = 0;
 
     bool spawnTruth;   
-    bool spawnStart;  
+    bool spawnStart;
+    public bool killParticles;
 
 
     // Start is called before the first frame update
@@ -96,7 +97,10 @@ public class SpawnEnemies : MonoBehaviour
         
 
         spawnTruth = false;
-
+        if (numberSpawned >= spawnNumber)
+        {
+           killParticles = true;
+        }
         if (numberSpawned >= spawnNumber && !setSpawn)
         {
             GameManager.Instance.spawnMoreEnemies = false;
@@ -115,5 +119,11 @@ public class SpawnEnemies : MonoBehaviour
         
         
         
+    }
+    IEnumerator randomDisable()
+    {
+        int disableTime = Random.Range(0, 5);
+        yield return new WaitForSeconds(disableTime);
+        this.gameObject.SetActive(false);
     }
 }

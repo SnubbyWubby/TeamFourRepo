@@ -117,6 +117,7 @@ namespace TackleBox
         ILevelGoal winConScript;
         bool playerWon;
         public float brightness;
+      
         
 
         //Events
