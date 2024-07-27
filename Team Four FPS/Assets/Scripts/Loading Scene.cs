@@ -17,6 +17,8 @@ public class LoadingScene : MonoBehaviour
     public Image floatingBarFill;
     public bool slow;
     public int optionalSceneLoad;
+    public GameObject objective;
+
 
 
     public void floatScene(int sceneID)
@@ -28,9 +30,11 @@ public class LoadingScene : MonoBehaviour
     }
     IEnumerator LoadSceneAsync(int sceneID)
     {
-
+        objective.SetActive(false);
         floatingScene.SetActive(true);
         StartCoroutine(GottaWaitFast());
+        GameManager.Instance.ignorePlayer = true;
+        float currProgress = 0;
         
 
 
@@ -41,20 +45,22 @@ public class LoadingScene : MonoBehaviour
 
         while (!operation.isDone && !slow)
         {
-           // Debug.Log("inTheWhile");
-            float currProgress = Mathf.Clamp01(operation.progress / 0.9f);
+            currProgress = Mathf.Lerp(currProgress, operation.progress /.9f, .25f);
+            
             floatingBarFill.fillAmount = currProgress;
 
-            yield return null;
+            yield return new WaitForSeconds(.25f);
 
         }
-        //Debug.Log("Exited while");
-
-        //new LevelDataTransition(GameManager.Instance.PlayerScript);
-       // Debug.Log("Before Scene Activation");
-        //Debug.Log(operation.progress);
+        if (operation.isDone)
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneID));
+        }
+        GameManager.Instance.ignorePlayer = false;
+        floatingBarFill.fillAmount = 1;
+        yield return new WaitForSeconds(1f);
         operation.allowSceneActivation = true;
-       // Debug.Log("After Scene Activation");
+       
 
 
 

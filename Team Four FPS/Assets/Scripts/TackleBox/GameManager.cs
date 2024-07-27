@@ -75,6 +75,7 @@ namespace TackleBox
         public bool spawnMoreEnemies;
         public bool playerShot;
         public bool tookDamageRecently;
+        public bool ignorePlayer;
         
 
         public int roundNumber = 0;
@@ -172,59 +173,64 @@ namespace TackleBox
         // Update is called once per frame
         void Update()
         {
-            brightness = PlayerPrefs.GetFloat("MasterBrightness");
-            RenderSettings.ambientIntensity = brightness;
-           
-
-            if (Input.GetButtonDown("Cancel"))
+            if (!ignorePlayer)
             {
-                if (MenuActive == null)
+
+
+                brightness = PlayerPrefs.GetFloat("MasterBrightness");
+                RenderSettings.ambientIntensity = brightness;
+
+
+                if (Input.GetButtonDown("Cancel"))
                 {
-                    statePause();
-                    MenuActive = MenuPause;
-                    MenuActive.SetActive(isPaused);
+                    if (MenuActive == null)
+                    {
+                        statePause();
+                        MenuActive = MenuPause;
+                        MenuActive.SetActive(isPaused);
+                    }
+                    else if (MenuActive == MenuPause)
+                    {
+                        stateUnpause();
+                        showGrenadeWarning();
+                    }
                 }
-                else if (MenuActive == MenuPause)
+
+                if (!isPaused)
                 {
-                    stateUnpause();
                     showGrenadeWarning();
                 }
-            }
 
-            if (!isPaused)
-            {
-                showGrenadeWarning();
-            }
+                if (stopWatchActive)
+                {
+                    currentTime += Time.deltaTime;
+                    StopwatchCurr.text = timerConvertor(currentTime);
+                }
 
-            if (stopWatchActive)
-            {
-                currentTime += Time.deltaTime;
-                StopwatchCurr.text = timerConvertor(currentTime);
-            }
+                if (impCamera)
+                {
+                    camStart = Camera.main.transform.localPosition;
+                    Camera.main.transform.localPosition = Vector3.Lerp(camStart, camEnd, 3 * Time.deltaTime);
+                    ignoreMovement = true;
+                    stopWatchActive = false;
+                }
 
-            if (impCamera)
-            {
-                camStart = Camera.main.transform.localPosition;
-                Camera.main.transform.localPosition = Vector3.Lerp(camStart, camEnd, 3 * Time.deltaTime);
-                ignoreMovement = true;
-                stopWatchActive = false;
-            }
+                if (lerpEnded && !isPaused)
+                {
+                    statePause();
+                    MenuActive = menuLose;
+                    MenuActive.SetActive(isPaused);
 
-            if (lerpEnded && !isPaused)
-            {
-                statePause();
-                MenuActive = menuLose;
-                MenuActive.SetActive(isPaused);
-
-                menuAudio.PlayOneShot(loseAudio[UnityEngine.Random.Range(0, loseAudio.Length)], loseVolume);
-            }
-            if (tookDamageRecently)
-            {
-                invulnShow.SetActive(true);
-            }
-            else
-            {
-                invulnShow.SetActive(false);    
+                    menuAudio.PlayOneShot(loseAudio[UnityEngine.Random.Range(0, loseAudio.Length)], loseVolume);
+                }
+                if (tookDamageRecently)
+                {
+                    invulnShow.SetActive(true);
+                }
+                else
+                {
+                    invulnShow.SetActive(false);
+                }
             }
         }
 
