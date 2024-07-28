@@ -149,9 +149,6 @@ namespace TackleBox
 
         void Start()
         {
-            
-
-
             AudioManager.Instance.GetMusicByID(BackgroundMusic).PlayMusic();
 
             currentSceneID = SceneManager.GetActiveScene().buildIndex;
@@ -159,15 +156,16 @@ namespace TackleBox
 
             winConScript = GameObject.FindWithTag("WinCon").GetComponent<ILevelGoal>();
 
-            if (PlayerScript && LevelDataTransition.Instance != null)
+            if (PlayerScript)
             {
-                LevelDataTransition data = LevelDataTransition.Instance;
-                PlayerScript.gunList = data.gunList;
-                PlayerScript.HP = data.HP;
-                PlayerScript.armHP = data.armHP;
-                PlayerScript.selectedGun = data.selectedGun;
-                PlayerScript.grenadeCount = data.grenadeCount;
-                data.DestroyInstance();
+                LevelDataTransition.Instance.loadPlayerStats(PlayerScript);
+                //LevelDataTransition data = LevelDataTransition.Instance;
+                //PlayerScript.gunList = data.gunList;
+                //PlayerScript.HP = data.HP;
+                //PlayerScript.armHP = data.armHP;
+                //PlayerScript.selectedGun = data.selectedGun;
+                //PlayerScript.grenadeCount = data.grenadeCount;
+                //data.DestroyInstance();
             }
         }
 

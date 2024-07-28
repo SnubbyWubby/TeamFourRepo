@@ -132,6 +132,14 @@ public class playerController : MonoBehaviour, IDamage
                     Reload();      
                     
                 }
+
+#if UNITY_EDITOR
+                if (Input.GetButton("DEBUG_KillAll"))
+                {
+                    GameManager.Instance.GameGoalEvent.Invoke(-GameManager.Instance.enemyCount);
+                }
+#endif
+
             }
             if (GameManager.Instance.diedOnce)
             {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TackleBox;
 using TackleBox.Level;
+using TackleBox.SaveSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -30,14 +31,21 @@ public class LoadingScene : MonoBehaviour
     }
     IEnumerator LoadSceneAsync(int sceneID)
     {
-        objective.SetActive(false);
+        if (objective != null)
+            objective.SetActive(false);
         floatingScene.SetActive(true);
         StartCoroutine(GottaWaitFast());
-        GameManager.Instance.ignorePlayer = true;
+
+        if (FindObjectOfType<GameManager>() != null)
+        {
+            GameManager.Instance.ignorePlayer = true;
+            LevelDataTransition.Instance.savePlayerStats(GameManager.Instance.PlayerScript);
+        }
+            
         float currProgress = 0;
+
+
         
-
-
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
 
@@ -56,13 +64,13 @@ public class LoadingScene : MonoBehaviour
         {
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneID));
         }
-        GameManager.Instance.ignorePlayer = false;
+        if (FindObjectOfType<GameManager>() != null)
+            GameManager.Instance.ignorePlayer = false;
+
         floatingBarFill.fillAmount = 1;
         yield return new WaitForSeconds(1f);
+
         operation.allowSceneActivation = true;
-       
-
-
 
     }
     IEnumerator GottaWaitFast()
