@@ -995,7 +995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6742662344932601430, guid: 5a3750ec630eca942994b5600bea188a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8636789614935434599, guid: 5a3750ec630eca942994b5600bea188a, type: 3}
       propertyPath: m_Pivot.x
@@ -2067,6 +2067,10 @@ PrefabInstance:
     - target: {fileID: 7958549476054759923, guid: 8d795f38fe944f44095c8ed86874319e, type: 3}
       propertyPath: m_Name
       value: Credits Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958549476054759923, guid: 8d795f38fe944f44095c8ed86874319e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
