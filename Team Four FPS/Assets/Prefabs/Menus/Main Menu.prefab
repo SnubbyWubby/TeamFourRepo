@@ -1470,7 +1470,7 @@ RectTransform:
   m_Children:
   - {fileID: 2022663534258059548}
   - {fileID: 8431127097391218018}
-  - {fileID: 4643974432799364563}
+  - {fileID: 8503064232337662455}
   - {fileID: 4207502683385181751}
   - {fileID: 1006652564243606714}
   - {fileID: 7400817025223019506}
@@ -2349,8 +2349,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
---- !u!4 &4643974432799364563 stripped
+--- !u!4 &8503064232337662455 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 981045310145308626, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4318699676545471478, guid: 9c9df3c1c4a97d14eb69c60f2acac02c, type: 3}
   m_PrefabInstance: {fileID: 5615964165144752641}
   m_PrefabAsset: {fileID: 0}
