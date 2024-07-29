@@ -236,11 +236,11 @@ namespace TackleBox
                     SaveManager SaveManager = SaveManager.Instance;
 
                     // If none exists, create a new GameObject and attach SaveManager to it
-                    if (_instance == null)
-                    {
-                        GameObject gameManager = new GameObject("GameManager");
-                        _instance = gameManager.AddComponent<GameManager>();
-                    }
+                    //if (_instance == null)
+                    //{
+                    //    GameObject gameManager = new GameObject("GameManager");
+                    //    _instance = gameManager.AddComponent<GameManager>();
+                    //}
                 }
                 return _instance;
             }
