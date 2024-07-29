@@ -48,11 +48,11 @@ namespace TackleBox.Level
         {
             if (playerController != null)
             {
-                gunList = playerController.gunList;
-                HP = playerController.HP;
-                armHP = playerController.armHP;
-                selectedGun = playerController.selectedGun;
-                grenadeCount = playerController.grenadeCount;
+                this.gunList = playerController.gunList;
+                this.HP = playerController.HP;
+                this.armHP = playerController.armHP;
+                this.selectedGun = playerController.selectedGun;
+                this.grenadeCount = playerController.grenadeCount;
             }
         }
 
@@ -63,17 +63,10 @@ namespace TackleBox.Level
                 if (this.gunList != null)
                     playerController.gunList = this.gunList;
 
-                playerController.HP = this.HP ?? playerController.HP;
-                playerController.armHP = this.armHP ?? playerController.armHP;
+                playerController.HealthPack(this.HP ?? playerController.originalHP, false);
+                playerController.ArmorShield(this.armHP ?? playerController.armHP, false);
                 playerController.selectedGun = this.selectedGun ?? playerController.selectedGun;
                 playerController.grenadeCount = this.grenadeCount ?? playerController.grenadeCount;
-
-                //playerController.gunList = this.gunList;
-                //playerController.HP = this.HP;
-                //playerController.armHP = this.armHP;
-                //playerController.selectedGun = this.selectedGun;
-                //playerController.grenadeCount = this.grenadeCount;
-                //Debug.Log("Ree");
             }
 
         }

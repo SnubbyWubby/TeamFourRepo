@@ -81,17 +81,20 @@ public class playerController : MonoBehaviour, IDamage
     bool isStraight;
     bool isDamageHit;
 
-    int originalHP;
+    public int originalHP { get; private set; }
     public int armHP;
     int jumpCount;
     public int selectedGun;
 
     float playerHeight;
-    float crouchHeight; 
+    float crouchHeight;
+
+    [Header("<=====DEBUG=====>")]
+    [SerializeField] bool godMode = false;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         originalHP = HP;
         isStraight = true;
@@ -302,9 +305,7 @@ public class playerController : MonoBehaviour, IDamage
 
         updatePlayerUI();
 
-        AudioManager soundManager = AudioManager.Instance;
-        Audio Weapon = soundManager.GetSoundByID("Weapons");
-        Weapon.PlayOneShot(plrAudio); 
+        AudioManager.Instance.PlayOneShot("Weapons");
 
         shootDamage = gun.shootDamage;
         shootRate = gun.shootRate;
@@ -357,7 +358,8 @@ public class playerController : MonoBehaviour, IDamage
 
             plrAudio.PlayOneShot(gunList[selectedGun].shootSound, gunList[selectedGun].audioVolume);
 
-            gunList[selectedGun].ammoCurr--;
+            if (!godMode)
+                gunList[selectedGun].ammoCurr--;
 
             updatePlayerUI();
 
@@ -406,8 +408,12 @@ public class playerController : MonoBehaviour, IDamage
 
     IEnumerator throwGrenade()
     {
-        grenadeCount--;
-        GameManager.Instance.updateGrenadeCount(-1);
+        if (!godMode)
+        {
+            grenadeCount--;
+            GameManager.Instance.updateGrenadeCount(-1);
+        }
+            
 
 
         // TODO: Write code to create better arc.
@@ -416,13 +422,7 @@ public class playerController : MonoBehaviour, IDamage
 
         yield return new WaitForSeconds(grenadeReloadTime);
 
-        AudioManager soundManager = AudioManager.Instance;
-        Audio Grenade = soundManager.GetSoundByID("Grenades"); 
-        Grenade.PlayOneShot(plrAudio);
-
-        
-
-        
+        AudioManager.Instance.PlayOneShot("Grenades");
     }
     IEnumerator ResetRecoil()
     {
@@ -435,7 +435,7 @@ public class playerController : MonoBehaviour, IDamage
     #region Player Damage Functionality
     public void takeDamage(int amount)
     {
-        if (!GameManager.Instance.tookDamageRecently)
+        if (!godMode && !GameManager.Instance.tookDamageRecently)
         {
             if (armHP > 0)
             {
@@ -579,7 +579,7 @@ public class playerController : MonoBehaviour, IDamage
     #endregion
 
     #region Player Pickup Functionality
-    public void HealthPack(int amount)
+    public void HealthPack(int amount = 10, bool playAudio = true)
     {
         HP += amount;
 
@@ -591,13 +591,15 @@ public class playerController : MonoBehaviour, IDamage
         // Player Will Regenerate Full Health When Walking Or Running Towards The Blue Health Sphere
 
         updatePlayerUI();
+        if (playAudio)
+            AudioManager.Instance.PlayOneShot("HealthPickUp");
 
-        AudioManager soundManager = AudioManager.Instance;
-        Audio Health = soundManager.GetSoundByID("HealthPickUp");
-        Health.PlayOneShot(plrAudio);
+        //AudioManager soundManager = AudioManager.Instance;
+        //Audio Health = soundManager.GetSoundByID("HealthPickUp");
+        //Health.PlayOneShot(plrAudio);
     }
 
-    public void ArmorShield(int amount)
+    public void ArmorShield(int amount, bool playAudio = true)
     {
         armHP += amount;
 
@@ -611,10 +613,14 @@ public class playerController : MonoBehaviour, IDamage
         // Player Will Regenerate Full Armor When Walking Or Running Towards The Green Armor Shield 
 
         updatePlayerUI();
-
-        AudioManager soundManager = AudioManager.Instance;
-        Audio Armor = soundManager.GetSoundByID("ArmorPickUp");
-        Armor.PlayOneShot(plrAudio);
+        if (playAudio)
+        {
+            AudioManager.Instance.PlayOneShot("ArmorPickUp");
+            //AudioManager soundManager = AudioManager.Instance;
+            //Audio Armor = soundManager.GetSoundByID("ArmorPickUp");
+            //Armor.PlayOneShot(plrAudio);
+        }
+        
     }
     IEnumerator StartRecoil()
     {
